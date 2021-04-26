@@ -6,9 +6,9 @@ async function mongoConnect() {
   await mongoose.connect(url, {
     useNewUrlParser: true,
     useFindAndModify: false,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
   })
-
 }
 
 module.exports = mongoConnect
