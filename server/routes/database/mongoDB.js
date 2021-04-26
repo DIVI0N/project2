@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const mongo = Router()
+const mongo = Router();
 
 mongo.get('/', (req, res, next) => {
 
@@ -17,4 +17,4 @@ mongo.delete('/', (req, res, next) => {
 
 });
 
-module.exports = mongo
+module.exports = mongo;

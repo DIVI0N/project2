@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const postgresql = Router()
+const postgresql = Router();
 
 postgresql.get('/', (req, res, next) => {
 
@@ -17,4 +17,4 @@ postgresql.delete('/', (req, res, next) => {
 
 });
 
-module.exports = postgresql
+module.exports = postgresql;

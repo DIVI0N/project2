@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const h2 = Router()
+const h2 = Router();
 
 h2.get('/', (req, res, next) => {
 
@@ -17,4 +17,4 @@ h2.delete('/', (req, res, next) => {
 
 });
 
-module.exports = h2
+module.exports = h2;

@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const cassandra = Router()
+const cassandra = Router();
 
 cassandra.get('/', (req, res, next) => {
 
@@ -17,4 +17,4 @@ cassandra.delete('/', (req, res, next) => {
 
 });
 
-module.exports = cassandra
+module.exports = cassandra;

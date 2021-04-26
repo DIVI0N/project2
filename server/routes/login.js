@@ -1,44 +1,38 @@
 const { Router } = require('express');
 const { User } = require('../models');
 const bcrypt = require('bcryptjs');
-
+const jwt = require('jsonwebtoken');
 const login = Router();
+const { message, support } = require('../support');
 
-login.get('/', (req, res, next) => {
-
-});
-
-login.post('/', async (req, res, next) => {
+login.post('/', async (req, res) => {
   try {
     const { email, password } = req.body;
+    const { setResponse } = support;
 
-    const candidate = await User.findOne({ email });
-    if (candidate) {
-      return res.status(400).json({
-        message: 'Такой пользователь уже существует'
-      });
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return setResponse(res, 400, message.userNotFound);
     };
 
-    const hashedPassword = await bcrypt.hash(password, 12);
-    const user = new User({ email, password: hashedPassword })
+    const isMatch = await bcrypt.compare(password, user.password);
 
-    await user.save()
+    if (!isMatch) {
+      return setResponse(res, 400, message.invalidPass);
+    }
 
-    res.status(201).json({ message: 'Вы успешно за зарегистрировались' })
+    const token = jwt.sign(
+      { userId: user.id },
+      'secret string',
+      { expiresIn: '1h' }
+    );
+
+    res.json({ token, userId: user.id });
   }
   catch (e) {
-    res.status(500).json({
-      message: 'Something been wrong'
-    })
+    setResponse(res, 400, message.abstractErr);
   }
 });
 
-login.put('/', (req, res, next) => {
-
-});
-
-login.delete('/', (req, res, next) => {
-
-});
-
-module.exports = login
+module.exports = login;

@@ -1,5 +1,15 @@
-const mongoConnect = require("./mongoDb");
+const mongoConnect = require('./mongoDb');
 
-module.exports = {
-  mongoConnect
-}
+const connectDB = (app, port) => {
+  try {
+    mongoConnect();
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+module.exports = connectDB;
+
+

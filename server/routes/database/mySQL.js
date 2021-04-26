@@ -17,4 +17,4 @@ mysql.delete('/', (req, res, next) => {
 
 });
 
-module.exports = mysql
+module.exports = mysql;
