@@ -2,8 +2,9 @@ const { Router } = require('express');
 const { User } = require('../models');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const login = Router();
 const { message, support } = require('../support');
+
+const login = Router();
 
 login.post('/', async (req, res) => {
   try {

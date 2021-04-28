@@ -4,7 +4,7 @@ const
     userNotFound: 'Пользователь не найден',
     invalidPass: 'Неверный пароль',
     abstractErr: 'Что-то пошло не так',
-    userAlreadeReg: 'Такой пользователь уже существует',
+    userAlreadyReg: 'Такой пользователь уже существует',
     regSuccess: 'Вы успешно за зарегистрировались'
   };
 

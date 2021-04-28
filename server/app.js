@@ -1,11 +1,9 @@
 const express = require('express');
-const connectDB = require('./connected');
+const connect = require('./connected');
 const { login, registration, database } = require('./routes');
 const { PORT } = require('./support');
 
 const app = express();
-
-
 
 app.use(express.json());
 
@@ -20,6 +18,4 @@ app.use('/login', login);
 app.use('/registration', registration);
 app.use('/database', database);
 
-
-connectDB(app, PORT);
-
+connect(app, PORT);
