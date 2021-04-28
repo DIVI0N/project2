@@ -1,5 +1,4 @@
-class PostgreSql {
-
-};
+class PostgreSql {}
 
 module.exports = PostgreSql;
+
