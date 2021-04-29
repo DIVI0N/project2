@@ -5,7 +5,9 @@ const
     invalidPass: 'Неверный пароль',
     abstractErr: 'Что-то пошло не так',
     userAlreadyReg: 'Такой пользователь уже существует',
-    regSuccess: 'Вы успешно за зарегистрировались'
+    regSuccess: 'Вы успешно за зарегистрировались',
+    invalidData: 'Некорректные данные',
+    invalidEmail: 'Некорректный email'
   };
 
 module.exports = {
