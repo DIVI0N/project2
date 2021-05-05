@@ -1,4 +1,6 @@
-class PostgreSql {
+const client = require('../models/databases/PostgreSql');
+
+class Field {
   constructor(id, fname, lname, age, city, phonenumber, email, companyname, user_id) {
     this.id = id;
     this.fname = fname;
@@ -110,4 +112,4 @@ class PostgreSql {
   }
 }
 
-module.exports = PostgreSql;
+module.exports = Field;

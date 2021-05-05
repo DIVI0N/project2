@@ -1,121 +1,34 @@
 const { Router } = require('express');
 const postgresql = Router();
-const PostgreSql = require('../models/model.js');
 
-exports.create = (req, res) => {
-  if (!req.body) {
-    res.status(400).send({
-      message: 'We cannot be missing content'
-    });
-  }
+// module.exports = postgresql => {
+//   const fields = require('./controllers/field.controller.js');
 
-  const field = new Field({
-    id: req.body.id,
-    fname: req.body.fname,
-    lname: req.body.lname,
-    age: req.body.age,
-    city: req.body.city,
-    phonenumber: req.body.phonenumber,
-    email: req.body.email,
-    companyname: req.body.companyname,
-    user_id: req.body.user_id,
-  });
+//   // Создание нового поля
+//   postgresql.post('/fields', fields.create);
 
+//   // Получение всех полей сразу
+//   postgresql.get('/fields', fields.findAll);
 
-  Field.create(field, (err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || 'Error'
-      });
-    else res.send(data);
-  });
-};
+//   postgresql.get('/', (req, res, next) => {
+//     console.log('Request received...');
+//     getRequest(res);
+//   });
 
-exports.findAll = (req, res) => {
-  Field.getAll((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || 'Что-то случилось во время получения всех пользователей'
-      });
-    else
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-    res.send(data);
-  });
-};
+//   //Получение отдельного поля по id
+//   postgresql.get('/field/:user_id', fields.findOne);
 
-exports.findOne = (req, res) => {
-  Field.findById(req.params.user_id, (err, data) => {
-    if (err) {
-      if (err.kind === 'not_found') {
-        res.status(404).send({
-          message: `Not found field with id ${req.params.user_id}.`
-        });
-      } else {
-        res.status(500).send({
-          message: 'Problem with getting person by id' + req.params.user_id
-        });
-      }
-    } else res.send(data);
-  });
-};
+//   // обновить поле по id
+//   postgresql.put('/field/:user_id', fields.update);
 
-exports.update = (req, res) => {
-  if (!req.body) {
-    res.status(400).send({
-      message: 'Content cannot be empty'
-    });
-  }
+//   //Удалить поле по id
+//   postgresql.delete('/field/:user_id', fields.delete);
 
-  Field.updateById(
-    req.params.user_id,
-    new Field(req.body),
-    (err, data) => {
-      if (err) {
-        if (err.kind === 'not_found') {
-          res.status(404).send({
-            message: `Not found field with id ${req.params.user_id}.`
-          });
-        } else {
-          res.status(500).send({
-            message: 'Error updating field with id ' + req.params.user_id
-          });
-        }
-      } else res.send(data);
-    }
-  );
-};
+//   // Удалить сразу все поля
+//   postgresql.delete('/field', fields.clearAll);
+// };
 
-exports.delete = (req, res) => {
-  Field.delete(req.params.user_id, (err, data) => {
-    if (err) {
-      if (err.kind === 'not_found') {
-        res.status(404).send({
-          message: `Not found field with ${req.params.user_id}.`
-        });
-      } else {
-        res.status(500).send({
-          message: 'Can not delete field with ' + req.params.user_id
-        });
-      }
-    } else res.send({ message: 'The field was successfully deleted' });
-  });
-};
-
-exports.clearAll = (req, res) => {
-  Field.clearAll((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || 'Something went wrong while deleting all fields'
-      });
-    else res.send({ message: 'All fields have been successfully deleted' });
-  });
-};
-
-module.exports = postgresql;
+// module.exports = postgresql;
 
 // const { Router } = require('express');
 // const postgresql = Router();

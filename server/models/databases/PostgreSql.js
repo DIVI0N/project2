@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const postgresql = Router();
 const pg = require('pg');
-const PostgreSql = require('../model.js');
 
 const config = {
   host: 'localhost',
@@ -49,24 +48,24 @@ postgresql.delete('/', (req, res, next) => {});
 module.exports = postgresql;
 
 
-module.exports = app => {
-  const notes = require('../routes/database/postgreSQL.js');
+// module.exports = app => {
+//   const notes = require('../routes/database/postgreSQL.js');
 
-  // Создание нового поля в таблице
-  app.post('/notes', notes.create);
+//   // Создание нового поля в таблице
+//   app.post('/notes', notes.create);
 
-  // Получение всех полей дел сразу
-  app.get('/notes', notes.findAll);
+//   // Получение всех полей дел сразу
+//   app.get('/notes', notes.findAll);
 
-  //Получение отдельного поля из таблицы по id
-  app.get('/note/:user_id', notes.findOne);
+//   //Получение отдельного поля из таблицы по id
+//   app.get('/note/:user_id', notes.findOne);
 
-  // обновить поле по id
-  app.put('/note/:user_id', notes.update);
+//   // обновить поле по id
+//   app.put('/note/:user_id', notes.update);
 
-  //Удалить поле по id
-  app.delete('/note/:user_id', notes.delete);
+//   //Удалить поле по id
+//   app.delete('/note/:user_id', notes.delete);
 
-  // Удалить сразу все поля
-  app.delete('/notes', notes.clearAll);
-};
+//   // Удалить сразу все поля
+//   app.delete('/notes', notes.clearAll);
+// };
