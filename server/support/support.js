@@ -5,16 +5,19 @@ const support = {
       message
     });
   },
-  validator: (email, errors) => {
-    const emailName = email.trim().split('@')[0];
-    if (emailName.length < 4 || emailName.length > 20) {
-      return false;
+
+  dbConnected: async (app, port, arrDB) => {
+    try {
+      arrDB.forEach(el => {
+        el.сonnect();
+      });
+      app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+      });
+    } catch (e) {
+      throw new Error(e);
     }
-    if (!errors.isEmpty()) {
-      return false;
-    }
-    return true;
-  }
+  },
 };
 
 module.exports = support;

@@ -1,8 +1,7 @@
 const express = require('express');
-const connect = require('./connected');
-const { login, registration, database } = require('./routes');
-const { PORT } = require('./support');
-
+const { database, auth } = require('./routes');
+const { PORT, support } = require('./support');
+const { Mongo } = require('./models');
 const app = express();
 
 app.use(express.json());
@@ -14,8 +13,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/login', login);
-app.use('/registration', registration);
+app.use('/auth', auth);
 app.use('/database', database);
 
-connect(app, PORT);
+const models = [Mongo];
+support.dbConnected(app, PORT, models);

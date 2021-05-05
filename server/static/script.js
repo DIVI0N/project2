@@ -13,7 +13,7 @@ const reset = (e) => e.preventDefault();
 login.addEventListener('submit', reset);
 registration.addEventListener('submit', reset);
 
-function useFetch(url, method = "GET", body = null) {
+function useFetch(url, method = 'GET', body = null) {
   return fetch(`http://localhost:3000${url}`, {
     method,
     body,
@@ -32,7 +32,7 @@ loginBtn.addEventListener('click', async () => {
     email, password
   };
 
-  const req = await useFetch('/login', 'POST', JSON.stringify(body));
+  const req = await useFetch('/auth/login', 'POST', JSON.stringify(body));
   const res = await req.json();
   console.log(res);
 });
@@ -46,7 +46,7 @@ regBtn.addEventListener('click', async () => {
     email, password
   };
 
-  const req = await useFetch('/registration', 'POST', JSON.stringify(body));
+  const req = await useFetch('/auth/registration', 'POST', JSON.stringify(body));
   const res = await req.json();
   console.log(res);
 });

@@ -1,7 +1,7 @@
 const
-  { message, PORT } = require('./constants'),
+  { message, PORT, secret } = require('./constants'),
   support = require('./support');
 
 module.exports = {
-  message, PORT, support
+  message, PORT, support, secret
 };
