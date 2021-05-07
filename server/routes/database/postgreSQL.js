@@ -1,40 +1,26 @@
-const { Router } = require('express');
+const { Router } = require("express");
 const postgresql = Router();
 const pg = require("pg");
+const { PostgreSql } = require("../../models");
 
-const config = {
-  host: "localhost",
-  user: "postgres",
-  password: "FaJ_761FA",
-  database: "postgresql_persons",
-  port: 5432,
-  ssl: false,
-};
-
-const client = new pg.Client(config);
-
-async function databaseRequest(response) {
-  client.connect();
-  var res = await client.query("SELECT * FROM persons");
-  client.end();
-  response.json({ res });
-}
-
-postgresql.get('/', (req, res, next) => {
-console.log("Request received...");
-  databaseRequest(res);
+postgresql.get("/", (req, res, next) => {
+  console.log("Request received...");
+  PostgreSql.getRequest(res);
 });
 
-postgresql.post('/', (req, res, next) => {
-
+postgresql.get("/:id", (req, res, next) => {
+  console.log(req.params.id);
+  PostgreSql.findById(res, req.params.id);
 });
 
-postgresql.put('/', (req, res, next) => {
-
+// TODO
+postgresql.post("/fields", (req, res, next) => {
+  console.log("ERROR");
+  PostgreSql.create(res);
 });
 
-postgresql.delete('/', (req, res, next) => {
+postgresql.put("/", (req, res, next) => {});
 
-});
+postgresql.delete("/", (req, res, next) => {});
 
 module.exports = postgresql;
