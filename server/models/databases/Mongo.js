@@ -55,7 +55,6 @@ class Mongo {
     catch (e) {
 
     }
-
   }
 
   setPerson = async (req, res) => {
