@@ -2,7 +2,6 @@ const { Router } = require('express');
 const postgresql = Router();
 
 postgresql.get('/', (req, res, next) => {
-
 });
 
 postgresql.post('/', (req, res, next) => {

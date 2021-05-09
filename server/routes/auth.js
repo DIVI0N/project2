@@ -1,13 +1,14 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 const { User, UserSchema } = require('../models');
-
+const { support } = require('../support');
 const auth = Router();
 
 auth.post(
   '/login',
-  [check('email', 'Некорректный email')
-    .isEmail({ allow_utf8_local_part: false }),
+  [check('login', 'Некорректный email')
+    .isAlphanumeric()
+    .isLength({ min: 4, max: 20 }),
   check('password', 'Некорректный пароль')
     .isLength({ min: 8, max: 14 })
     .isAscii()
@@ -21,8 +22,9 @@ auth.post(
 auth.post(
   '/registration',
   [
-    check('email', 'Некорректный email')
-      .isEmail({ allow_utf8_local_part: false }),
+    check('login', 'Некорректный email')
+      .isLength({ min: 4, max: 20 })
+      .isAlphanumeric(),
     check('password', 'Некорректный пароль')
       .isLength({ min: 8, max: 14 })
       .isAscii()
@@ -33,4 +35,8 @@ auth.post(
   }
 );
 
+auth.post('/setting', support.authToken, (req, res) => {
+  const user = new User(UserSchema);
+  user.setting(req, res);
+});
 module.exports = auth;

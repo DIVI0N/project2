@@ -1,8 +1,21 @@
+const jwt = require('jsonwebtoken');
+const { message, secret } = require('./constants');
+
 
 const support = {
   setResponse: (res, status, message) => {
     return res.status(status).json({
       message
+    });
+  },
+
+  authToken: (req, res, next) => {
+    const token = req.headers.authorization;
+    if (!token) return res.sendStatus(401).json(message.authFail);
+    jwt.verify(token, secret, (err, user) => {
+      if (err) return res.sendStatus(401).json(message.authFail);
+      req.user = user;
+      next();
     });
   },
 
