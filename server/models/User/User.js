@@ -74,13 +74,19 @@ class User {
     if (!token) return res.sendStatus(401);
     jwt.verify(token, secret, (err, user) => {
       if (err) return res.sendStatus(403);
-      console.log(user);
       res.sendStatus(200);
     });
   }
 
   setting = async (req, res) => {
     try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return this.#setResponse(res, 400, {
+          errors: message.invalidData,
+          message: errors.array()
+        });
+      }
       const user = await this.#schema.findById({ _id: req.user.userId });
       if (req.body.field === 'password') {
         const hashedPassword = await bcrypt.hash(req.body.update, 12);
@@ -88,12 +94,12 @@ class User {
         await user.save();
         return this.#setResponse(res, 200, message.changed);
       }
-
       user[req.body.field] = req.body.update;
       await user.save();
       this.#setResponse(res, 200, message.changed);
     }
     catch (e) {
+      console.log(e);
       this.#setResponse(res, 400, message.abstractErr);
     }
   }
