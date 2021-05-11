@@ -7,5 +7,6 @@ const postgresql = require('./postgreSQL');
 const redis = require('./redis');
 
 module.exports = {
-  postgresql,
+  postgresql, cassandra, graphDb, h2,
+  mongo, mysql, redis
 };
