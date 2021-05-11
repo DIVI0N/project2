@@ -16,13 +16,11 @@ postgresql.post("/", (req, res, next) => {
   PostgreSql.create(res, req.body);
 });
 
-// TODO
-postgresql.put("/person/:id", (req, res, next) => {
-  PostgreSql.updateById(res, req.params.id);
+postgresql.put("/person/update/:id", (req, res, next) => {
+  PostgreSql.updateById(res, req.body, req.params.id);
 });
 
 postgresql.delete("/person/delete/:id", (req, res, next) => {
-  console.log(req.params.id);
   PostgreSql.delete(res, req.params.id);
 });
 

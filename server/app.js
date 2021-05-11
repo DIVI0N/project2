@@ -1,5 +1,5 @@
 const express = require("express");
-const { login, registration, database } = require("./routes");
+const { database } = require("./routes");
 const { PostgreSql } = require("./models/databases");
 
 const app = express(),
@@ -17,8 +17,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/login", login);
-app.use("/registration", registration);
 app.use("/database", database);
 
 const connectDB = () => {
