@@ -1,33 +1,25 @@
-const { Router } = require("express");
+const { Router } = require('express');
 const postgresql = Router();
-const pg = require("pg");
-const { PostgreSql } = require("../../models");
+const { PostgreSql } = require('../../models');
 
-postgresql.get("/", (req, res, next) => {
-  console.log("Request received...");
+const { support } = require('../../support');
+const { authToken } = support;
+
+postgresql.get('/', authToken, (req, res) => {
   PostgreSql.getRequest(res);
 });
 
-postgresql.get("/:id", (req, res, next) => {
-  PostgreSql.findById(res, req.params.id);
+postgresql.post('/', authToken, (req, res) => {
+  PostgreSql.create(req, res);
 });
 
-postgresql.post("/", (req, res, next) => {
-  PostgreSql.create(res, req.body);
+postgresql.put('/', authToken, (req, res) => {
+  PostgreSql.updateById(req, res);
 });
 
-postgresql.put("/person/update/:id", (req, res, next) => {
-  PostgreSql.updateById(res, req.body, req.params.id);
+postgresql.delete('/', authToken, (req, res) => {
+  PostgreSql.delete(req, res);
 });
-
-postgresql.delete("/person/delete/:id", (req, res, next) => {
-  PostgreSql.delete(res, req.params.id);
-});
-
-postgresql.delete("/person/clearAll", (req, res, next) => {
-  PostgreSql.clearAll(res);
-});
-
 
 module.exports = postgresql;
 

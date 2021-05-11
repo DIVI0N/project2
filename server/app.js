@@ -1,7 +1,8 @@
 const express = require('express');
 const { database, auth } = require('./routes');
 const { PORT, support } = require('./support');
-const { Mongo } = require('./models');
+const { Mongo, PostgreSql } = require('./models');
+
 const app = express();
 
 app.use(express.json());

@@ -1,87 +1,89 @@
-const pg = require("pg");
+const pg = require('pg');
+const { message } = require('../../support');
 class PostgreSql {
   constructor() {
     this.config = {
-      host: "localhost",
-      user: "postgres",
-      password: "FaJ_761FA",
-      database: "postgresql_persons",
+      host: 'localhost',
+      user: 'postgres',
+      password: 'FaJ_761FA',
+      database: 'postgresql_persons',
       port: 5432,
       ssl: false,
     };
     this.client = new pg.Client(this.config);
   }
-  connect() {
-    this.client.connect();
-  }
 
-  async getRequest(response) {
+
+  async getRequest(res) {
     try {
       this.client.connect();
       const queryAll = 'SELECT * FROM persons';
-      const result = await this.client.query(queryAll, []);
-      response.json(result.rows);
+      const result = await this.client.query(queryAll);
+      this.#setResponse(res, 200, result.rows);
     } catch (err) {
-      console.error("Error", err);
+      this.#setResponse(res, 403, message.abstractErr);
     }
   }
 
-  async findById(response, id) {
+  async create(req, res) {
     try {
-      this.client.connect();
-      const queryId = `SELECT * FROM persons WHERE id = ${id}`;
-      const result = await this.client.query(queryId);
-      response.json(result.rows);
-      console.log("Found: ", result);
-    } catch (err) {
-      console.error("Error", err);
-    }
-  }
+      const newField = req.body;
+      const userID = req.user.userId;
 
-  async create(response, newField) {
-    try {
       this.client.connect();
-      const queryCreate = `INSERT INTO persons (id_user, fname, lname, age, city, phonenumber, email, companyname) VALUES (${newField.id_user}, '${newField.fname}', '${newField.lname}', ${newField.age}, '${newField.city}','${newField.phonenumber}', '${newField.email}', '${newField.companyname}') RETURNING *`;
+      const queryCreate = `INSERT INTO persons (id_user, fname, lname, age, city, phonenumber, email, companyname) VALUES (${userID}, '${newField.fname}', '${newField.lname}', ${newField.age}, '${newField.city}','${newField.phonenumber}', '${newField.email}', '${newField.companyname}') RETURNING *`;
       const result = await this.client.query(queryCreate);
-      console.log("New person created", result.rows[0]);
-      response.status(201).send(`New person created`);
+      // console.log('New person created', result.rows[0]);
+      this.#setResponse(res, 200, message.success);
     } catch (err) {
-      console.error("Error", err);
+      this.#setResponse(res, 403, message.abstractErr);
     }
   }
 
-  async updateById(response, newField, id) {
+  async updateById(req, res) {
     try {
+      const newField = req.body;
+      const userID = req.user.userId;
+
       this.client.connect();
-      const queryUpdate = `UPDATE persons SET id = ${newField.id}, id_user = ${newField.id_user}, fname = '${newField.fname}', lname = '${newField.lname}', age = ${newField.age}, city = '${newField.city}', phonenumber = '${newField.phonenumber}', email = '${newField.email}', companyname = '${newField.companyname}' WHERE id = ${id};`;
+      const queryUpdate = `UPDATE persons SET id = ${newField.id}, id_user = ${userID}, fname = '${newField.fname}', lname = '${newField.lname}', age = ${newField.age}, city = '${newField.city}', phonenumber = '${newField.phonenumber}', email = '${newField.email}', companyname = '${newField.companyname}' WHERE id = ${newField.id};`;
       const result = await this.client.query(queryUpdate);
-      console.log("New person updated", result.rows[0]);
-      response.json(result.rows);
+
+      this.#setResponse(res, 200, result.rows);
     } catch (err) {
-      console.error("Error", err);
+      this.#setResponse(res, 403, message.abstractErr);
     }
   }
 
-  async delete(response, id) {
+  async delete(req, res) {
     try {
+      if (req.query.id === 'all') {
+        return this.clearAll(res);
+      }
       this.client.connect();
-      const queryDelete = `DELETE FROM persons WHERE id=${id}`;
-      const result = await this.client.query(queryDelete);
-      response.status(200).send(`person with id: ${id} is deleted`);
+      const queryDelete = `DELETE FROM persons WHERE id=${req.query.id}`;
+      await this.client.query(queryDelete);
+      this.#setResponse(res, 200, message.successDel);
     } catch (err) {
-      console.error("Error", err);
+      this.#setResponse(res, 403, message.abstractErr);
     }
   }
 
-  async clearAll(response) {
+  async clearAll(res) {
     try {
       this.client.connect();
       const queryClearAll = 'DELETE FROM persons';
-      const result = await this.client.query(queryClearAll);
-      response.status(200).send(`all persons are deleted`);
+      await this.client.query(queryClearAll);
+      this.#setResponse(res, 200, message.successDel);
     } catch (err) {
-      console.error("Error", err);
+      this.#setResponse(res, 403, message.abstractErr);
     }
+  }
+
+  #setResponse = (res, status, message) => {
+    return res.status(status).json({
+      message
+    });
   }
 }
 

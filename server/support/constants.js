@@ -11,7 +11,9 @@ const
     invalidData: 'Некорректные данные',
     invalidEmail: 'Некорректный email',
     authFail: 'Вы не авторизированы',
-    changed: 'Данные изменены'
+    changed: 'Данные изменены',
+    successDel: 'Данные удалены',
+    success: 'Готово'
   };
 
 
