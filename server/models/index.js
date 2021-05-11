@@ -9,6 +9,5 @@ module.exports = {
   GraphDb,
   H2,
   Mongo,
-  MySql,
   PostgreSql
 };

@@ -15,6 +15,18 @@ app.use((req, res, next) => {
 
 app.use('/auth', auth);
 app.use('/database', database);
+//проверить подключение  PostgreSql
+const connectDB = () => {
+  try {
+    PostgreSql.connect();
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+connectDB();
 
 const models = [Mongo];
 support.dbConnected(app, PORT, models);
