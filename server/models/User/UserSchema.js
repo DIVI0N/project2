@@ -1,7 +1,6 @@
 const { Schema, model } = require('mongoose');
-
 const schema = new Schema({
-  email: {
+  login: {
     type: String,
     required: true,
     unique: true
@@ -9,7 +8,10 @@ const schema = new Schema({
   password: {
     type: String,
     required: true
-  }
-});
+  },
+  person: [{ type: Schema.Types.ObjectId, ref: 'Person' }]
+}, { collection: 'users' });
 
-module.exports = model('User', schema);
+const UserSchema = model('User', schema);
+
+module.exports = UserSchema;
