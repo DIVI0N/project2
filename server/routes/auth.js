@@ -1,11 +1,11 @@
 const { Router } = require('express');
 const { User, UserSchema } = require('../models');
-const { support } = require('../support');
+const { support, validation } = require('../support');
 const auth = Router();
 
 auth.post(
   '/login',
-  support.validation,
+  validation.auth,
   async (req, res) => {
     const user = new User(UserSchema);
     user.login(req, res);
@@ -14,7 +14,7 @@ auth.post(
 
 auth.post(
   '/registration',
-  support.validation,
+  validation.auth,
   async (req, res) => {
     const user = new User(UserSchema);
     user.registration(req, res);
@@ -24,7 +24,7 @@ auth.post(
 auth.post(
   '/setting',
   support.authToken,
-  support.validationSetting,
+  validation.setting,
   (req, res) => {
     const user = new User(UserSchema);
     user.setting(req, res);

@@ -33,7 +33,7 @@ class User {
       const token = jwt.sign(
         { userId: user.id },
         secret,
-        { expiresIn: '1h' }
+        { expiresIn: '10h' }
       );
 
       res.json({ token, userId: user.id });
@@ -69,14 +69,14 @@ class User {
     }
   }
 
-  authToken = (req, res) => {
-    const token = req.headers['authorization'];
-    if (!token) return res.sendStatus(401);
-    jwt.verify(token, secret, (err, user) => {
-      if (err) return res.sendStatus(403);
-      res.sendStatus(200);
-    });
-  }
+  // authToken = (req, res) => {
+  //   const token = req.headers['authorization'];
+  //   if (!token) return res.sendStatus(401);
+  //   jwt.verify(token, secret, (err, user) => {
+  //     if (err) return res.sendStatus(403);
+  //     res.sendStatus(200);
+  //   });
+  // }
 
   setting = async (req, res) => {
     try {

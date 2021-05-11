@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema, model } = require('mongoose');
+const { message } = require('../../support');
 
 const schema = new Schema({
   user: {
@@ -50,26 +51,52 @@ class Mongo {
   getPerson = async (req, res) => {
     try {
       const person = await PersonSchema.find({ user: req.user.userId });
+      if (req.query.sort || req.query !== '_id') {
+        person.sort((a, b) => a[req.query.sort] > b[req.query.sort] ? 1 : -1);
+      }
       this.#setResponse(res, 200, person);
     }
     catch (e) {
-
+      this.#setResponse(res, 403, message.abstractErr);
     }
   }
 
   setPerson = async (req, res) => {
     try {
-      console.log(req.user);
       const person = new PersonSchema({ user: req.user.userId, ...req.body });
       await person.save();
-
-      this.#setResponse(res, 200, { msg: 'ok' });
+      this.#setResponse(res, 200, message.success);
     }
     catch (e) {
-      this.#setResponse(res, 403, { msg: e });
+      this.#setResponse(res, 403, { msg: message.abstractErr });
     }
-
   }
+
+  updatePerson = async (req, res) => {
+    try {
+
+      await PersonSchema.findByIdAndUpdate();
+    }
+    catch (e) {
+
+    }
+  }
+
+  deletePerson = async (req, res) => {
+    try {
+      if (req.query.id === 'all') {
+        await PersonSchema.deleteMany({ user: req.user.userId });
+        return this.#setResponse(res, 200, message.successDel);
+      }
+      await PersonSchema.findByIdAndDelete({ _id: req.query.id });
+      const person = await PersonSchema.find({ user: req.user.userId });
+      this.#setResponse(res, 200, person);
+    }
+    catch {
+      this.#setResponse(res, 403, message.abstractErr);
+    }
+  }
+
   #setResponse = (res, status, message) => {
     return res.status(status).json({
       message
