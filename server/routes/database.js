@@ -6,3 +6,4 @@ const database = Router();
 database.use('/postgresql', postgresql);
 
 module.exports = database;
+

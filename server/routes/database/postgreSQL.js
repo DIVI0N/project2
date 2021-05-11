@@ -28,4 +28,6 @@ postgresql.delete("/person/clearAll", (req, res, next) => {
   PostgreSql.clearAll(res);
 });
 
+
 module.exports = postgresql;
+

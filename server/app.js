@@ -1,24 +1,21 @@
-const express = require("express");
-const { database } = require("./routes");
-const { PostgreSql } = require("./models/databases");
-
-const app = express(),
-  PORT = 5000;
+const express = require('express');
+const { database, auth } = require('./routes');
+const { PORT, support } = require('./support');
+const { Mongo } = require('./models');
+const app = express();
 
 app.use(express.json());
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   next();
 });
 
-app.use("/database", database);
-
+app.use('/auth', auth);
+app.use('/database', database);
+//проверить подключение  PostgreSql
 const connectDB = () => {
   try {
     PostgreSql.connect();
@@ -30,3 +27,6 @@ const connectDB = () => {
   }
 };
 connectDB();
+
+const models = [Mongo];
+support.dbConnected(app, PORT, models);
