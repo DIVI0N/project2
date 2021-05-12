@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.error{
+  text-align: center;
+  width: 300px;
+  margin-top: 16px;
+  color: red;
+  opacity:0;
+  visibility: hidden;
+  transition: .4s opacity, .4s visibility;
+  &-visible{
+    opacity:1;
+    visibility: visible;
+    transition: .55s opacity, .55s visibility;
+  }
+}
+
+
+
+.changed-main-bg{
+  background: $main-bg-light !important;
+}
+.changed-secondary-bg{
+  background: $secondary-bg-dark !important;
+}

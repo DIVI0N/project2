@@ -90,6 +90,20 @@ const plugins = () => {
                 collapseWhitespace: isProd
             }
         }),
+        new HTMLWebpackPlugin({
+            template: './registration.html',
+            filename: './registration.html',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
+        new HTMLWebpackPlugin({
+            template: './person.html',
+            filename: './person.html',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin(
             [
