@@ -11,13 +11,14 @@ class PostgreSql {
       ssl: false,
     };
     this.client = new pg.Client(this.config);
+    this.client.connect();
   }
 
 
-  async getRequest(res) {
+  async getRequest(req, res) {
     try {
-      this.client.connect();
-      const queryAll = 'SELECT * FROM persons';
+      const userID = req.user.userId;
+      const queryAll = `SELECT * FROM persons WHERE id_user = '${userID}'`;
       const result = await this.client.query(queryAll);
       this.#setResponse(res, 200, result.rows);
     } catch (err) {
@@ -29,12 +30,11 @@ class PostgreSql {
     try {
       const newField = req.body;
       const userID = req.user.userId;
-
-      this.client.connect();
-      const queryCreate = `INSERT INTO persons (id_user, fname, lname, age, city, phonenumber, email, companyname) VALUES (${userID}, '${newField.fname}', '${newField.lname}', ${newField.age}, '${newField.city}','${newField.phonenumber}', '${newField.email}', '${newField.companyname}') RETURNING *`;
-      const result = await this.client.query(queryCreate);
-      // console.log('New person created', result.rows[0]);
-      this.#setResponse(res, 200, message.success);
+      const queryAll = `SELECT * FROM persons WHERE id_user = '${userID}'`;
+      const queryCreate = `INSERT INTO persons (id_user, fname, lname, age, city, phonenumber, email, companyname) VALUES ('${userID}', '${newField.fname}', '${newField.lname}', ${newField.age}, '${newField.city}','${newField.phonenumber}', '${newField.email}', '${newField.companyname}') RETURNING *`;
+      await this.client.query(queryCreate);
+      const result = await this.client.query(queryAll);
+      this.#setResponse(res, 200, result.rows);
     } catch (err) {
       this.#setResponse(res, 403, message.abstractErr);
     }
@@ -44,24 +44,23 @@ class PostgreSql {
     try {
       const newField = req.body;
       const userID = req.user.userId;
-
-      this.client.connect();
-      const queryUpdate = `UPDATE persons SET id = ${newField.id}, id_user = ${userID}, fname = '${newField.fname}', lname = '${newField.lname}', age = ${newField.age}, city = '${newField.city}', phonenumber = '${newField.phonenumber}', email = '${newField.email}', companyname = '${newField.companyname}' WHERE id = ${newField.id};`;
-      const result = await this.client.query(queryUpdate);
-
+      const queryUpdate = `UPDATE persons SET fname = '${newField.fname}', lname = '${newField.lname}', age = ${newField.age}, city = '${newField.city}', phonenumber = '${newField.phonenumber}', email = '${newField.email}', companyname = '${newField.companyname}' WHERE id_user = '${userID}' AND id = ${newField.id};`;
+      await this.client.query(queryUpdate);
+      const result = await this.client.query(`SELECT * FROM persons WHERE id_user = '${userID}'`);
       this.#setResponse(res, 200, result.rows);
     } catch (err) {
+      console.log(err);
       this.#setResponse(res, 403, message.abstractErr);
     }
   }
 
   async delete(req, res) {
+    const userID = req.user.userId;
     try {
       if (req.query.id === 'all') {
-        return this.clearAll(res);
+        return this.clearAll(req, res);
       }
-      this.client.connect();
-      const queryDelete = `DELETE FROM persons WHERE id=${req.query.id}`;
+      const queryDelete = `DELETE FROM persons WHERE id=${req.query.id} AND id_user = '${userID}'`;
       await this.client.query(queryDelete);
       this.#setResponse(res, 200, message.successDel);
     } catch (err) {
@@ -69,10 +68,10 @@ class PostgreSql {
     }
   }
 
-  async clearAll(res) {
+  async clearAll(req, res) {
+    const userID = req.user.userId;
     try {
-      this.client.connect();
-      const queryClearAll = 'DELETE FROM persons';
+      const queryClearAll = `DELETE FROM persons WHERE id_user = '${userID}'`;
       await this.client.query(queryClearAll);
       this.#setResponse(res, 200, message.successDel);
     } catch (err) {

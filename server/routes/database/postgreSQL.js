@@ -6,7 +6,7 @@ const { support } = require('../../support');
 const { authToken } = support;
 
 postgresql.get('/', authToken, (req, res) => {
-  PostgreSql.getRequest(res);
+  PostgreSql.getRequest(req, res);
 });
 
 postgresql.post('/', authToken, (req, res) => {
@@ -20,6 +20,22 @@ postgresql.put('/', authToken, (req, res) => {
 postgresql.delete('/', authToken, (req, res) => {
   PostgreSql.delete(req, res);
 });
+
+// postgresql.get('/', (req, res) => {
+//   PostgreSql.getRequest(res);
+// });
+
+// postgresql.post('/', (req, res) => {
+//   PostgreSql.create(req, res);
+// });
+
+// postgresql.put('/', (req, res) => {
+//   PostgreSql.updateById(req, res);
+// });
+
+// postgresql.delete('/', (req, res) => {
+//   PostgreSql.delete(req, res);
+// });
 
 module.exports = postgresql;
 
