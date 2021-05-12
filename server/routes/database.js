@@ -15,4 +15,3 @@ database.use('/cassandra', cassandra);
 database.use('/graphdb', graphDb);
 
 module.exports = database;
-

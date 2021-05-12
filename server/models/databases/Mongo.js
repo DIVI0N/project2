@@ -73,12 +73,14 @@ class Mongo {
   }
 
   updatePerson = async (req, res) => {
+    const userId = req.user.userId;
     try {
-
-      await PersonSchema.findByIdAndUpdate();
+      await PersonSchema.findOneAndUpdate({ _id: req.query.id, user: userId }, { $set: { ...req.body } });
+      const person = await PersonSchema.find({ user: req.user.userId });
+      this.#setResponse(res, 200, person);
     }
     catch (e) {
-
+      this.#setResponse(res, 400, message.abstractErr);
     }
   }
 
