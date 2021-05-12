@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+.first {
+    display: flex;
+    height: 100vh;
+    background-color: #F8F8F8;
+    &_img {
+        width: 359px;
+        height: 292px;
+        margin-left: 63px;
+        margin-top: 219px;
+    }
+    &_window {
+        display: flex;
+        width: 600px;
+        height: 500px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 7px;
+        margin-left: 65px;
+        margin-top: 110px;
+        &_title {
+            position: absolute;
+            height: 47px;
+            margin-top: 226px;
+            margin-left: -140px;
+            font-weight: 700;
+            font-size: 45px;
+            line-height: 54px;
+            color: #E5E5E5;
+            transform: rotate(-90deg);
+        }
+        &_slash {
+            position: absolute;
+            height: 5px;
+            width: 432px;
+            margin-left: -130px;
+            margin-top: 247px;
+            background: rgba(196, 196, 196, 0.7);
+            transform: rotate(-90deg);
+        }
+        &_account {
+            margin-left: 181px;
+            &_login {
+                color: #484B54;
+                font-weight: 400;
+                font-size: 23px;
+                line-height: 28px;
+                margin-top: 63px;
+            }
+            &_password {
+                color: #484B54;
+                font-weight: 400;
+                font-size: 23px;
+                line-height: 28px;
+                margin-top: 32px;
+            }
+        }
+    }
+    .input_login, .input_password {
+        margin-top: 28px;
+        width: 294px;
+        height: 55px;background: #E5E5E5;
+        border: 1px solid #C4C4C4;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+        padding: 15px;
+        font-size: 20px;
+        outline: none;
+    }
+    .input_password {
+        position: relative;
+    }
+    .img_password {
+        position: absolute;
+        margin-top: 47px;
+        margin-left: -25px;
+        cursor: pointer;
+    }
+    .btn {
+        margin-top: 31px;
+        width: 294px;
+        height: 55px;
+        border-radius: 7px;
+        background: rgb(255,255,255);
+        background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(224,244,247,1) 0%, rgba(43,218,186,1) 40%, rgba(52,121,215,1) 100%);
+        border: 2px solid #C4C4C4;
+        cursor: pointer;
+        color: #484B54;
+        font-weight: 500;
+        font-size: 23px;
+        line-height: 28px;
+        text-align: center;
+    }
+    .registration {
+        display: flex;
+        margin-left: 68px;
+        margin-top: 46px;
+        .img_registration {
+            width: 28px;
+            height: 26px;
+        }
+        .registration_title {
+            color: #484B54;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            margin-left: 14px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+
+}

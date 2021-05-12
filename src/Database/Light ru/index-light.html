@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daydream</title>
+    <link rel="stylesheet" href="style/css/style-light.css">
+    <link rel="stylesheet" href="../../Setting/light/css/setting.css">
+</head>
+<body>
+
+    <section class="two">
+        <nav class="two_navigation">
+            <div class="two_navigation_logo">
+                <img src="img/daydream-logo 1.svg" alt="logo" class="logo_img">
+            </div>
+            <select class="two_navigation_language">
+               <option value="">Рус</option>
+               <option value="">Англ</option>
+            </select>
+            <select class="two_navigation_theme">
+                <option value="">Темная</option>
+                <option value="">Светлая</option>
+            </select>
+
+
+            <div class="two_navigation_setting">
+                <a class="two_navigation_setting_link" href="#" id="myBtn"><img class="setting_img" src="img/setting.svg" alt="setting"></a>
+            </div>
+
+            <div id="myModal" class="modal">
+            
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h2 class="model-header-title">НАСТРОЙКИ</h2>
+                </div>
+                <div class="modal-body">
+                  <p class="modal-body-text">Изменить Логин</p>
+                  <input type="text" class="modal-body-text-input">
+                  <p class="modal-body-text">Повторите Логин</p>
+                  <input type="text" class="modal-body-text-input">
+                  <p class="modal-body-text">Изменить Пароль</p>
+                  <input type="text" class="modal-body-text-input">
+                  <p class="modal-body-text">Повторите Пароль</p>
+                  <input type="text" class="modal-body-text-input">
+                </div>
+                <div class="modal-footer">
+                  <button class="modal-footer-btn">Изменить</button>
+                  <button class="modal-footer-btn">Отмена</button>
+                </div>
+              </div>
+            
+            </div>
+
+            <div class="two_navigation_exit">
+                <a class="two_navigation_exit_link" href="../..//Authorization/Light ru/index-light.html"><img class="exit_img" src="img/exit-light.svg" alt="exit"></a>
+            </div>
+        </nav>
+
+        <div class="two_line"></div>
+
+        <div class="two_datebase">
+            <div class="two_datebase_container">
+                <p>База данных</p>
+                <select class="two_datebase_container_dropdown">
+                    <option value="">MySQL</option>
+                    <option value="">PostgreSQL</option>
+                    <option value="">H2</option>
+                    <option value="">MongoDB</option>
+                    <option value="">Redis</option>
+                    <option value="">Cassandra</option>
+                    <option value="">GraphDB</option>
+                </select>
+                <div class="two_datebase_container_client">
+                    <input type="text" class="two_datebase_container_client_input" placeholder="Фамилия">
+                    <input type="text" class="two_datebase_container_client_input" placeholder="Имя">
+                    <input type="text" class="two_datebase_container_client_input" placeholder="Возраст">
+                    <input type="text" class="two_datebase_container_client_input" placeholder="Город">
+                    <input type="text" class="two_datebase_container_client_input" placeholder="Номер телефона">
+                    <input type="text" class="two_datebase_container_client_input" placeholder="Email">
+                    <input type="text" class="two_datebase_container_client_input" placeholder="Имя компании">
+                    <div class="two_datebase_container_client_text">*Все поля должны быть заполнены</div>
+                    <button class="two_datebase_container_client-btn">Создать</button>
+                    <button class="two_datebase_container_client-btn">Очистить</button>
+                </div>
+            </div>
+            <div class="two_datebase_search">
+                <img class="input_find_img-fname" src="img/lupa.svg" alt="loupe">
+                <input class="input_find" type="text" placeholder="Найти по фамилии...">
+                <img class="input_find_img-iname" src="img/lupa.svg" alt="loupe">
+                <input type="text" class="input_find" placeholder="Найти по имени...">
+                <div class="two_datebase_search_page">
+                    <div class="two_datebase_search_page_container">
+                        <ul class="page_list">
+                            <li class="page_item">id</li>
+                            <li class="page_item">Фамилия</li>
+                            <li class="page_item">Имя</li>
+                            <li class="page_item">Возраст</li>
+                            <li class="page_item">Город</li>
+                            <li class="page_item">Номер телефона</li>
+                            <li class="page_item">Email</li>
+                            <li class="page_item">Имя компании</li>
+                        </ul>
+                    </div>
+                    <div class="two_datebase_search_page_container"></div>
+                    <div class="two_datebase_search_page_container"></div>
+                    <div class="two_datebase_search_page_container"></div>
+                    <div class="two_datebase_search_page_container"></div>
+                    <div class="two_datebase_search_page_container"></div>
+                    <div class="two_datebase_search_page_container"></div>
+                    <div class="two_datebase_search_page_container"></div>
+                    <div class="two_datebase_search_page_container"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/dark.js"></script>
+    </section>
+
+
+
+</body>
+</html>
