@@ -30,4 +30,6 @@ auth.post(
     user.setting(req, res);
   }
 );
+
+auth.get('/login', support.authToken);
 module.exports = auth;
