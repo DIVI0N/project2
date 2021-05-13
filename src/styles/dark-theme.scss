@@ -1,3 +1,25 @@
+// auth page
+.first--dark {
+  background-color: $main-bg-dark;
+  &_window--dark {
+    background-color: $secondary-bg-dark;
+    &_account {
+      &_login--dark {
+        color: $white;
+        margin-top: 63px;
+      }
+      &_password--dark {
+        color: $white;
+        margin-top: 32px;
+      }
+    }
+  }
+  .registration_title--dark {
+    color: $white;
+  }
+}
+
+// person page
 .two {
   &--dark {
     background-color: rgba(0, 0, 0, 0.85);
