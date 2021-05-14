@@ -1,5 +1,5 @@
 import { message, getFetch } from '..';
-import AuthHelper from './authHelper';
+import AuthHelper from '../helpers/authHelper';
 
 export default function registration() {
   const

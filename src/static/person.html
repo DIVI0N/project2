@@ -15,11 +15,11 @@
     <div class="container">
       <nav class="two_navigation">
         <div class="two_navigation_logo">
-          <img src="./assets/img/person_light/daydream-logo 1.svg" alt="logo" class="logo_img">
+          <img src="../assets/img/person_light/daydream-logo 1.svg" alt="logo" class="logo_img">
         </div>
-        <select class="two_navigation_language">
-          <option value="">En</option>
-          <option value="">Ru</option>
+        <select class="two_navigation_language" id="lang">
+          <option value="en">en</option>
+          <option value="ru">ru</option>
         </select>
         <select class="two_navigation_theme" id="theme">
           <option value="light">Light</option>
@@ -27,7 +27,7 @@
         </select>
         <div class="two_navigation_setting">
           <a class="two_navigation_setting_link" href="#" id="myBtn"><img class="setting_img"
-              src="./assets/img/person_light/setting.svg" alt="setting"></a>
+              src="../assets/img/person_light/setting.svg" alt="setting"></a>
         </div>
         <div id="myModal" class="modal">
           <div class="modal-content">
@@ -53,7 +53,7 @@
         </div>
         <div class="two_navigation_exit">
           <a class="two_navigation_exit_link" href="index.html">
-            <img class="exit_img" src="./assets/img/person_light/exit-light.svg" alt="exit">
+            <img class="exit_img" src="../assets/img/person_light/exit-light.svg" alt="exit">
           </a>
         </div>
       </nav>
@@ -61,35 +61,36 @@
       <div class="two_datebase">
         <div class="two_datebase_container">
           <p>Database</p>
-          <select class="two_datebase_container_dropdown">
-            <option value="">MySQL</option>
-            <option value="">PostgreSQL</option>
-            <option value="">H2</option>
-            <option value="">MongoDB</option>
-            <option value="">Redis</option>
-            <option value="">Cassandra</option>
-            <option value="">GraphDB</option>
+          <select class="two_datebase_container_dropdown" id="dbSelect">
+            <option value="mysql">MySQL</option>
+            <option value="postgresql">PostgreSQL</option>
+            <option value="h2">H2</option>
+            <option value="mongodb">MongoDB</option>
+            <option value="redis">Redis</option>
+            <option value="cassandra">Cassandra</option>
+            <option value="graphdb">GraphDB</option>
           </select>
-          <div class="two_datebase_container_client">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Fname">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Iname">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Age">
-            <input type="text" class="two_datebase_container_client_input" placeholder="City">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Phone Number">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Email">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Company Name">
+          <div class="two_datebase_container_client" id="createPerson">
+            <input type="text" class="two_datebase_container_client_input" placeholder="Fname" id="firstName">
+            <input type="text" class="two_datebase_container_client_input" placeholder="Iname" id="lastName">
+            <input type="text" class="two_datebase_container_client_input" placeholder="Age" id="age">
+            <input type="text" class="two_datebase_container_client_input" placeholder="City" id="city">
+            <input type="text" class="two_datebase_container_client_input" placeholder="Phone Number" id="phone">
+            <input type="text" class="two_datebase_container_client_input" placeholder="Email" id="email">
+            <input type="text" class="two_datebase_container_client_input" placeholder="Company Name" id="company">
             <div class="two_datebase_container_client_text">*All fields must be filled</div>
-            <button class="two_datebase_container_client-btn">Create</button>
-            <button class="two_datebase_container_client-btn">Clear All</button>
+            <button class="two_datebase_container_client-btn" id="create">Create</button>
+            <button class="two_datebase_container_client-btn" id="clearAll">Clear All</button>
           </div>
         </div>
         <div class="two_datebase_search">
-          <img class="input_find_img-fname" src="./assets/img/person_light/lupa.svg" alt="loupe">
+          <img class="input_find_img-fname" src="../assets/img/person_light/lupa.svg" alt="loupe">
           <input class="input_find" type="text" placeholder="Find by fname...">
-          <img class="input_find_img-iname" src="./assets/img/person_light/lupa.svg" alt="loupe">
+          <img class="input_find_img-iname" src="../assets/img/person_light/lupa.svg" alt="loupe">
           <input type="text" class="input_find" placeholder="Find by lname...">
           <div class="two_datebase_search_page">
             <div class="two_datebase_search_page_container">
+<<<<<<< HEAD:src/person.html
               <div class="table">
                 <div class="table__content">
                   <div class="table__title col--first">Fname</div>
@@ -231,6 +232,17 @@
                   </div>
                 </div>
               </div>
+=======
+              <ul class="page_list">
+                <li class="page_item">Fname</li>
+                <li class="page_item">Iname</li>
+                <li class="page_item">Age</li>
+                <li class="page_item">City</li>
+                <li class="page_item">Phone Number</li>
+                <li class="page_item">Email</li>
+                <li class="page_item">Сompany Name</li>
+              </ul>
+>>>>>>> 32402e9f1883088b1e6cf6c3bbdf23f22120ab30:src/static/person.html
             </div>
           </div>
         </div>
