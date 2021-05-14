@@ -66,6 +66,7 @@
   &_datebase {
     display: flex;
     margin-top: 24px;
+    padding-bottom: 35px;
     &_container {
       p {
         margin-top: 24px;
@@ -186,11 +187,8 @@
           margin: 0 auto;
           margin-top: 8px;
           width: 931px;
-          height: 43px;
-          background: $fields-bg;
-          border: 1px solid $secondary-bg-dark;
+          height: 450px;
           box-sizing: border-box;
-          border-radius: 7px;
         }
       }
       .page_list {
@@ -205,4 +203,75 @@
       }
     }
   }
+}
+
+.table {
+  display: flex;
+
+  &__title {
+    height: 43px;
+    text-align: center;
+    background: url("../assets/img/person_light/sort-down.svg") no-repeat;
+    background-position: 0 5px;
+    background-size: 20px;
+    color: $secondary-bg-dark;
+    font-size: 18px;
+    padding: 10px 0;
+    background-color: $fields-bg;
+    margin-bottom: 8px;
+    font-style: italic;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__content {
+    border-right: 1px solid $black;
+    width: 930px;
+    height: 450px;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      width: 120px;
+    }
+    &:nth-child(3) {
+      width: 70px;
+    }
+    &:nth-child(4) {
+      width: 120px;
+    }
+    &:nth-child(5),
+    &:nth-child(6) {
+      width: 150px;
+    }
+    &:nth-child(7) {
+      width: 160px;
+      border-right: none;
+    }
+  }
+
+  &__item {
+    height: 43px;
+    padding: 10px;
+    color: $secondary-bg-dark;
+    background: $fields-bg;
+    margin-bottom: 8px;
+  }
+}
+
+.col--first {
+  border-radius: 7px 0 0 7px;
+  border-top: 1px solid $secondary-bg-dark;
+  border-left: 1px solid $secondary-bg-dark;
+  border-bottom: 1px solid $secondary-bg-dark;
+}
+
+.col--last {
+  border-radius: 0 7px 7px 0;
+  border-top: 1px solid $secondary-bg-dark;
+  border-right: 1px solid $secondary-bg-dark;
+  border-bottom: 1px solid $secondary-bg-dark;
+}
+
+.col {
+  border-top: 1px solid $secondary-bg-dark;
+  border-bottom: 1px solid $secondary-bg-dark;
 }
