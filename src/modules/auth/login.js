@@ -1,5 +1,5 @@
 import { getFetch, message } from '..';
-import AuthHelper from './authHelper';
+import AuthHelper from '../helpers/authHelper';
 
 export default async function login() {
   const
