@@ -2,7 +2,7 @@
 // const GraphDb = require('./GraphDb');
 // const H2 = require('./H2');
 const { Mongo, PersonSchema } = require('./Mongo');
-// const MySql = require('./MySql');
+const MySql = require('./MySql');
 const PostgreSql = require('./PostgreSql');
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
   // GraphDb,
   // H2,
   Mongo,
-  // MySql,
+  MySql,
   PostgreSql,
   PersonSchema
 };
