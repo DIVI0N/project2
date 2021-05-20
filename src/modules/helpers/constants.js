@@ -1,5 +1,4 @@
 export const
-  server = 'http://localhost:3000',
   message =
   {
     invalidLogin: {
@@ -42,4 +41,13 @@ export const
       en: 'Company name name must be 1-50 letters long',
       ru: 'Название компании должно состоять из 1-50 букв'
     },
+  },
+  validationReg = {
+    firstName: /^[a-zA-ZА-Яа-я]{1,30}$/,
+    lastName: /^[a-zA-ZА-Яа-я]{1,30}$/,
+    age: /^([1-9]\d?|1[0-4]\d|150)$/,
+    city: /^[a-zA-ZА-Яа-я-]{0,30}$/,
+    phone: /^\++?[0-9]{10,15}$/,
+    email: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i,
+    company: /^[a-zA-ZА-Яа-я]{0,50}$/
   };

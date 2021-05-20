@@ -1,4 +1,4 @@
-import { localization, login, registration, sendPerson, setting, theme } from './modules';
+import { getPerson, localization, login, registration, sendPerson, setting, theme } from './modules';
 import './styles/index.scss';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -13,5 +13,6 @@ window.addEventListener('DOMContentLoaded', () => {
     theme();
     setting();
     sendPerson();
+    getPerson();
   }
 });

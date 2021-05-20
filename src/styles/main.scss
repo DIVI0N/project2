@@ -13,6 +13,21 @@
   }
 }
 
+.error-person{
+  text-align: center;
+  margin-top: 16px;
+  font-size: 10px;
+  color: red;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s opacity, 0.4s visibility;
+  &-visible {
+    opacity: 1!important;
+    visibility: visible!important;
+    transition: 0.55s opacity, 0.55s visibility;
+  }
+}
+
 .changed-main-bg {
   background: $main-bg-light !important;
 }

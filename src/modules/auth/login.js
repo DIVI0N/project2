@@ -1,11 +1,13 @@
-import { getFetch, message } from '..';
+import { getFetch, message, support } from '..';
 import AuthHelper from '../helpers/authHelper';
 
 export default async function login() {
   const
-    login = document.querySelector('.input_login'),
-    pass = document.querySelector('.input_password'),
-    loginBtn = document.querySelector('#login');
+    { qs, lsGet } = support,
+    login = qs('.input_login'),
+    pass = qs('.input_password'),
+    loginBtn = qs('#login'),
+    lang = lsGet(lang) || 'en';
 
   const { togglePassword, showErr } = new AuthHelper();
 
@@ -15,10 +17,10 @@ export default async function login() {
     const loginReg = /^[a-zA-Z0-9]{4,20}$/;
     const passReg = /^[a-zA-Z0-9!@$^."№;%:?*\(\)-_=+]{8,14}$/;
     if (!loginReg.test(login.value)) {
-      return showErr(message.invalidLogin);
+      return showErr(message.invalidLogin[lang]);
     }
     else if (!passReg.test(pass.value)) {
-      return showErr(message.invalidPass);
+      return showErr(message.invalidPass[lang]);
     }
     const body = {
       login: login.value,

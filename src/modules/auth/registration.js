@@ -1,12 +1,14 @@
-import { message, getFetch } from '..';
+import { message, getFetch, support } from '..';
 import AuthHelper from '../helpers/authHelper';
 
 export default function registration() {
   const
-    loginInput = document.querySelector('.input_login'),
-    passwordInput = document.querySelector('.input_password'),
-    passwordRepeat = document.querySelector('.input_repeat'),
-    regBtn = document.querySelector('#registration');
+    { qs, lsGet } = support,
+    loginInput = qs('.input_login'),
+    passwordInput = qs('.input_password'),
+    passwordRepeat = qs('.input_repeat'),
+    regBtn = qs('#registration'),
+    lang = lsGet('lang') || 'en';
 
   const { showErr, togglePassword } = new AuthHelper();
 
@@ -20,13 +22,13 @@ export default function registration() {
       pass = passwordInput.value,
       repeatPass = passwordRepeat.value;
     if (!loginReg.test(login)) {
-      return showErr(message.invalidLogin);
+      return showErr(message.invalidLogin[lang]);
     }
     else if (!passReg.test(pass)) {
-      return showErr(message.invalidPass);
+      return showErr(message.invalidPass[lang]);
     }
     else if (pass !== repeatPass) {
-      return showErr(message.invalidRepeatPass);
+      return showErr(message.invalidRepeatPass[lang]);
     }
     const body = {
       login,

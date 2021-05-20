@@ -1,6 +1,11 @@
+import { message, support, validationReg, getFetch, PersonHelper } from '..';
+
 export default function sendPerson() {
-  const createPersonBlock = document.querySelector('#createPerson');
-  const dbSelect = document.querySelector('#dbSelect');
+  const { qs, lsGet } = support;
+  const lang = lsGet('lang');
+  const createPersonBlock = qs('#createPerson');
+  const dbSelect = qs('#dbSelect');
+  const { wordValidation, changeCreateIpt } = new PersonHelper();
 
   const body = {
     firstName: null,
@@ -18,27 +23,22 @@ export default function sendPerson() {
     }
   });
   createPersonBlock.addEventListener('click', (e) => {
-    const word30 = /^[a-zA-ZА-Яа-я]{1,30}$/;
-    const word50 = /^[a-zA-ZА-Яа-я]{1,50}$/;
-    const emailReg = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
-    if (!word30.test(login.value)) {
-      return showErr(message.invalidLogin);
+    if (e.target.getAttribute('id') === 'create') {
+      for (const key in body) {
+        const opt = {
+          validStr: validationReg[key],
+          value: body[key],
+          message: message[key][lang],
+        };
+        if (key === 'phone' && !body[key]) continue;
+        if (!wordValidation(opt)) {
+          wordValidation(opt);
+          return;
+        }
+      }
+      getFetch(`/database/${dbSelect.value}`, body, 'POST');
     }
   });
 }
 
-function wordValidation(validStr, value, message) {
-  if (!validStr.test(value)) {
-    return showErr(message.invalidLogin);
-  }
-}
 
-function changeCreateIpt(e, body, id) {
-  if (e.target.getAttribute('id') === id) {
-    body[id] = e.target.value;
-  }
-}
-
-function validate() {
-
-}

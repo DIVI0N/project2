@@ -71,14 +71,14 @@
             <option value="graphdb">GraphDB</option>
           </select>
           <div class="two_datebase_container_client" id="createPerson">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Fname" id="firstName">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Iname" id="lastName">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Age" id="age">
+            <input type="text" class="two_datebase_container_client_input" placeholder="Fname*" id="firstName">
+            <input type="text" class="two_datebase_container_client_input" placeholder="Iname*" id="lastName">
+            <input type="text" class="two_datebase_container_client_input" placeholder="Age*" id="age">
             <input type="text" class="two_datebase_container_client_input" placeholder="City" id="city">
             <input type="text" class="two_datebase_container_client_input" placeholder="Phone Number" id="phone">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Email" id="email">
+            <input type="text" class="two_datebase_container_client_input" placeholder="Email*" id="email">
             <input type="text" class="two_datebase_container_client_input" placeholder="Company Name" id="company">
-            <div class="two_datebase_container_client_text">*All fields must be filled</div>
+            <div class="error-person" id='error'>*All fields must be filled</div>
             <button class="two_datebase_container_client-btn" id="create">Create</button>
             <button class="two_datebase_container_client-btn" id="clearAll">Clear All</button>
           </div>
@@ -90,9 +90,17 @@
           <input type="text" class="input_find" placeholder="Find by lname...">
           <div class="two_datebase_search_page">
             <div class="two_datebase_search_page_container">
-<<<<<<< HEAD:src/person.html
               <div class="table">
-                <div class="table__content">
+                <div class="table__row">
+                  <div class="table__row-item">⯆ <span>FName</span></div>
+                  <div class="table__row-item">⯆ <span>LName</span></div>
+                  <div class="table__row-item">⯆ <span>Age</span></div>
+                  <div class="table__row-item">⯆ <span>City</span></div>
+                  <div class="table__row-item">⯆ <span>Phone number</span></div>
+                  <div class="table__row-item">⯆ <span>Email</span></div>
+                  <div class="table__row-item">⯆ <span>Company name</span></div>
+                </div>
+                <!-- <div class="table__content">
                   <div class="table__title col--first">Fname</div>
                   <div class="table__item col--first">
                   </div>
@@ -230,19 +238,8 @@
                   </div>
                   <div class="table__item col--last">
                   </div>
-                </div>
+                </div> -->
               </div>
-=======
-              <ul class="page_list">
-                <li class="page_item">Fname</li>
-                <li class="page_item">Iname</li>
-                <li class="page_item">Age</li>
-                <li class="page_item">City</li>
-                <li class="page_item">Phone Number</li>
-                <li class="page_item">Email</li>
-                <li class="page_item">Сompany Name</li>
-              </ul>
->>>>>>> 32402e9f1883088b1e6cf6c3bbdf23f22120ab30:src/static/person.html
             </div>
           </div>
         </div>
