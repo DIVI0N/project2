@@ -28,7 +28,6 @@
     &_language--dark {
       background: $secondary-bg-dark;
       color: $white;
-      padding-left: 22px;
     }
 
     &_theme--dark {
@@ -40,9 +39,12 @@
 
   &_datebase {
     &_container {
-      &--dark p {
-        color: $white;
+      &-title {
+        &--dark {
+          color: $white;
+        }
       }
+
       &_dropdown--dark {
         background: $secondary-bg-dark;
         color: $white;
@@ -53,22 +55,22 @@
           background: $secondary-bg-dark;
           border: 1px solid $gray;
         }
-        &_text--dark {
-          color: $white;
-        }
+        // &_text--dark {
+        //   color: $white;
+        // }
       }
     }
 
     &_search {
       .input_find--dark {
-        background: $secondary-bg-dark;
+        background: rebeccapurple;
         padding-left: 36px;
         font-size: 16px;
         color: $white;
       }
-      .page_list--dark {
-        list-style: url("../assets/img/person_dark/sort-down.svg");
-      }
+      // .page_list--dark {
+      //   list-style: url("../assets/img/person_dark/sort-down.svg");
+      // }
     }
   }
 }
