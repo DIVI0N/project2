@@ -1,4 +1,4 @@
-import { getFetch, message, support } from '..';
+import { getFetch, message, support, url } from '..';
 import AuthHelper from '../helpers/authHelper';
 
 export default async function login() {
@@ -30,7 +30,7 @@ export default async function login() {
       const getToken = await getFetch('/auth/login', body, 'POST');
       const token = await getToken.json();
       localStorage.setItem('token', token.token);
-      token.token ? location.replace('http://localhost:4200/person.html') : showErr(token.message);
+      token.token ? location.replace(`${url.client}/person.html`) : showErr(token.message);
     }
     catch (e) {
       throw new Error(e);
