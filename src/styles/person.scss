@@ -177,7 +177,7 @@
       &_page {
         margin-top: 18px;
         margin-left: 21px;
-        width: 963px;
+        width: 980px;
         min-height: 375px;
         background: $secondary-bg-light;
         border: 1px solid #c4c4c4;
@@ -215,7 +215,19 @@
     font-size: 14px;
     background: $fields-bg;
     overflow-wrap: break-word;
+    position: relative;
 
+    &:hover{
+      background: #cecece;
+    }
+    &-delete{
+      right: -20px;
+      top: 3px;
+      position: absolute;
+      font-size: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
     &.table-head {
       div {
         font-size: 18px;

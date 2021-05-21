@@ -1,7 +1,7 @@
 import {
   changeDb, getPerson, localization, login,
   registration, sendPerson, setLang, setting, theme,
-  authLang, personLang
+  authLang, personLang, tableEvent
 } from './modules';
 import './styles/index.scss';
 
@@ -26,5 +26,6 @@ window.addEventListener('DOMContentLoaded', () => {
     changeDb();
     setLang(personTxt, personIpt);
     setLang(modalTxt, modalIpt);
+    tableEvent();
   }
 });

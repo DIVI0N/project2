@@ -13,6 +13,7 @@ export const row = (data) => {
         <div class="table__row-item col-md" title="${el.city}">${el.city || '-'}</div>
         <div class="table__row-item col-lg" title="${el.phone}">${el.phone || '-'}</div>
         <div class="table__row-item col-lg" title="${el.email}">${el.email}</div>
+        <div class="table__row-delete" id="deleteRow" data-id="${el._id || el.id}">&times;</div>
         <div class="table__row-item col-lg" title="${el.company}">${el.company || '-'}</div>
       </div>
     `;
