@@ -3,3 +3,4 @@ export const support = {
   lsGet: (name) => localStorage.getItem(name),
   qs: (selector) => document.querySelector(selector)
 };
+
