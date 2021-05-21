@@ -7,13 +7,13 @@ export const row = (data) => {
     div.classList.add('table__row');
     div.setAttribute('data-id', el._id);
     div.innerHTML = `
-      <div class="table__row-item">${el.firstName}</div>
-      <div class="table__row-item">${el.lastName}</div>
-      <div class="table__row-item">${el.age}</div>
-      <div class="table__row-item">${el.city}</div>
-      <div class="table__row-item">${el.phone}</div>
-      <div class="table__row-item">${el.email}</div>
-      <div class="table__row-item">${el.company}</div>
+      <div class="table__row-item col-md">${el.firstName}</div>
+      <div class="table__row-item col-md">${el.lastName}</div>
+      <div class="table__row-item col-sm">${el.age}</div>
+      <div class="table__row-item col-md">${el.city}</div>
+      <div class="table__row-item col-lg">${el.phone}</div>
+      <div class="table__row-item col-lg">${el.email}</div>
+      <div class="table__row-item col-lg">${el.company}</div>
     `;
     table.appendChild(div);
   });
