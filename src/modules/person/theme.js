@@ -12,13 +12,10 @@ export default function theme() {
     lsSet('theme', e.target.value);
     if (lsGet('theme') === 'dark') {
       document.querySelector('.two').style.background = 'rgba(0, 0, 0, 0.85)';
-
-
-
     } else {
       document.querySelector('.two').style.background = '#F8F8F8';
       const inputs = document.querySelectorAll('input');
-      inputs.forEach((el) => {});
+      inputs.forEach((el) => { });
     }
   });
 }

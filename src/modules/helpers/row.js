@@ -1,21 +1,22 @@
 import { support } from '..';
 
 export const row = (data) => {
-  const table = support.qs('.table');
+  const table = support.qs('.table-content');
+  let tableRow = '';
   data.forEach(el => {
-    const div = document.createElement('div');
-    div.classList.add('table__row');
-    div.setAttribute('data-id', el._id);
-    div.innerHTML = `
-      <div class="table__row-item col-md">${el.firstName}</div>
-      <div class="table__row-item col-md">${el.lastName}</div>
-      <div class="table__row-item col-sm">${el.age}</div>
-      <div class="table__row-item col-md">${el.city}</div>
-      <div class="table__row-item col-lg">${el.phone}</div>
-      <div class="table__row-item col-lg">${el.email}</div>
-      <div class="table__row-item col-lg">${el.company}</div>
+    tableRow +=
+      `
+      <div class="table__row" data-id="${el._id || el.id}">
+        <div class="table__row-item col-md" title="${el.firstName}">${el.firstName}</div>
+        <div class="table__row-item col-md" title="${el.lastName}">${el.lastName}</div>
+        <div class="table__row-item col-sm" title="${el.age}">${el.age}</div>
+        <div class="table__row-item col-md" title="${el.city}">${el.city || '-'}</div>
+        <div class="table__row-item col-lg" title="${el.phone}">${el.phone || '-'}</div>
+        <div class="table__row-item col-lg" title="${el.email}">${el.email}</div>
+        <div class="table__row-item col-lg" title="${el.company}">${el.company || '-'}</div>
+      </div>
     `;
-    table.appendChild(div);
   });
+  table.innerHTML = tableRow;
 };
 

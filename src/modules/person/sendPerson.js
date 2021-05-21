@@ -4,7 +4,7 @@ export default function sendPerson() {
   const { qs, lsGet } = support;
   const lang = lsGet('lang');
   const createPersonBlock = qs('#createPerson');
-  const dbSelect = 'mysql' || lsGet('db');
+  const dbSelect = lsGet('db') || 'mysql';
   const { wordValidation, changeCreateIpt } = new PersonHelper();
 
   const body = {
@@ -38,8 +38,9 @@ export default function sendPerson() {
       }
       getFetch(`/database/${dbSelect}`, body, 'POST');
       getPerson();
+      for (const key in body) {
+        document.getElementById(key).value = '';
+      }
     }
   });
 }
-
-

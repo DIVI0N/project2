@@ -18,6 +18,7 @@ const authIpt = {
     ru: 'Введите пароль...'
   },
 };
+
 export const authLang = () => ({
   loginTxt: {
     ...auth,
