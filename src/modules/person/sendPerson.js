@@ -1,10 +1,10 @@
-import { message, support, validationReg, getFetch, PersonHelper } from '..';
+import { message, support, validationReg, getFetch, PersonHelper, getPerson } from '..';
 
 export default function sendPerson() {
   const { qs, lsGet } = support;
   const lang = lsGet('lang');
   const createPersonBlock = qs('#createPerson');
-  const dbSelect = qs('#dbSelect');
+  const dbSelect = 'mysql' || lsGet('db');
   const { wordValidation, changeCreateIpt } = new PersonHelper();
 
   const body = {
@@ -22,7 +22,7 @@ export default function sendPerson() {
       changeCreateIpt(e, body, key);
     }
   });
-  createPersonBlock.addEventListener('click', (e) => {
+  createPersonBlock.addEventListener('click', async (e) => {
     if (e.target.getAttribute('id') === 'create') {
       for (const key in body) {
         const opt = {
@@ -36,7 +36,8 @@ export default function sendPerson() {
           return;
         }
       }
-      getFetch(`/database/${dbSelect.value}`, body, 'POST');
+      getFetch(`/database/${dbSelect}`, body, 'POST');
+      getPerson();
     }
   });
 }
