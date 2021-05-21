@@ -7,4 +7,5 @@ export const url = {
   },
   database: '/database',
   mongo: '/database/mongodb',
+  postgresql: '/database/postgresql'
 };

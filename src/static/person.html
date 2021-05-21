@@ -22,8 +22,8 @@
           <option value="ru">ru</option>
         </select>
         <select class="two_navigation_theme" id="theme">
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
+          <option value="light" id="themeLight">Light</option>
+          <option value="dark" id="themeDark">Dark</option>
         </select>
         <div class="two_navigation_setting">
           <a class="two_navigation_setting_link" href="#" id="myBtn"><img class="setting_img"
@@ -33,21 +33,19 @@
           <div class="modal-content">
             <div class="modal-header">
               <span class="close">&times;</span>
-              <h2 class="model-header-title">SETTING</h2>
+              <h2 class="model-header-title" id="settingTitle">SETTING</h2>
             </div>
             <div class="modal-body">
-              <p class="modal-body-text">Change Login</p>
-              <input type="text" class="modal-body-text-input">
-              <p class="modal-body-text">Repeat Login</p>
-              <input type="text" class="modal-body-text-input">
-              <p class="modal-body-text">Change Password</p>
-              <input type="text" class="modal-body-text-input">
-              <p class="modal-body-text">Repeat Password</p>
-              <input type="text" class="modal-body-text-input">
+              <p class="modal-body-text" id="changeLogin">Change Login</p>
+              <input type="text" class="modal-body-text-input" placeholder="Enter new login" id="changeLoginIpt">
+              <p class="modal-body-text" id="changePassword">Change Password</p>
+              <input type="text" class="modal-body-text-input" placeholder="Enter new password" id="changePasswordIpt">
+              <p class="modal-body-text" id="repeatPass">Repeat Password</p>
+              <input type="text" class="modal-body-text-input" placeholder="Repeat password" id="changeRepeatIpt">
             </div>
             <div class="modal-footer">
-              <button class="modal-footer-btn">Change</button>
-              <button class="modal-footer-btn">Cancel</button>
+              <button class="modal-footer-btn" id="change">Change</button>
+              <button class="modal-footer-btn" id="cancel">Cancel</button>
             </div>
           </div>
         </div>
@@ -60,7 +58,7 @@
       <div class="two_line"></div>
       <div class="two_datebase">
         <div class="two_datebase_container">
-          <p>Database</p>
+          <p class="two_datebase_container-title" id="dbTitle">Database</p>
           <select class="two_datebase_container_dropdown" id="dbSelect">
             <option value="mysql">MySQL</option>
             <option value="postgresql">PostgreSQL</option>
@@ -85,63 +83,21 @@
         </div>
         <div class="two_datebase_search">
           <img class="input_find_img-fname" src="../assets/img/person_light/lupa.svg" alt="loupe">
-          <input class="input_find" type="text" placeholder="Find by fname...">
+          <input class="input_find" type="text" placeholder="Find by fname..." id="findName">
           <img class="input_find_img-iname" src="../assets/img/person_light/lupa.svg" alt="loupe">
-          <input type="text" class="input_find" placeholder="Find by lname...">
-          <div class="two_datebase_search_page">
+          <input type="text" class="input_find" placeholder="Find by lname..." id="findLname">
+          <div class=" two_datebase_search_page">
             <div class="two_datebase_search_page_container">
               <div class="table">
                 <div class="table__row">
-                  <div class="table__row-item">⯆ <span>FName</span></div>
-                  <div class="table__row-item">⯆ <span>LName</span></div>
-                  <div class="table__row-item">⯆ <span>Age</span></div>
-                  <div class="table__row-item">⯆ <span>City</span></div>
-                  <div class="table__row-item">⯆ <span>Phone number</span></div>
-                  <div class="table__row-item">⯆ <span>Email</span></div>
-                  <div class="table__row-item">⯆ <span>Company name</span></div>
+                  <div class="table__row-item col-md">⯆ <span id="fnameSpn">FName</span></div>
+                  <div class="table__row-item col-md">⯆ <span id="lnameSpn">LName</span></div>
+                  <div class="table__row-item col-sm">⯆ <span id="ageSpn">Age</span></div>
+                  <div class="table__row-item col-md">⯆ <span id="citySpn">City</span></div>
+                  <div class="table__row-item col-lg">⯆ <span id="phoneSpn">Phone number</span></div>
+                  <div class="table__row-item col-lg">⯆ <span id="emailSpn">Email</span></div>
+                  <div class="table__row-item col-lg">⯆ <span id="companySpn">Company name</span></div>
                 </div>
-                <!-- <div class="table__content">
-                  <div class="table__title col--first">Fname</div>
-                  <div class="table__item col--first">ffffff
-                  </div>
-                </div>
-                <div class="table__content">
-                  <div class="table__title col">Iname</div>
-                  <div class="table__item col">
-                    gggggg
-                  </div>
-                </div>
-                <div class="table__content">
-                  <div class="table__title col">Age</div>
-                  <div class="table__item col">
-                    gggggg
-                  </div>
-                </div>
-                <div class="table__content">
-                  <div class="table__title col">City</div>
-                  <div class="table__item col">
-                    gggggg
-                  </div>
-                </div>
-                <div class="table__content">
-                  <div class="table__title col">Phone Number</div>
-                  <div class="table__item col">
-                    gggggg
-                  </div>
-                </div>
-                <div class="table__content">
-                  <div class="table__title col">Email</div>
-                  <div class="table__item col">
-                    gggggg
-                  </div>
-                </div>
-                <div class="table__content">
-                  <div class="table__title col--last">Сompany Name</div>
-                  <div class="table__item col--last">
-                    gggggg
-                  </div>
-                  </div>
-                </div> -->
               </div>
             </div>
           </div>
