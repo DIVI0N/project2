@@ -1,4 +1,4 @@
-import { message, support, validationReg, getFetch, PersonHelper, getPerson } from '..';
+import { message, support, validationReg, getFetch, PersonHelper, getPerson, getData, url } from '..';
 
 export default function sendPerson() {
   const { qs, lsGet } = support;
@@ -41,6 +41,11 @@ export default function sendPerson() {
       for (const key in body) {
         document.getElementById(key).value = '';
       }
+    }
+    else if (e.target.getAttribute('id') === 'clearAll') {
+      const db = lsGet('db');
+      await getData(`${url.database}/${db}?id=all`, 'DELETE');
+      getPerson();
     }
   });
 }
