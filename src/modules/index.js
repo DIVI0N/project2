@@ -11,6 +11,7 @@ import PersonHelper from './helpers/personHelper';
 import { row } from './helpers/row';
 import getPerson from './person/getPerson';
 import { url } from './helpers/url';
+import changeDb from './person/changeDb';
 
 export {
   message, getFetch, support, validationReg, PersonHelper, row, url,
@@ -19,5 +20,5 @@ export {
 
 export {
   setting, theme, login, registration, sendPerson,
-  localization, getPerson
+  localization, getPerson, changeDb
 };

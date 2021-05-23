@@ -1,5 +1,4 @@
 export default class PersonHelper {
-
   wordValidation = ({ validStr, value, message }) => {
     if (!validStr.test(value)) {
       const errorMsg = document.querySelector('.error-person');
