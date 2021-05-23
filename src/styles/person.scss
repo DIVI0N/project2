@@ -1,21 +1,20 @@
 .container {
   margin: 0 auto;
   width: 1170px;
+  padding-bottom: 35px;
 }
 
 .two {
-  height: 100%;
-  background-color: $main-bg-light;
-  &_navigation {
+  &__navigation {
     display: flex;
-    &_logo {
-      .logo_img {
+    &-logo {
+      .logo-img {
         width: 125px;
         height: 89px;
         margin-top: 4px;
       }
     }
-    &_language {
+    &-language {
       width: 90px;
       height: 35px;
       margin-left: auto;
@@ -29,7 +28,7 @@
       color: $secondary-bg-dark;
       padding-left: 28px;
     }
-    &_theme {
+    &-theme {
       width: 90px;
       height: 35px;
       margin-left: 25px;
@@ -43,31 +42,47 @@
       color: $secondary-bg-dark;
       font-size: 16px;
     }
-    &_setting {
+    &-setting {
       width: 52px;
       height: 50px;
       margin-left: 22px;
       margin-top: 42px;
+      background: url('../assets/img/setting.svg');
+      cursor: pointer;
+
+      &-link {
+        width: 52px;
+        height: 50px;
+        display: inline-block;
+      }
     }
-    &_exit {
+    &-exit {
       width: 43px;
       height: 45px;
       margin-left: 22px;
       margin-top: 46px;
+      background: url('../assets/img/exit-light.svg');
+      cursor: pointer;
+
+      &-link {
+        width: 43px;
+        height: 45px;
+        display: inline-block;
+      }
     }
   }
-  &_line {
+  &__line {
     position: absolute;
     width: 1170px;
     height: 2px;
     background: $gray;
     transform: matrix(1, 0, 0, -1, 0, 0);
   }
-  &_datebase {
+  &__database {
     display: flex;
     margin-top: 24px;
     padding-bottom: 35px;
-    &_container {
+    &-container {
       &-title {
         margin-top: 24px;
         margin-left: 11px;
@@ -76,7 +91,7 @@
         font-size: 20px;
         line-height: 24px;
       }
-      &_dropdown {
+      &-dropdown {
         margin-top: 2px;
         width: 180px;
         height: 40px;
@@ -90,15 +105,15 @@
         color: $secondary-bg-dark;
         padding-left: 29px;
       }
-      &_client {
+      &-client {
         width: 180px;
         height: 375px;
         background: $secondary-bg-light;
         border: 1px solid $gray;
         box-sizing: border-box;
         border-radius: 7px;
-        margin-top: 18px;
-        &_input {
+        margin-top: 145px;
+        &-input {
           width: 156px;
           height: 24px;
           background: $fields-bg;
@@ -114,7 +129,7 @@
           text-align: center;
           color: $secondary-bg-dark;
         }
-        &_text {
+        &-text {
           font-weight: 400;
           font-size: 10px;
           line-height: 12px;
@@ -143,8 +158,8 @@
         }
       }
     }
-    &_search {
-      .input_find {
+    &-search {
+      .input__find {
         width: 200px;
         height: 40px;
         background: $secondary-bg-light;
@@ -159,14 +174,14 @@
         font-size: 18px;
         line-height: 22px;
         color: $secondary-bg-dark;
-        &_img-fname {
+        &-img-fname {
           position: absolute;
           width: 26px;
           height: 26px;
           margin-top: 57px;
           margin-left: 25px;
         }
-        &_img-iname {
+        &-img-lname {
           position: absolute;
           width: 26px;
           height: 26px;
@@ -174,33 +189,22 @@
           margin-left: 25px;
         }
       }
-      &_page {
+      &-page {
         margin-top: 18px;
         margin-left: 21px;
-        width: 980px;
-        min-height: 375px;
+        width: 963px;
         background: $secondary-bg-light;
         border: 1px solid #c4c4c4;
         box-shadow: 0px 5px 20px rgba(80, 80, 80, 0.1);
         border-radius: 7px;
-        padding-top: 18px;
-        &_container {
+        padding: 18px 0 12px;
+        &-container {
           margin: 0 auto;
           margin-top: 8px;
           width: 931px;
           height: 100%;
           box-sizing: border-box;
         }
-      }
-      .page_list {
-        list-style: url("../assets/img/person_light/sort-down.svg");
-        color: $secondary-bg-dark;
-        font-size: 18px;
-        display: flex;
-        justify-content: space-around;
-        margin-top: 5px;
-        margin-left: 25px;
-        cursor: pointer;
       }
     }
   }
@@ -310,24 +314,22 @@
   width: 156px;
 }
 
-.search-hide{
-  display: none;
+.create-btn {
+  &:hover {
+    background: #68e77d;
+  }
+
+  &:active{
+    background: #1deb3f;
+  }
 }
-// .col--first {
-//   border-radius: 7px 0 0 7px;
-//   border-top: 1px solid $secondary-bg-dark;
-//   border-left: 1px solid $secondary-bg-dark;
-//   border-bottom: 1px solid $secondary-bg-dark;
-// }
 
-// .col--last {
-//   border-radius: 0 7px 7px 0;
-//   border-top: 1px solid $secondary-bg-dark;
-//   border-right: 1px solid $secondary-bg-dark;
-//   border-bottom: 1px solid $secondary-bg-dark;
-// }
+.clear-btn {
+  &:hover {
+    background: #ff3a3a;
+  }
 
-// .col {
-//   border-top: 1px solid $secondary-bg-dark;
-//   border-bottom: 1px solid $secondary-bg-dark;
-// }
+  &:active{
+    background: #ff0000;
+  }
+}

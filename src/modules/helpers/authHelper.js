@@ -1,6 +1,6 @@
 class AuthHelper {
   togglePassword = (node) => {
-    const eye = document.querySelectorAll('.img_password');
+    const eye = document.querySelectorAll('.img-password');
     eye.forEach(el => {
       el.addEventListener('click', () => {
         node.type === 'password' ?
