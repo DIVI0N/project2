@@ -1,4 +1,4 @@
-import { support, personLang } from '..';
+import { support, personLang, setLang } from '../..';
 
 export default function localization() {
   const { lsGet, lsSet, qs } = support;
@@ -15,12 +15,3 @@ export default function localization() {
   });
 }
 
-export const setLang = (txt, ipt) => {
-  const lang = support.lsGet('lang');
-  for (const key in txt) {
-    document.getElementById(key).textContent = txt[key][lang];
-  }
-  for (const key in ipt) {
-    document.getElementById(key).setAttribute('placeholder', ipt[key][lang]);
-  }
-};
