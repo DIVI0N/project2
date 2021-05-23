@@ -1,4 +1,4 @@
-import { message, getFetch, support } from '..';
+import { message, getFetch, support, url } from '..';
 import AuthHelper from '../helpers/authHelper';
 
 export default function registration() {
@@ -37,7 +37,7 @@ export default function registration() {
     try {
       const response = await getFetch('/auth/registration', body, 'POST');
       const message = await response.json();
-      response.ok ? location.replace('http://localhost:4200/index.html') : showErr(message.message);
+      response.ok ? location.replace(`${url.client}/index.html`) : showErr(message.message);
     }
     catch (e) {
       throw new Error(e);

@@ -11,17 +11,15 @@ class PostgreSql {
       ssl: false,
     };
     this.client = new pg.Client(this.config);
-    this.client.connect();
+    // this.client.connect();
   }
 
 
   async getRequest(req, res) {
-    console.log('ddd');
     try {
       const userID = req.user.userId;
       const queryAll = `SELECT * FROM persons WHERE id_user = '${userID}'`;
       const result = await this.client.query(queryAll);
-      console.log(result.rows);
       this.#setResponse(res, 200, result.rows);
     } catch (err) {
       this.#setResponse(res, 403, message.abstractErr);
