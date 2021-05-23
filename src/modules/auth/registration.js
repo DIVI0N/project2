@@ -4,9 +4,9 @@ import AuthHelper from '../helpers/authHelper';
 export default function registration() {
   const
     { qs, lsGet } = support,
-    loginInput = qs('.input_login'),
-    passwordInput = qs('.input_password'),
-    passwordRepeat = qs('.input_repeat'),
+    loginInput = qs('.input-login'),
+    passwordInput = qs('.input-password'),
+    passwordRepeat = qs('.input-repeat'),
     regBtn = qs('#registration'),
     lang = lsGet('lang') || 'en';
 

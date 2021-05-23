@@ -17,6 +17,5 @@ export const row = (data) => {
     `;
     table.appendChild(div);
   });
-
 };
 

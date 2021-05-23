@@ -1,8 +1,8 @@
 .error {
   text-align: center;
   width: 300px;
-  margin-top: 16px;
-  color: red;
+  margin: 15px 0;
+  color: #ff0000;
   opacity: 0;
   visibility: hidden;
   transition: 0.4s opacity, 0.4s visibility;
@@ -18,7 +18,7 @@
   text-align: center;
   margin-top: 16px;
   font-size: 10px;
-  color: red;
+  color: #ff0000;
   opacity: 0;
   visibility: hidden;
   transition: 0.4s opacity, 0.4s visibility;

@@ -13,55 +13,53 @@
 <body>
   <section class="two">
     <div class="container">
-      <nav class="two_navigation">
-        <div class="two_navigation_logo">
-          <img src="../assets/img/person_light/daydream-logo 1.svg" alt="logo" class="logo_img">
+      <nav class="two__navigation">
+        <div class="two__navigation-logo">
+          <img src="../assets/img/daydream-logo.svg" alt="logo" class="logo-img">
         </div>
-        <select class="two_navigation_language" id="lang">
+        <select class="two__navigation-language" id="lang">
           <option value="en">en</option>
           <option value="ru">ru</option>
         </select>
-        <select class="two_navigation_theme" id="theme">
+        <select class="two__navigation-theme" id="theme">
           <option value="light">Light</option>
           <option value="dark">Dark</option>
         </select>
-        <div class="two_navigation_setting">
-          <a class="two_navigation_setting_link" href="#" id="myBtn"><img class="setting_img"
-              src="../assets/img/person_light/setting.svg" alt="setting"></a>
+        <div class="two__navigation-setting">
+          <a class="two__navigation-setting-link" href="#" id="myBtn"></a>
+        </div>
+        <div class="two__navigation-exit">
+          <a class="two__navigation-exit-link" href="index.html">
+          </a>
         </div>
         <div id="myModal" class="modal">
           <div class="modal-content">
             <div class="modal-header">
               <span class="close">&times;</span>
-              <h2 class="model-header-title">SETTING</h2>
+              <h2 class="model-header-title">SETTINGS</h2>
             </div>
             <div class="modal-body">
-              <p class="modal-body-text">Change Login</p>
+              <label class="modal-body-text">Change Login</label>
               <input type="text" class="modal-body-text-input">
-              <p class="modal-body-text">Repeat Login</p>
+              <label class="modal-body-text">Repeat Login</label>
               <input type="text" class="modal-body-text-input">
-              <p class="modal-body-text">Change Password</p>
+              <label class="modal-body-text">Change Password</label>
               <input type="text" class="modal-body-text-input">
-              <p class="modal-body-text">Repeat Password</p>
+              <label class="modal-body-text">Repeat Password</label>
               <input type="text" class="modal-body-text-input">
             </div>
             <div class="modal-footer">
-              <button class="modal-footer-btn">Change</button>
-              <button class="modal-footer-btn">Cancel</button>
+              <button class="modal-footer-btn create-btn">Change</button>
+              <button class="modal-footer-btn clear-btn">Cancel</button>
             </div>
           </div>
         </div>
-        <div class="two_navigation_exit">
-          <a class="two_navigation_exit_link" href="index.html">
-            <img class="exit_img" src="../assets/img/person_light/exit-light.svg" alt="exit">
-          </a>
-        </div>
       </nav>
-      <div class="two_line"></div>
-      <div class="two_datebase">
-        <div class="two_datebase_container">
-          <p class="two_datebase_container-title">Database</p>
-          <select class="two_datebase_container_dropdown" id="dbSelect">
+      <div class="two__line"></div>
+      <div class="two__database">
+        <div class="two__database-container">
+          <p class="two__database-container-title">Database</p>
+          <select class="two__database-container-dropdown" id="dbSelect">
             <option value="mysql">MySQL</option>
             <option value="postgresql">PostgreSQL</option>
             <option value="h2">H2</option>
@@ -70,26 +68,26 @@
             <option value="cassandra">Cassandra</option>
             <option value="graphdb">GraphDB</option>
           </select>
-          <div class="two_datebase_container_client" id="createPerson">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Fname*" id="firstName">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Iname*" id="lastName">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Age*" id="age">
-            <input type="text" class="two_datebase_container_client_input" placeholder="City" id="city">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Phone Number" id="phone">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Email*" id="email">
-            <input type="text" class="two_datebase_container_client_input" placeholder="Company Name" id="company">
+          <div class="two__database-container-client" id="createPerson">
+            <input type="text" class="two__database-container-client-input" placeholder="Fname*" id="firstName">
+            <input type="text" class="two__database-container-client-input" placeholder="Iname*" id="lastName">
+            <input type="text" class="two__database-container-client-input" placeholder="Age*" id="age">
+            <input type="text" class="two__database-container-client-input" placeholder="City" id="city">
+            <input type="text" class="two__database-container-client-input" placeholder="Phone Number" id="phone">
+            <input type="text" class="two__database-container-client-input" placeholder="Email*" id="email">
+            <input type="text" class="two__database-container-client-input" placeholder="Company Name" id="company">
             <div class="error-person" id='error'>*All fields must be filled</div>
-            <button class="two_datebase_container_client-btn" id="create">Create</button>
-            <button class="two_datebase_container_client-btn" id="clearAll">Clear All</button>
+            <button class="two__database-container-client-btn create-btn" id="create">Create</button>
+            <button class="two__database-container-client-btn clear-btn" id="clearAll">Clear All</button>
           </div>
         </div>
-        <div class="two_datebase_search">
-          <img class="input_find_img-fname" src="../assets/img/person_light/lupa.svg" alt="loupe">
-          <input class="input_find" type="text" placeholder="Find by fname...">
-          <img class="input_find_img-iname" src="../assets/img/person_light/lupa.svg" alt="loupe">
-          <input type="text" class="input_find" placeholder="Find by lname...">
-          <div class="two_datebase_search_page">
-            <div class="two_datebase_search_page_container">
+        <div class="two__database-search">
+          <img class="input__find-img-fname" src="../assets/img/lupa.svg" alt="loupe">
+          <input class="input__find" type="text" placeholder="Find by fname...">
+          <img class="input__find-img-lname" src="../assets/img/lupa.svg" alt="loupe">
+          <input type="text" class="input__find" placeholder="Find by lname...">
+          <div class="two__database-search-page">
+            <div class="two__database-search-page-container">
               <div class="table">
                 <div class="table__row">
                   <div class="table__row-item col-md">⯆ <span>FName</span></div>
@@ -105,7 +103,6 @@
           </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
 </body>

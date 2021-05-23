@@ -21,6 +21,11 @@ body {
   text-decoration-skip: objects;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
+  background-color: #e5e5e5;
+}
+
+.body--dark {
+    background-color: rgba(0, 0, 0, 0.85);
 }
 
 a {

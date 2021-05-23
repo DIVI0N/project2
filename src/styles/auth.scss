@@ -1,23 +1,21 @@
 .first {
   display: flex;
-  height: 100vh;
   background-color: $main-bg-light;
-  &_img {
+  &-img {
     width: 359px;
     height: 292px;
     margin-left: 63px;
     margin-top: 219px;
   }
-  &_window {
+  &__window {
     display: flex;
     width: 600px;
     min-height: 500px;
     background-color: $secondary-bg-light;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 7px;
-    margin-left: 65px;
-    margin-top: 110px;
-    &_title {
+    margin: 110px 0 110px 65px;
+    &-title {
       position: absolute;
       height: 47px;
       margin-top: 226px;
@@ -28,7 +26,7 @@
       color: $fields-bg;
       transform: rotate(-90deg);
     }
-    &_slash {
+    &-slash {
       position: absolute;
       height: 5px;
       width: 432px;
@@ -37,23 +35,23 @@
       background: rgba(196, 196, 196, 0.7);
       transform: rotate(-90deg);
     }
-    &_account {
+    &-account {
       margin-left: 181px;
-      &_login {
+      &-login {
         color: $secondary-bg-dark;
         font-weight: 400;
         font-size: 23px;
         line-height: 28px;
         margin-top: 30px;
       }
-      &_password {
+      &-password {
         color: $secondary-bg-dark;
         font-weight: 400;
         font-size: 23px;
         line-height: 28px;
         margin-top: 18px;
       }
-      &_repeat {
+      &-repeat {
         color: $secondary-bg-dark;
         font-weight: 400;
         font-size: 23px;
@@ -62,9 +60,9 @@
       }
     }
   }
-  .input_login,
-  .input_password,
-  .input_repeat {
+  .input-login,
+  .input-password,
+  .input-repeat {
     margin-top: 16px;
     width: 294px;
     height: 55px;
@@ -76,19 +74,17 @@
     font-size: 20px;
     outline: none;
   }
-  .input_password {
+  .input-password,
+  .input-repeat {
     position: relative;
   }
-  .input_repeat {
-    position: relative;
-  }
-  .img_password {
+  .img-password {
     position: absolute;
     margin-top: 35px;
     margin-left: -25px;
     cursor: pointer;
   }
-  .img_repeat {
+  .img-repeat {
     position: absolute;
     margin-top: 35px;
     margin-left: -25px;
@@ -119,11 +115,11 @@
     display: flex;
     margin-left: 68px;
     margin-top: 16px;
-    .img_registration {
+    .img-registration {
       width: 28px;
       height: 26px;
     }
-    .registration_title {
+    .registration-title {
       color: $secondary-bg-dark;
       font-weight: 400;
       font-size: 20px;
@@ -131,6 +127,28 @@
       margin-left: 14px;
       text-decoration: none;
       cursor: pointer;
+
+      &:hover {
+        border-bottom: 2px solid rebeccapurple;
+      }
     }
+  }
+}
+
+.btn--registration {
+  transition: 0.5s;
+  display: block;
+  &:hover {
+    background-image: linear-gradient(
+      to right,
+      #43cea2 0%,
+      #185a9d 51%,
+      #43cea2 100%
+    );
+    color: $white;
+  }
+
+  &:active {
+    background: #185a9d;
   }
 }
