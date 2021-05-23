@@ -2,62 +2,71 @@ import { support } from '..';
 
 export default function theme() {
   const { lsGet, lsSet, qs } = support;
-
   const select = qs('#theme');
   const theme = lsGet('theme') ?? lsSet('theme', select.value);
-
   select.value = theme;
+
+  const changeTheme = () => {
+    let item = qs('body');
+    let item2 = qs('.two__navigation');
+    let item3 = qs('.two__navigation-language');
+    let item4 = qs('.two__navigation-theme');
+    let item5 = qs('.two__database-container-title');
+    let item6 = qs('.two__database-container-dropdown');
+    let item7 = qs('.two__database-container-client');
+    let item8 = document.querySelectorAll('.input__find');
+    let item9 = qs('.two__database-search-page');
+    let item10 = document.querySelectorAll('.first');
+    let item11 = qs('.first__window');
+    let item12 = qs('.first__window--dark-account-login');
+    let item13 = qs('.first__window--dark-account-login-password');
+    let item14 = qs('.registration-title');
+    let item15 = qs('.two__navigation-exit');
+    if (lsGet('theme') === 'dark') {
+      item.classList.add('body--dark');
+      item2.classList.add('two__navigation--dark');
+      item3.classList.add('two__navigation-language--dark');
+      item4.classList.add('two__navigation-theme--dark');
+      item5.classList.add('two__database-container-title--dark');
+      item6.classList.add('two__database-container-dropdown--dark');
+      item7.classList.add('two__database-container-client--dark');
+      item8[0].classList.add('input__find--dark');
+      item8[1].classList.add('input__find--dark');
+      item9.classList.add('two__database-search-page--dark');
+      // auth
+      // item10[0].classList.add('first--dark');
+      // item10[1].classList.add('first--dark');
+      // item11.classList.add('first__window--dark');
+      // item12.classList.add('first__window--dark-account-login--dark');
+      // item13.classList.add('first__window--dark-account-login-password--dark');
+      // item14.classList.add('registration-title--dark');
+      item15.classList.add('two__navigation-exit--dark');
+    } else {
+      item.classList.remove('body--dark');
+      item2.classList.remove('two__navigation--dark');
+      item3.classList.remove('two__navigation_language--dark');
+      item4.classList.remove('two__navigation-theme--dark');
+      item5.classList.remove('two__database-container-title--dark');
+      item6.classList.remove('two__database-container-dropdown--dark');
+      item7.classList.remove('two__database-container-client--dark');
+      item8[0].classList.remove('input__find--dark');
+      item8[1].classList.remove('input__find--dark');
+      item9.classList.remove('two__database-search-page--dark');
+      // auth
+      // item10[0].classList.remove('first--dark');
+      // item10[1].classList.remove('first--dark');
+      // item11.classList.remove('first__window--dark');
+      // item12.classList.remove('first__window--dark-account-login--dark');
+      // item13.classList.remove(
+      //   'first__window--dark-account-login-password--dark'
+      // );
+      // item14.classList.remove('registration-title--dark');
+      item15.classList.remove('two__navigation-exit--dark');
+    }
+  };
 
   select.addEventListener('change', (e) => {
     lsSet('theme', e.target.value);
-    if (lsGet('theme') === 'dark') {
-      document.querySelector('.two').style.background = 'rgba(0, 0, 0, 0.85)';
-    } else {
-      document.querySelector('.two').style.background = '#F8F8F8';
-      const inputs = document.querySelectorAll('input');
-      inputs.forEach((el) => { });
-    }
+    changeTheme();
   });
 }
-
-let item1 = document.querySelector('.two');
-let item2 = document.querySelector('.two_navigation');
-let item3 = document.querySelector('.two_navigation_language');
-let item4 = document.querySelector('.two_navigation_theme');
-let item5 = document.querySelector('.two_datebase_container-title');
-let item6 = document.querySelector('.two_datebase_container_dropdown');
-let item7 = document.querySelector('.two_datebase_container_client');
-let item8 = document.querySelector('.input_find');
-console.log(item8);
-// let item10 = document.querySelector('.two_datebase_container_client_text');
-// let item11 = document.querySelector('.two_datebase_container_client_text');
-
-
-// let newObj = {};
-// newObj.item1 = 'two';
-// newObj.item2 = 'two_navigation';
-// newObj.item3 = 'two_navigation_language';
-// newObj.item4 = 'two_navigation_theme';
-// newObj.item5 = 'two_datebase_container-title';
-// newObj.item6 = 'two_datebase_container_dropdown';
-// newObj.item7 = 'two_datebase_container_client';
-// newObj.item8 = 'input_find';
-
-
-// let element;
-// for (const key in newObj) {
-//   if (newObj.hasOwnProperty.call(newObj, key)) {
-//     element = `${newObj[key]}--dark`;
-//     console.log(element);
-//   }
-
-//       item1.classList.add(element);
-//       item2.classList.add(element);
-//       item3.classList.add(element);
-//       item4.classList.add(element);
-//       item5.classList.add(element);
-//       item6.classList.add(element);
-//       item7.classList.add(element);
-//       item8.classList.add(element);
-// }
-// console.log('newObj', newObj);
