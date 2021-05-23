@@ -14,6 +14,7 @@ import { url } from './helpers/url';
 import changeDb from './person/changeDb';
 import { authLang, personLang } from './helpers/language';
 import tableEvent from './person/table/tableEvent';
+import liveSearch from './person/liveSearch';
 
 export {
   message, getFetch, support, validationReg, PersonHelper, row, url,
@@ -22,5 +23,6 @@ export {
 
 export {
   setting, theme, login, registration, sendPerson,
-  localization, getPerson, changeDb, setLang, tableEvent
+  localization, getPerson, changeDb, setLang, tableEvent,
+  liveSearch
 };

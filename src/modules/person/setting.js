@@ -1,15 +1,16 @@
+import { support } from '..';
+
 export default function setting() {
-  const modal = document.getElementById('myModal');
-  const btn = document.getElementById('myBtn');
-  const span = document.getElementsByClassName('close')[0];
+  const { qs } = support;
+  const modal = qs('#myModal');
+  const btn = qs('#myBtn');
+  const span = qs('.close');
+  const cancel = qs('#cancel');
 
-  btn.onclick = function () {
-    modal.style.display = 'block';
-  };
 
-  span.onclick = function () {
-    modal.style.display = 'none';
-  };
+  closeModal(btn, modal, 'block');
+  closeModal(span, modal);
+  closeModal(cancel, modal);
 
   window.onclick = function (event) {
     if (event.target == modal) {
@@ -17,3 +18,10 @@ export default function setting() {
     }
   };
 }
+
+function closeModal(trigger, elem, display = 'none') {
+  trigger.addEventListener('click', () => {
+    elem.style.display = display;
+  });
+}
+
