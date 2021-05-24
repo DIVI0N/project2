@@ -1,6 +1,6 @@
 export const url = {
-  main: 'http://localhost:3000',
-  client: 'http://localhost:4200',
+  main: 'http://50.17.127.237/api',
+  client: 'http://50.17.127.237',
   auth: {
     registration: '/auth/registration',
     login: '/auth/login'

@@ -5,7 +5,9 @@ export default function changeDb() {
   const dbSelect = qs('#dbSelect');
 
   dbSelect.value = lsGet('db');
-
+  if (!lsGet('db')) {
+    dbSelect.value = 'mysql';
+  }
   lsSet('db', dbSelect.value);
 
   dbSelect.addEventListener('change', (e) => {
