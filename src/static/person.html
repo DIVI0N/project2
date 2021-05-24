@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <title>Daydream</title>
 </head>
+
 <body>
   <section class="two">
     <div class="container">
@@ -20,8 +22,8 @@
           <option value="ru">ru</option>
         </select>
         <select class="two__navigation-theme" id="theme">
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
+          <option id="themeLight" value="light">Light</option>
+          <option id="themeDark" value="dark">Dark</option>
         </select>
         <div class="two__navigation-setting">
           <a class="two__navigation-setting-link" href="#" id="myBtn"></a>
@@ -34,21 +36,19 @@
           <div class="modal-content">
             <div class="modal-header">
               <span class="close">&times;</span>
-              <h2 class="model-header-title">SETTINGS</h2>
+              <h2 class="model-header-title" id="settingTitle">SETTINGS</h2>
             </div>
             <div class="modal-body">
-              <label class="modal-body-text">Change Login</label>
-              <input type="text" class="modal-body-text-input">
-              <label class="modal-body-text">Repeat Login</label>
-              <input type="text" class="modal-body-text-input">
-              <label class="modal-body-text">Change Password</label>
-              <input type="text" class="modal-body-text-input">
-              <label class="modal-body-text">Repeat Password</label>
-              <input type="text" class="modal-body-text-input">
+              <label class="modal-body-text" id="changeLogin">Change Login</label>
+              <input type="text" class="modal-body-text-input" placeholder="Enter new login" id="changeLoginIpt">
+              <label class="modal-body-text" id="changePassword">Change Password</label>
+              <input type="text" class="modal-body-text-input" placeholder="Enter new password" id="changePasswordIpt">
+              <label class="modal-body-text" id="repeatPass">Repeat Password</label>
+              <input type="text" class="modal-body-text-input" placeholder="Repeat password" id="changeRepeatIpt">
             </div>
             <div class="modal-footer">
-              <button class="modal-footer-btn create-btn">Change</button>
-              <button class="modal-footer-btn clear-btn">Cancel</button>
+              <button class="modal-footer-btn create-btn" id="change">Change</button>
+              <button class="modal-footer-btn clear-btn" id="cancel">Cancel</button>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@
       <div class="two__line"></div>
       <div class="two__database">
         <div class="two__database-container">
-          <p class="two__database-container-title">Database</p>
+          <p class="two__database-container-title" id="dbTitle">Database</p>
           <select class="two__database-container-dropdown" id="dbSelect">
             <option value="mysql">MySQL</option>
             <option value="postgresql">PostgreSQL</option>
@@ -81,12 +81,12 @@
         </div>
         <div class="two__database-search">
           <img class="input__find-img-fname" src="../assets/img/lupa.svg" alt="loupe">
-          <input class="input__find" type="text" placeholder="Find by fname...">
+          <input class="input__find" type="text" placeholder="Find by fname..." id="findName">
           <img class="input__find-img-lname" src="../assets/img/lupa.svg" alt="loupe">
-          <input type="text" class="input__find" placeholder="Find by lname...">
+          <input type="text" class="input__find" placeholder="Find by lname..." id="findLname">
           <div class="two__database-search-page">
             <div class="two__database-search-page-container">
-              <div class="table">
+              <div class="table" id="mainTable">
                 <div class="table__row table-head">
                   <div class="table__row-item head-item col-md" data-txt="firstName">⯆ <span id="fnameSpn">FName</span>
                   </div>
@@ -110,4 +110,5 @@
     </div>
   </section>
 </body>
+
 </html>
