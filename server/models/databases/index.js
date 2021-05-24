@@ -4,6 +4,8 @@
 const { Mongo, PersonSchema } = require('./Mongo');
 // const MySql = require('./MySql');
 const PostgreSql = require('./PostgreSql');
+const SQLite = require('./SQLite.js');
+
 
 module.exports = {
   // Cassandra,
@@ -12,7 +14,6 @@ module.exports = {
   Mongo,
   // MySql,
   PostgreSql,
-  PersonSchema
+  PersonSchema,
+  SQLite
 };
-
-
