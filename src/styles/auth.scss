@@ -1,6 +1,7 @@
+
 .first {
   display: flex;
-  background-color: $main-bg-light;
+  background-color: var(--bg-default);
   &-img {
     width: 359px;
     height: 292px;
@@ -11,7 +12,7 @@
     display: flex;
     width: 600px;
     min-height: 500px;
-    background-color: $secondary-bg-light;
+    background-color: var(--bg);
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 7px;
     margin: 110px 0 110px 65px;
@@ -38,21 +39,21 @@
     &-account {
       margin-left: 181px;
       &-login {
-        color: $secondary-bg-dark;
+        color: var(--color-text);
         font-weight: 400;
         font-size: 23px;
         line-height: 28px;
         margin-top: 30px;
       }
       &-password {
-        color: $secondary-bg-dark;
+        color: var(--color-text);
         font-weight: 400;
         font-size: 23px;
         line-height: 28px;
         margin-top: 18px;
       }
       &-repeat {
-        color: $secondary-bg-dark;
+        color: var(--color-text);
         font-weight: 400;
         font-size: 23px;
         line-height: 28px;
@@ -120,7 +121,7 @@
       height: 26px;
     }
     .registration-title {
-      color: $secondary-bg-dark;
+      color: var(--color-text);
       font-weight: 400;
       font-size: 20px;
       line-height: 24px;
@@ -129,7 +130,7 @@
       cursor: pointer;
 
       &:hover {
-        border-bottom: 2px solid rebeccapurple;
+        border-bottom: 2px solid var(--color-text);
       }
     }
   }

@@ -11,7 +11,7 @@ class PostgreSql {
       ssl: false,
     };
     this.client = new pg.Client(this.config);
-    // this.client.connect();
+    this.client.connect();
   }
 
 
