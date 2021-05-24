@@ -7,9 +7,5 @@ export default async function getPerson() {
 
   const getPersons = await getData(`${database}/${dbName}`);
   const persons = await getPersons.json();
-<<<<<<< HEAD
-=======
-
->>>>>>> 79602941ae1d251844d63b396be1e004756d50d9
   row(persons.message);
 }
