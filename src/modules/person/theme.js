@@ -1,22 +1,23 @@
-export default function theme() {
-  const select = document.querySelector('#theme');
-  const theme = localStorage.getItem('theme') ??
-    localStorage.setItem('theme', select.value);
+import { support } from '..';
 
+export const personPage = document.getElementById('person-page');
+export const authPage = document.getElementById('auth-page');
+
+
+export const changeTheme = () => {
+  const { lsGet } = support;
+  let theme = lsGet('data-theme');
+  document.documentElement.setAttribute('data-theme', theme);
+};
+
+export default function theme() {
+  const { lsGet, lsSet, qs } = support;
+  const select = qs('#theme');
+  const theme = lsGet('data-theme') ?? lsSet('data-theme', select.value);
   select.value = theme;
 
-
   select.addEventListener('change', (e) => {
-    localStorage.setItem('theme', e.target.value);
-    if (localStorage.getItem('theme') === 'dark') {
-      document.querySelector('.two').style.background = 'rgba(0, 0, 0, 0.85)';
-    }
-    else {
-      document.querySelector('.two').style.background = '#F8F8F8';
-      const inputs = document.querySelectorAll('input');
-      inputs.forEach(el => {
-
-      });
-    }
+   lsSet('data-theme', e.target.value);
+   changeTheme();
   });
 }

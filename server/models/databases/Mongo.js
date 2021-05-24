@@ -51,7 +51,7 @@ class Mongo {
   getPerson = async (req, res) => {
     try {
       const person = await PersonSchema.find({ user: req.user.userId });
-      if (req.query.sort || req.query !== '_id') {
+      if (req.query.sort || req.query.sort !== '_id') {
         person.sort((a, b) => a[req.query.sort] > b[req.query.sort] ? 1 : -1);
       }
       this.#setResponse(res, 200, person);

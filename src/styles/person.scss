@@ -1,103 +1,120 @@
 .container {
   margin: 0 auto;
   width: 1170px;
+  padding-bottom: 35px;
 }
 
 .two {
-  height: 100%;
-  background-color: $main-bg-light;
-  &_navigation {
+  &__navigation {
     display: flex;
-    &_logo {
-      .logo_img {
+    &-logo {
+      .logo-img {
         width: 125px;
         height: 89px;
         margin-top: 4px;
       }
     }
-    &_language {
+    &-language {
       width: 90px;
       height: 35px;
       margin-left: auto;
       margin-top: 44px;
-      background: $secondary-bg-light;
+      background-color: var(--bg);
       border: 1px solid $gray;
       box-sizing: border-box;
       border-radius: 7px;
       font-size: 18px;
       line-height: 22px;
-      color: $secondary-bg-dark;
+      color: var(--color-text);
       padding-left: 28px;
     }
-    &_theme {
+    &-theme {
       width: 90px;
       height: 35px;
       margin-left: 25px;
       margin-top: 44px;
-      background: $secondary-bg-light;
+      background-color: var(--bg);
       border: 1px solid $gray;
       box-sizing: border-box;
       border-radius: 7px;
       font-size: 18px;
       line-height: 22px;
-      color: $secondary-bg-dark;
-      padding-left: 15px;
+      color: var(--color-text);
+      font-size: 16px;
+      padding-left: 20px;
     }
-    &_setting {
+    &-setting {
       width: 52px;
       height: 50px;
       margin-left: 22px;
       margin-top: 42px;
+      background: url("../assets/img/setting.svg");
+      cursor: pointer;
+
+      &-link {
+        width: 52px;
+        height: 50px;
+        display: inline-block;
+      }
     }
-    &_exit {
+    &-exit {
       width: 43px;
       height: 45px;
       margin-left: 22px;
       margin-top: 46px;
+      background: var(--background);
+      cursor: pointer;
+
+      &-link {
+        width: 43px;
+        height: 45px;
+        display: inline-block;
+      }
     }
   }
-  &_line {
+  &__line {
     position: absolute;
     width: 1170px;
     height: 2px;
     background: $gray;
     transform: matrix(1, 0, 0, -1, 0, 0);
   }
-  &_datebase {
+  &__database {
     display: flex;
     margin-top: 24px;
-    &_container {
-      p {
+    padding-bottom: 35px;
+    &-container {
+      &-title {
         margin-top: 24px;
         margin-left: 11px;
-        color: $secondary-bg-dark;
+        color: var(--color-text);
         font-weight: 400;
         font-size: 20px;
         line-height: 24px;
       }
-      &_dropdown {
+      &-dropdown {
         margin-top: 2px;
         width: 180px;
         height: 40px;
-        background: $secondary-bg-light;
+        background-color: var(--bg);
         border: 1px solid $gray;
         box-sizing: border-box;
         border-radius: 5px;
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;
-        color: $secondary-bg-dark;
+        color: var(--color-text);
         padding-left: 29px;
       }
-      &_client {
+      &-client {
         width: 180px;
         height: 375px;
-        background: $secondary-bg-light;
+        background-color: var(--bg);
         border: 1px solid $gray;
         box-sizing: border-box;
         border-radius: 7px;
-        margin-top: 145px;
-        &_input {
+        margin-top: 18px;
+        &-input {
           width: 156px;
           height: 24px;
           background: $fields-bg;
@@ -113,7 +130,7 @@
           text-align: center;
           color: $secondary-bg-dark;
         }
-        &_text {
+        &-text {
           font-weight: 400;
           font-size: 10px;
           line-height: 12px;
@@ -142,11 +159,11 @@
         }
       }
     }
-    &_search {
-      .input_find {
+    &-search {
+      .input__find {
         width: 200px;
         height: 40px;
-        background: $secondary-bg-light;
+        background-color: var(--bg);
         border: 1px solid $gray;
         box-sizing: border-box;
         border-radius: 5px;
@@ -155,17 +172,21 @@
         padding-left: 50px;
         font-style: italic;
         font-weight: 400;
-        font-size: 18px;
+        font-size: 14px;
         line-height: 22px;
-        color: $secondary-bg-dark;
-        &_img-fname {
+        color: var(--color-text);
+
+        &::placeholder {
+          color: var(--color-text);
+        }
+        &-img-fname {
           position: absolute;
           width: 26px;
           height: 26px;
           margin-top: 57px;
           margin-left: 25px;
         }
-        &_img-iname {
+        &-img-lname {
           position: absolute;
           width: 26px;
           height: 26px;
@@ -173,36 +194,156 @@
           margin-left: 25px;
         }
       }
-      &_page {
+      &-page {
         margin-top: 18px;
         margin-left: 21px;
-        width: 963px;
-        height: 502px;
-        background: $secondary-bg-light;
+        width: 980px;
+        background-color: var(--bg);
+        border: 1px solid #c4c4c4;
         box-shadow: 0px 5px 20px rgba(80, 80, 80, 0.1);
         border-radius: 7px;
-        padding-top: 18px;
-        &_container {
+        padding: 18px 0 12px;
+        &-container {
           margin: 0 auto;
           margin-top: 8px;
           width: 931px;
-          height: 43px;
-          background: $fields-bg;
-          border: 1px solid $secondary-bg-dark;
+          height: 100%;
           box-sizing: border-box;
-          border-radius: 7px;
         }
-      }
-      .page_list {
-        list-style: url("../assets/img/person_light/sort-down.svg");
-        color: $secondary-bg-dark;
-        font-size: 18px;
-        display: flex;
-        justify-content: space-around;
-        margin-top: 5px;
-        margin-left: 25px;
-        cursor: pointer;
       }
     }
   }
+}
+
+.table {
+  &__row {
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid black;
+    display: flex;
+    margin-bottom: $row-margin;
+    border-radius: 4px;
+    font-size: 14px;
+    background: $fields-bg;
+    overflow-wrap: break-word;
+    position: relative;
+
+    &:hover {
+      background: #cecece;
+    }
+    &-delete {
+      right: -20px;
+      top: 3px;
+      position: absolute;
+      font-size: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    &.table-head {
+      div {
+        user-select: none;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: left;
+        display: grid;
+        grid-template-columns: 1fr 10fr;
+        span {
+          display: inline-block;
+          text-align: center;
+          font-style: italic;
+          justify-self: center;
+          font-family: "Roboto";
+          font-weight: 400;
+          font-size: 18px;
+        }
+      }
+    }
+    &:last-child {
+      div:before {
+        content: "";
+        border: none;
+      }
+    }
+    &-item {
+      position: relative;
+      margin: 0;
+      padding: 0 5px;
+      height: 43px;
+      text-align: center;
+      line-height: 2;
+      font-size: 1rem;
+      border-right: 1px solid black;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      align-items: center;
+      display: grid;
+      &::before {
+        content: "";
+        top: -10px;
+        left: -1px;
+        height: ($row-margin + $row-padding) * 4;
+        border-right: 1px solid black;
+        position: absolute;
+      }
+      &:first-child {
+        &::before {
+          content: "";
+          border-right: 1px solid black;
+        }
+      }
+
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
+
+  &__item {
+    height: 43px;
+    padding: 10px;
+    color: $secondary-bg-dark;
+    background: $fields-bg;
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.col-sm {
+  width: 70px;
+}
+
+.col-md {
+  width: 130px;
+}
+
+.col-lg {
+  width: 156px;
+}
+
+.create-btn {
+  &:hover {
+    background: #68e77d;
+  }
+
+  &:active {
+    background: #1deb3f;
+  }
+}
+
+.clear-btn {
+  &:hover {
+    background: #ff3a3a;
+  }
+
+  &:active {
+    background: #ff0000;
+  }
+}
+
+.search-hide {
+  display: none;
 }

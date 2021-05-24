@@ -1,12 +1,14 @@
-import { message, getFetch } from '..';
-import AuthHelper from './authHelper';
+import { message, getFetch, support, url } from '..';
+import AuthHelper from '../helpers/authHelper';
 
 export default function registration() {
   const
-    loginInput = document.querySelector('.input_login'),
-    passwordInput = document.querySelector('.input_password'),
-    passwordRepeat = document.querySelector('.input_repeat'),
-    regBtn = document.querySelector('#registration');
+    { qs, lsGet } = support,
+    loginInput = qs('.input-login'),
+    passwordInput = qs('.input-password'),
+    passwordRepeat = qs('.input-repeat'),
+    regBtn = qs('#registration'),
+    lang = lsGet('lang') || 'en';
 
   const { showErr, togglePassword } = new AuthHelper();
 
@@ -20,13 +22,13 @@ export default function registration() {
       pass = passwordInput.value,
       repeatPass = passwordRepeat.value;
     if (!loginReg.test(login)) {
-      return showErr(message.invalidLogin);
+      return showErr(message.invalidLogin[lang]);
     }
     else if (!passReg.test(pass)) {
-      return showErr(message.invalidPass);
+      return showErr(message.invalidPass[lang]);
     }
     else if (pass !== repeatPass) {
-      return showErr(message.invalidRepeatPass);
+      return showErr(message.invalidRepeatPass[lang]);
     }
     const body = {
       login,
@@ -35,7 +37,7 @@ export default function registration() {
     try {
       const response = await getFetch('/auth/registration', body, 'POST');
       const message = await response.json();
-      response.ok ? location.replace('http://localhost:4200/index.html') : showErr(message.message);
+      response.ok ? location.replace(`${url.client}/index.html`) : showErr(message.message);
     }
     catch (e) {
       throw new Error(e);
