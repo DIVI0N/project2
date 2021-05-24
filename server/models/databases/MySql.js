@@ -36,7 +36,7 @@ class MySql {
             const newField = req.body;
             const userID = req.user.userId;
             const queryAll = `SELECT * FROM persons WHERE id_user = '${userID}'`;
-            const queryCreate = `INSERT INTO persons (id_user, fname, lname, age, city, phonenumber, email, companyname) VALUES ('${userID}', '${newField.firstName}', '${newField.lastName}', ${newField.age}, '${newField.city}','${newField.phone}', '${newField.email}', '${newField.company}')`;
+            const queryCreate = `INSERT INTO persons (id_user, firstName, lastName, age, city, phone, email, company) VALUES ('${userID}', '${newField.firstName}', '${newField.lastName}', ${newField.age}, '${newField.city}','${newField.phone}', '${newField.email}', '${newField.company}')`;
             await this.client.query(queryCreate);
             const result = await this.client.query(queryAll);
             this.#setResponse(res, 200, result);
