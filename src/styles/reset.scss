@@ -6,6 +6,22 @@
   padding: 0;
 }
 
+html{
+  --bg-default: #e5e5e5;
+  --color-text: #484b54;
+  --bg: #f8f8f8;
+  --background: url("../assets/img/exit-light.svg");
+  --color-text: #484b54;
+}
+
+html[data-theme='dark'] {
+  --bg-default: rgba(0, 0, 0, 0.85);
+  --color-text: #fff;
+  --bg: #484b54;
+  --background: url("../assets/img/exit-dark.svg");
+  --color-text: #fff;
+}
+
 html {
   height: 100%;
 }
@@ -21,7 +37,7 @@ body {
   text-decoration-skip: objects;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
-  background-color: #e5e5e5;
+  background-color: var(--bg-default);
 }
 
 .body--dark {

@@ -1,6 +1,6 @@
 import {
   changeDb, getPerson, localization, login,
-  registration, sendPerson, setLang, setting, theme, personPage, authPage,
+  registration, sendPerson, setLang, setting, theme, changeTheme,
   authLang, personLang, tableEvent, liveSearch
 } from './modules';
 import './styles/index.scss';
@@ -12,15 +12,17 @@ window.addEventListener('DOMContentLoaded', () => {
   if (location.pathname === '/' || location.pathname === '/index.html') {
     login();
     setLang(loginTxt, loginIpt);
-    theme(authPage);
+    changeTheme();
   }
   else if (location.pathname === '/registration.html') {
     registration();
     setLang(registrationTxt, regIpt);
+    changeTheme();
   }
   else if (location.pathname === '/person.html') {
     localization();
-    theme(personPage);
+    theme();
+    changeTheme();
     setting();
     sendPerson();
     getPerson();

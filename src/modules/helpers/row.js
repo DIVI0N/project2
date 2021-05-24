@@ -1,7 +1,5 @@
-import { support } from '..';
-
 export const row = (data) => {
-  const table = support.qs('.table-content');
+  const table = document.querySelector('.table-content');
   let tableRow = '';
   data.forEach(el => {
     tableRow +=
