@@ -1,7 +1,6 @@
 import { getData, getPerson, support, url, getFetch, row } from '../..';
 const { lsGet } = support;
 export const deleteRow = (e) => {
-
   if (e.target.getAttribute('id') === 'deleteRow') {
     const id = e.target.getAttribute('data-id');
     const delUrl = `${url.database}/${lsGet('db')}?id=${id}`;
@@ -25,7 +24,6 @@ export const blurRow = (e) => {
     const body = {
       [dataName]: e.target.textContent
     };
-
     getFetch(blurUrl, body, 'PUT');
   }
 };
