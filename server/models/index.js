@@ -5,9 +5,10 @@ const { Cassandra, GraphDb, H2, Mongo, MySql, PostgreSql, PersonSchema } = requi
 module.exports = {
   User,
   UserSchema,
-  Cassandra,
-  GraphDb,
-  H2,
+  // Cassandra,
+  // GraphDb,
+  // H2,
   Mongo,
-  PostgreSql
+  MySql,
+  // PostgreSql
 };
