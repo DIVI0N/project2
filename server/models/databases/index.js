@@ -4,6 +4,7 @@
 const { Mongo, PersonSchema } = require('./Mongo');
 // const MySql = require('./MySql');
 const PostgreSql = require('./PostgreSql');
+const Redis = require('./Redis');
 
 module.exports = {
   // Cassandra,
@@ -12,6 +13,7 @@ module.exports = {
   Mongo,
   // MySql,
   PostgreSql,
+  Redis,
   PersonSchema
 };
 
