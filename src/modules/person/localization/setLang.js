@@ -1,7 +1,10 @@
 import { support } from '../..';
 
 export const setLang = (txt, ipt) => {
-  const lang = support.lsGet('lang');
+  let lang = support.lsGet('lang');
+  if (!lang) {
+    lang = 'en';
+  }
   for (const key in txt) {
     document.getElementById(key).textContent = txt[key][lang];
   }

@@ -11,7 +11,6 @@ export default class PersonHelper {
   }
 
   changeCreateIpt = (e, body, id) => {
-
     if (e.target.getAttribute('id') === id) {
       body[id] = e.target.value;
     }

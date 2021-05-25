@@ -18,10 +18,10 @@ const support = {
     });
   },
 
-  dbConnected: async (app, port, arrDB) => {
+  dbConnected: (app, port, arrDB) => {
     try {
-      arrDB.forEach(el => {
-        el.сonnect();
+      arrDB.forEach(async (el) => {
+        await el.сonnect();
       });
       app.listen(port, () => {
         console.log(`Server is running on port ${port}`);

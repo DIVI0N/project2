@@ -24,7 +24,7 @@ auth.post(
 auth.post(
   '/setting',
   support.authToken,
-  validation.setting,
+  validation.auth,
   (req, res) => {
     const user = new User(UserSchema);
     user.setting(req, res);

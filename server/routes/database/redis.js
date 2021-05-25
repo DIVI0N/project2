@@ -13,10 +13,10 @@ redis.post('/', (req, res, next) => {
 });
 
 redis.put('/', (req, res, next) => {
-  Redis.create(req, res);
+  Redis.update(req, res);
 });
 
-redis.delete('/:id', (req, res, next) => {
+redis.delete('/', (req, res, next) => {
   Redis.delete(req, res);
 });
 

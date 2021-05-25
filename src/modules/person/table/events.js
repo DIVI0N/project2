@@ -1,5 +1,7 @@
 import { getData, getPerson, support, url, getFetch, row } from '../..';
+
 const { lsGet } = support;
+
 export const deleteRow = (e) => {
   if (e.target.getAttribute('id') === 'deleteRow') {
     const id = e.target.getAttribute('data-id');

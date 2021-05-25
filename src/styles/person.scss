@@ -276,8 +276,8 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      align-items: center;
-      display: grid;
+      text-align: center;
+      padding-top: 4px;
       &::before {
         content: "";
         top: -10px;
