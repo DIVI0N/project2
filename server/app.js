@@ -14,8 +14,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/auth', auth);
-app.use('/database', database);
+app.use('/api/auth', auth);
+app.use('/api/database', database);
 
 const models = [Mongo];
 support.dbConnected(app, PORT, models);
