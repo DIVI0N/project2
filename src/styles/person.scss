@@ -19,13 +19,13 @@
       height: 35px;
       margin-left: auto;
       margin-top: 44px;
-      background: $secondary-bg-light;
+      background-color: var(--bg);
       border: 1px solid $gray;
       box-sizing: border-box;
       border-radius: 7px;
       font-size: 18px;
       line-height: 22px;
-      color: $secondary-bg-dark;
+      color: var(--color-text);
       padding-left: 28px;
     }
     &-theme {
@@ -33,21 +33,22 @@
       height: 35px;
       margin-left: 25px;
       margin-top: 44px;
-      background: $secondary-bg-light;
+      background-color: var(--bg);
       border: 1px solid $gray;
       box-sizing: border-box;
       border-radius: 7px;
       font-size: 18px;
       line-height: 22px;
-      color: $secondary-bg-dark;
+      color: var(--color-text);
       font-size: 16px;
+      padding-left: 20px;
     }
     &-setting {
       width: 52px;
       height: 50px;
       margin-left: 22px;
       margin-top: 42px;
-      background: url('../assets/img/setting.svg');
+      background: url("../assets/img/setting.svg");
       cursor: pointer;
 
       &-link {
@@ -61,7 +62,7 @@
       height: 45px;
       margin-left: 22px;
       margin-top: 46px;
-      background: url('../assets/img/exit-light.svg');
+      background: var(--background);
       cursor: pointer;
 
       &-link {
@@ -86,7 +87,7 @@
       &-title {
         margin-top: 24px;
         margin-left: 11px;
-        color: $secondary-bg-dark;
+        color: var(--color-text);
         font-weight: 400;
         font-size: 20px;
         line-height: 24px;
@@ -95,20 +96,20 @@
         margin-top: 2px;
         width: 180px;
         height: 40px;
-        background: $secondary-bg-light;
+        background-color: var(--bg);
         border: 1px solid $gray;
         box-sizing: border-box;
         border-radius: 5px;
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;
-        color: $secondary-bg-dark;
+        color: var(--color-text);
         padding-left: 29px;
       }
       &-client {
         width: 180px;
         height: 375px;
-        background: $secondary-bg-light;
+        background-color: var(--bg);
         border: 1px solid $gray;
         box-sizing: border-box;
         border-radius: 7px;
@@ -162,7 +163,7 @@
       .input__find {
         width: 200px;
         height: 40px;
-        background: $secondary-bg-light;
+        background-color: var(--bg);
         border: 1px solid $gray;
         box-sizing: border-box;
         border-radius: 5px;
@@ -173,7 +174,11 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 22px;
-        color: $secondary-bg-dark;
+        color: var(--color-text);
+
+        &::placeholder {
+          color: var(--color-text);
+        }
         &-img-fname {
           position: absolute;
           width: 26px;
@@ -193,7 +198,7 @@
         margin-top: 18px;
         margin-left: 21px;
         width: 980px;
-        background: $secondary-bg-light;
+        background-color: var(--bg);
         border: 1px solid #c4c4c4;
         box-shadow: 0px 5px 20px rgba(80, 80, 80, 0.1);
         border-radius: 7px;
@@ -223,10 +228,10 @@
     overflow-wrap: break-word;
     position: relative;
 
-    &:hover{
+    &:hover {
       background: #cecece;
     }
-    &-delete{
+    &-delete {
       right: -20px;
       top: 3px;
       position: absolute;
@@ -247,6 +252,9 @@
           text-align: center;
           font-style: italic;
           justify-self: center;
+          font-family: "Roboto";
+          font-weight: 400;
+          font-size: 18px;
         }
       }
     }
@@ -260,7 +268,7 @@
       position: relative;
       margin: 0;
       padding: 0 5px;
-      height: 34px;
+      height: 43px;
       text-align: center;
       line-height: 2;
       font-size: 1rem;
@@ -268,6 +276,8 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      align-items: center;
+      display: grid;
       &::before {
         content: "";
         top: -10px;
@@ -319,7 +329,7 @@
     background: #68e77d;
   }
 
-  &:active{
+  &:active {
     background: #1deb3f;
   }
 }
@@ -329,11 +339,11 @@
     background: #ff3a3a;
   }
 
-  &:active{
+  &:active {
     background: #ff0000;
   }
 }
 
-.search-hide{
+.search-hide {
   display: none;
 }

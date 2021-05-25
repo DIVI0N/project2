@@ -5,10 +5,11 @@ const { Cassandra, GraphDb, H2, Mongo, MySql, PostgreSql, PersonSchema, sqlite3 
 module.exports = {
   User,
   UserSchema,
-  Cassandra,
-  GraphDb,
-  H2,
+  // Cassandra,
+  // GraphDb,
+  // H2,
   Mongo,
+  MySql,
   PostgreSql,
   sqlite3
 };
