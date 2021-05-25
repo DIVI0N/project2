@@ -3,36 +3,36 @@ const { message } = require('../../support');
 class MySql {
     constructor() {
         this.config = {
-            host: "localhost",
-            user: "root",
-            database: "test_db",
-            password: "root",
-            port: "3306"
+            host: 'localhost',
+            user: 'root',
+            database: 'test_db',
+            password: 'root',
+            port: '3306'
         };
         this.client = mysql.createConnection(this.config);
-        this.client.connect();
+        // this.client.connect();
     }
 
     async getRequest(req, res) {
         try {
-            console.log('asd')
+            console.log('asd');
             const userID = req.user.userId;
             const queryAll = `SELECT * FROM persons WHERE id_user = '${userID}'`;
             // const result = await this.client.query(queryAll);
             this.client.query(queryAll, (err, result) => {
                 this.#setResponse(res, 200, result);
-            })
+            });
             // console.log(result)
             // this.#setResponse(res, 200, result);
         } catch (err) {
-            console.log(err)
+            console.log(err);
             this.#setResponse(res, 403, message.abstractErr);
         }
     }
 
     async create(req, res) {
         try {
-            console.log(req.body)
+            console.log(req.body);
             const newField = req.body;
             const userID = req.user.userId;
             const queryAll = `SELECT * FROM persons WHERE id_user = '${userID}'`;
@@ -41,7 +41,7 @@ class MySql {
             const result = await this.client.query(queryAll);
             this.#setResponse(res, 200, result);
         } catch (err) {
-            console.log(err)
+            console.log(err);
             this.#setResponse(res, 403, message.abstractErr);
         }
     }

@@ -7,10 +7,10 @@ export default function tableEvent() {
     deleteRow(e);
     sortByData(e);
   });
+
   table.addEventListener('dblclick', (e) => {
     changeRowData(e);
     e.target.addEventListener('blur', blurRow);
   });
-
 }
 

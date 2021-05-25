@@ -9,6 +9,9 @@ const validation = {
       .isLength({ min: 8, max: 14 })
       .isAscii()
   ],
+  setting: [
+
+  ]
 };
 
 module.exports = validation;

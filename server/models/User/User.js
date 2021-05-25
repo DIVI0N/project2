@@ -69,7 +69,6 @@ class User {
     }
   }
 
-
   setting = async (req, res) => {
     try {
       const errors = validationResult(req);
