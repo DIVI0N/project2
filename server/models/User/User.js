@@ -80,18 +80,18 @@ class User {
         });
       }
       const user = await this.#schema.findById({ _id: req.user.userId });
-      if (req.body.field === 'password') {
-        const hashedPassword = await bcrypt.hash(req.body.update, 12);
-        user[req.body.field] = hashedPassword;
+      if (req.body.password) {
+        const hashedPassword = await bcrypt.hash(req.body.password, 12);
+        user.password = hashedPassword;
         await user.save();
-        return this.#setResponse(res, 200, message.changed);
       }
-      user[req.body.field] = req.body.update;
-      await user.save();
+      else if (req.body.login) {
+        user.login = req.body.login;
+        await user.save();
+      }
       this.#setResponse(res, 200, message.changed);
     }
     catch (e) {
-      console.log(e);
       this.#setResponse(res, 400, message.abstractErr);
     }
   }

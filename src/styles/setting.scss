@@ -90,7 +90,6 @@
       padding-top: 10px;
 
       &-input {
-        margin-left: 120px;
         margin-top: 8px;
         width: 240px;
         height: 45px;
@@ -136,4 +135,16 @@
       }
     }
   }
+}
+.validation-block{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+.img-password {
+  position: absolute;
+  margin-top: 53px;
+  margin-left: 200px;
+  cursor: pointer;
 }

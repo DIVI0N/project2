@@ -12,7 +12,7 @@ export const row = (data) => {
         <div contenteditable="false" data-name="phone" class="table__row-item table-body col-lg" title="${el.phone}">${el.phone || '-'}</div>
         <div contenteditable="false" data-name="email" class="table__row-item table-body col-lg" title="${el.email}">${el.email}</div>
         <div class="table__row-delete" id="deleteRow" data-id="${el._id || el.id}">&times;</div>
-        <div contenteditable="false" data-name="company"  class="table__row-item table-body col-lg" title="${el.company}">${el.company || '-'}</div>
+        <div contenteditable="false" data-name="company" class="table__row-item table-body col-lg" title="${el.company}">${el.company || '-'}</div>
       </div>
     `;
   });
