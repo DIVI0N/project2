@@ -11,19 +11,22 @@ class PostgreSql {
       ssl: false,
     };
     this.client = new pg.Client(this.config);
-    this.client.connect();
   }
 
+  connect = () => {
+    this.client.connect();
+  };
 
   async getRequest(req, res) {
     try {
       const userID = req.user.userId;
-      const queryAll = `SELECT * FROM persons WHERE id_user = '${userID}' ORDER BY "firstName", "lastName", age, city, phone, email, company`;
+      const queryAll = `SELECT * FROM persons WHERE id_user = '${userID}'`;
       const result = await this.client.query(queryAll);
+      if (req.query.sort || req.query.sort !== 'id') {
+        result.rows.sort((a, b) => a[req.query.sort] > b[req.query.sort] ? 1 : -1);
+      }
       this.#setResponse(res, 200, result.rows);
-      console.log(result.rows);
     } catch (err) {
-      console.log(err);
       this.#setResponse(res, 403, message.abstractErr);
     }
   }
@@ -46,7 +49,8 @@ class PostgreSql {
     try {
       const newField = req.body;
       const userID = req.user.userId;
-      const queryUpdate = `UPDATE persons SET "firstName" = '${newField.firstName}', "lastName" = '${newField.lastName}', age = ${newField.age}, city = '${newField.city}', phone = '${newField.phone}', email = '${newField.email}', company = '${newField.company}' WHERE id_user = '${userID}' AND id = ${newField.id};`;
+      const key = Object.keys(newField)[0];
+      const queryUpdate = `UPDATE persons SET "${key}" = '${newField[key]}' WHERE (id = ${req.query.id})`;
       await this.client.query(queryUpdate);
       const result = await this.client.query(`SELECT * FROM persons WHERE id_user = '${userID}'`);
       this.#setResponse(res, 200, result.fields);

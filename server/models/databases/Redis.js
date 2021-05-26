@@ -7,13 +7,13 @@ class Redis {
       host: 'localhost',
       port: 6379,
     };
-    this.client = redis.createClient(this.connection);
-    this.client.on('connect', (err) => {
-      if (err) {
-        return new Error();
-      }
-      console.log('Redis connected');
-    });
+    // this.client = redis.createClient(this.connection);
+    // this.client.on('connect', (err) => {
+    //   if (err) {
+    //     return new Error();
+    //   }
+    //   console.log('Redis connected');
+    // });
     // this.client.hmset('persons', {
     //   firstName: 'Jhon',
     //   lastName: 'Doe',

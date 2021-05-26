@@ -247,6 +247,7 @@
         text-align: left;
         display: grid;
         grid-template-columns: 1fr 10fr;
+        align-items: center;
         span {
           display: inline-block;
           text-align: center;
@@ -346,4 +347,31 @@
 
 .search-hide {
   display: none;
+}
+
+.head-item {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: '⯆';
+    width: 130px;
+    height: 40px;
+    padding: 2px 0 0 5px;
+  }
+}
+
+#citySpn,
+#emailSpn {
+  margin-left: 40px;
+}
+
+#fnameSpn,
+#lnameSpn {
+  margin-left: 30px;
+}
+
+#ageSpn,
+#phoneSpn,
+#companySpn {
+  margin-left: 20px;
 }

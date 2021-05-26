@@ -38,7 +38,7 @@ class Mongo {
     this.Person = Person;
   }
 
-  static async сonnect() {
+  static async connect() {
     const url = 'mongodb://localhost:27017/project2';
     await mongoose.connect(url, {
       useNewUrlParser: true,

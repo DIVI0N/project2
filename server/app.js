@@ -1,7 +1,7 @@
 const express = require('express');
 const { database, auth } = require('./routes');
 const { PORT, support } = require('./support');
-const { Mongo } = require('./models');
+const { Mongo, PostgreSql } = require('./models');
 
 const app = express();
 
@@ -17,6 +17,5 @@ app.use((req, res, next) => {
 app.use('/api/auth', auth);
 app.use('/api/database', database);
 
-
-const models = [Mongo];
+const models = [Mongo, PostgreSql];
 support.dbConnected(app, PORT, models);
