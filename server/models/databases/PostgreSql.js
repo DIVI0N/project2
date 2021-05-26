@@ -14,7 +14,14 @@ class PostgreSql {
   }
 
   connect = () => {
-    this.client.connect();
+    try {
+      this.client.connect().catch((err) => {
+        console.log(err);
+      });
+    }
+    catch (e) {
+      console.log(e);
+    }
   };
 
   async getRequest(req, res) {
@@ -55,7 +62,6 @@ class PostgreSql {
       const result = await this.client.query(`SELECT * FROM persons WHERE id_user = '${userID}'`);
       this.#setResponse(res, 200, result.fields);
     } catch (err) {
-      console.log(err);
       this.#setResponse(res, 403, message.abstractErr);
     }
   }

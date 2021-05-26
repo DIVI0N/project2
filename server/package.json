@@ -20,6 +20,7 @@
     "mysql2": "^2.2.5",
     "pg": "^8.6.0",
     "redis": "^3.1.2",
+    "sqlite3": "^5.0.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
