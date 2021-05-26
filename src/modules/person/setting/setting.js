@@ -19,7 +19,7 @@ export default function setting() {
   closeModal(btn, modal, 'block');
   closeModal(span, modal);
   closeModal(cancel, modal);
-  changeData();
+  // changeData();
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = 'none';

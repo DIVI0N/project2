@@ -21,9 +21,7 @@ const support = {
   dbConnected: (app, port, arrDB) => {
     try {
       arrDB.forEach(async (el) => {
-        console.log('typeof', typeof el.connect);
         await el.connect();
-
       });
       app.listen(port, () => {
         console.log(`Server is running on port ${port}`);

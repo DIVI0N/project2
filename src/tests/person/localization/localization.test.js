@@ -1,4 +1,4 @@
-import { localization } from '../../../modules';
+import localization from '../../../modules/person/localization/localization';
 import { langSelect } from './localizationHelper';
 
 const standartTest = (func) => {
@@ -10,25 +10,32 @@ const standartTest = (func) => {
   });
 };
 
-jest.mock('../../../modules/helpers/support', () => ({
+import { support, personLang, setLang } from '../../../modules';
+
+jest.mock('../../../modules', () => ({
   support: {
-    lsGet: jest.fn().mockImplementation(() => 'ru'),
+    lsGet: jest.fn().mockImplementation((sel) => {
+      if (sel === 'empty') return false;
+      return 'ru';
+    }),
     lsSet: jest.fn(),
-    qs: document.querySelector('#lang')
-  }
+  },
+  personLang: jest.fn().mockImplementation(() => ({})),
+  setLang: jest.fn()
 }));
 
 describe('setLang ', () => {
   document.body.innerHTML = langSelect;
   standartTest(localization);
-  const ev = new Event('mousemove');
-  paint.canvas.dispatchEvent(ev);
+  const lang = document.querySelector('#lang');
+  const ev = new Event('change');
+  lang.dispatchEvent(ev);
   it('should be change lang', () => {
     localization();
-    expect().toBe(modalDOMru);
+    expect(support.lsGet).toHaveBeenCalledTimes(2);
+    expect(support.lsGet).toHaveBeenCalledTimes(2);
+    expect(personLang).toHaveBeenCalled();
+    expect(setLang).toHaveBeenCalledTimes(2);
   });
-  // it('should be invalid translate', () => {
-  //   setLang(modalTXT, modalIPT);
-  //   expect(document.body.innerHTML).not.toBe(modalDOMen);
-  // });
+
 });

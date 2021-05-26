@@ -4,6 +4,9 @@ const { message } = require('../../support');
 class Cassandra {
   constructor() {
     this.cassandraClient = new cassandra.Client({ contactPoints: ['127.0.0.1:9042'], localDataCenter: 'datacenter1', keyspace: 'project2' });
+  }
+
+  connect = () => {
     this.cassandraClient.connect((err, result) => {
       if (err) console.log('cassandra connect error is: ', err);
       console.log('Cassandra Connection Extablished');
@@ -44,7 +47,6 @@ class Cassandra {
       const newField = req.body;
       const userID = req.user.userId;
       const key = Object.keys(newField)[0];
-      console.log(newField[key]);
       const queryUpdate = `UPDATE persons SET "${key}" = '${newField[key]}' WHERE (id = ${req.query.id})`;
       await this.cassandraClient.execute(queryUpdate, []);
       const result = await this.cassandraClient.execute(`SELECT * FROM persons WHERE user = '${userID}' ALLOW FILTERING`, []);

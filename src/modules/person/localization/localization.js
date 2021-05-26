@@ -1,8 +1,8 @@
 import { support, personLang, setLang } from '../..';
 
 export default function localization() {
-  const { lsGet, lsSet, qs } = support;
-  const lang = qs('#lang');
+  const { lsGet, lsSet } = support;
+  const lang = document.querySelector('#lang');
   const { personIpt, personTxt, modalIpt, modalTxt } = personLang();
 
   if (!lsGet('lang')) lsSet('lang', 'en');
