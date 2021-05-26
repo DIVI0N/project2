@@ -4,11 +4,10 @@ const MySql = require('./MySql');
 const PostgreSql = require('./PostgreSql');
 const Redis = require('./Redis');
 const Sqlite = require('./Sqlite/Sqlite');
-// const GraphDb = require('./GraphDb');
 
 
 module.exports = {
-  // GraphDb,
+  Cassandra,
   Sqlite,
   Mongo,
   MySql,

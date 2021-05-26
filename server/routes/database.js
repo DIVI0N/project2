@@ -1,7 +1,7 @@
 const Router = require('express');
 const {
   postgresql, graphDb, sqlite,
-  mongo, redis, cassandra, mysql
+  mongo, redis, cassandra, mysql,
 } = require('./database/');
 
 const database = Router();
