@@ -8,6 +8,7 @@ export const url = {
   },
   database: '/database',
   mongo: '/database/mongodb',
-  postgresql: '/database/postgresql'
+  postgresql: '/database/postgresql',
+  redis: '/database/redis'
 };
 //50.17.127.237/api

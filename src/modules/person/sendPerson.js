@@ -44,6 +44,7 @@ export default function sendPerson() {
       }
     }
     else if (e.target.getAttribute('id') === 'clearAll') {
+      confirm('Are you sure you want to clear all?');
       const db = lsGet('db');
       await getData(`${url.database}/${db}?id=all`, 'DELETE');
       getPerson();
