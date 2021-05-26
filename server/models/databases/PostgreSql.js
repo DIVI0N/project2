@@ -55,7 +55,6 @@ class PostgreSql {
       const result = await this.client.query(`SELECT * FROM persons WHERE id_user = '${userID}'`);
       this.#setResponse(res, 200, result.fields);
     } catch (err) {
-      console.log(err);
       this.#setResponse(res, 403, message.abstractErr);
     }
   }

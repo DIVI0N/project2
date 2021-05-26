@@ -11,5 +11,5 @@ module.exports = {
   Mongo,
   MySql,
   PostgreSql,
-//   Redis
+  Redis
 };
