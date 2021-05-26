@@ -4,19 +4,19 @@ const { Redis } = require('../../models');
 const { support } = require('../../support');
 const { authToken } = support;
 
-redis.get('/', (req, res, next) => {
+redis.get('/', authToken, (req, res, next) => {
   Redis.getRequest(req, res);
 });
 
-redis.post('/', (req, res, next) => {
+redis.post('/', authToken, (req, res, next) => {
   Redis.create(req, res);
 });
 
-redis.put('/', (req, res, next) => {
+redis.put('/', authToken, (req, res, next) => {
   Redis.update(req, res);
 });
 
-redis.delete('/', (req, res, next) => {
+redis.delete('/', authToken, (req, res, next) => {
   Redis.delete(req, res);
 });
 
