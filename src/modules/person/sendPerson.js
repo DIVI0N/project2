@@ -8,13 +8,13 @@ export default function sendPerson() {
   const { wordValidation, changeCreateIpt } = new PersonHelper();
 
   const body = {
-    firstName: null,
-    lastName: null,
-    age: null,
-    city: null,
-    phone: null,
-    email: null,
-    company: null
+    firstName: '',
+    lastName: '',
+    age: '',
+    city: '',
+    phone: '',
+    email: '',
+    company: ''
   };
 
   createPersonBlock.addEventListener('input', (e) => {
@@ -40,6 +40,7 @@ export default function sendPerson() {
       getPerson();
       for (const key in body) {
         document.getElementById(key).value = '';
+        body[key] = '';
       }
     }
     else if (e.target.getAttribute('id') === 'clearAll') {

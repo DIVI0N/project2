@@ -16,7 +16,6 @@ jest.mock('../../../modules/person/table/events', () => ({
   blurRow: jest.fn()
 }));
 
-
 describe('tableEvent', () => {
   standartTest(tableEvent);
   document.body.innerHTML = '<div id="mainTable"></div>';

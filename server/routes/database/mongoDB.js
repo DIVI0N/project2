@@ -1,28 +1,26 @@
 const { Router } = require('express');
 const mongo = Router();
 const { Mongo } = require('../../models');
-const { support } = require('../../support');
+const { support, settingFields } = require('../../support');
 
 const { authToken } = support;
+const person = new Mongo();
 
 mongo.get('/', authToken, (req, res) => {
-  const mongo = new Mongo();
-  mongo.getPerson(req, res);
+
+  person.getPerson(req, res);
 });
 
-mongo.post('/', authToken, (req, res) => {
-  const mongo = new Mongo();
-  mongo.setPerson(req, res);
+mongo.post('/', authToken, settingFields, (req, res) => {
+  person.setPerson(req, res);
 });
 
-mongo.put('/', authToken, (req, res) => {
-  const mongo = new Mongo();
-  mongo.updatePerson(req, res);
+mongo.put('/', authToken, settingFields, (req, res) => {
+  person.updatePerson(req, res);
 });
 
 mongo.delete('/', authToken, (req, res) => {
-  const mongo = new Mongo();
-  mongo.deletePerson(req, res);
+  person.deletePerson(req, res);
 });
 
 module.exports = mongo;

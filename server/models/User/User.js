@@ -71,20 +71,13 @@ class User {
 
   setting = async (req, res) => {
     try {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return this.#setResponse(res, 400, {
-          errors: message.invalidData,
-          message: errors.array()
-        });
-      }
       const user = await this.#schema.findById({ _id: req.user.userId });
       if (req.body.password) {
         const hashedPassword = await bcrypt.hash(req.body.password, 12);
         user.password = hashedPassword;
         await user.save();
       }
-      else if (req.body.login) {
+      if (req.body.login) {
         user.login = req.body.login;
         await user.save();
       }

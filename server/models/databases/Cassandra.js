@@ -4,10 +4,13 @@ const { message } = require('../../support');
 class Cassandra {
   constructor() {
     this.cassandraClient = new cassandra.Client({ contactPoints: ['127.0.0.1:9042'], localDataCenter: 'datacenter1', keyspace: 'project2' });
-    // this.cassandraClient.connect((err, result) => {
-    //   if (err) console.log('cassandra connect error is: ', err);
-    //   console.log('Cassandra Connection Extablished');
-    // });
+  }
+
+  connect = () => {
+    this.cassandraClient.connect((err, result) => {
+      if (err) console.log('cassandra connect error is: ', err);
+      console.log('Cassandra Connection Extablished');
+    });
   }
 
   async getRequest(req, res) {

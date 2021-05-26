@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { User, UserSchema } = require('../models');
-const { support, validation } = require('../support');
+const { support, validation, settingValidation } = require('../support');
 const auth = Router();
 
 auth.post(
@@ -24,7 +24,7 @@ auth.post(
 auth.post(
   '/setting',
   support.authToken,
-  validation.auth,
+  settingValidation,
   (req, res) => {
     const user = new User(UserSchema);
     user.setting(req, res);
