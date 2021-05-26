@@ -13,11 +13,13 @@ export const changeTheme = () => {
 export default function theme() {
   const { lsGet, lsSet, qs } = support;
   const select = qs('#theme');
-  const theme = lsGet('data-theme') ?? lsSet('data-theme', select.value);
-  select.value = theme;
+  if (!lsGet('data-theme')) {
+    lsSet('data-theme', select.value);
+  }
+  select.value = lsGet('data-theme');
 
   select.addEventListener('change', (e) => {
-   lsSet('data-theme', e.target.value);
-   changeTheme();
+    lsSet('data-theme', e.target.value);
+    changeTheme();
   });
 }

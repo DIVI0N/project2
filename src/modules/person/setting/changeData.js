@@ -5,7 +5,8 @@ export const changeData = async (login, password, repeatPass) => {
   const { showErr } = new AuthHelper();
   const lang = localStorage.getItem('lang');
 
-  const loginReg = /^[a-zA-Z0-9]{4,20}$/,
+  const
+    loginReg = /^[a-zA-Z0-9]{4,20}$/,
     passReg = /^[a-zA-Z0-9!@$^."№;%:?*\(\)-_=+]{8,14}$/;
 
   if (login && !loginReg.test(login)) {
@@ -29,6 +30,6 @@ export const changeData = async (login, password, repeatPass) => {
     await getFetch(url.auth.setting, body, 'POST');
   }
   catch (e) {
-    throw new Error(e);
+    throw new Error('Connection falled');
   }
 };

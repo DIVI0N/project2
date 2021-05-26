@@ -1,4 +1,5 @@
 import { deleteRow, changeRowData, blurRow, sortByData } from '../../../modules/person/table/events';
+import 'regenerator-runtime';
 
 const standartTest = (func) => {
   it('should be defined ', () => {
@@ -9,7 +10,7 @@ const standartTest = (func) => {
   });
 };
 
-import { getData, getPerson, support, url, getFetch, row } from '../../../modules';
+import { getData, getPerson, support, getFetch, row } from '../../../modules';
 jest.mock('../../../modules', () => ({
   support: {
     lsGet: jest.fn().mockImplementation(() => 'mongodb'),
@@ -18,9 +19,13 @@ jest.mock('../../../modules', () => ({
   url: {
     database: '/database'
   },
-  getData: jest.fn(),
+  getData: jest.fn().mockResolvedValue({
+    json: jest.fn().mockReturnValue({ message: '' })
+  }),
+
   getPerson: jest.fn(),
-  getFetch: jest.fn()
+  getFetch: jest.fn(),
+  row: jest.fn()
 }));
 
 describe('deleteRow', () => {
@@ -137,28 +142,38 @@ describe('blurRow', () => {
   });
 });
 
-// describe('sortByData', () => {
-//   standartTest(sortByData);
-//   it('should be called with valid arguments', async () => {
-//     const evt = {
-//       target: {
-//         classList: {
-//           contains: (attribute) => {
-//             if (attribute === 'head-item') return true;
-//             return false;
-//           }
-//         },
-//         getAttribute: jest.fn(),
-//       }
-//     };
-//     sortByData(evt).catch(() => {
-//       expect(evt.target.getAttribute).toHaveBeenCalled();
-//       expect(support.lsGet).toHaveBeenCalled();
-//       expect(getData).toHaveBeenCalled();
-//       expect(row).toHaveBeenCalled();
-//     });
-
-//   });
-// });
+describe('sortByData', () => {
+  standartTest(sortByData);
+  it('should be called with valid arguments', async () => {
+    const evt = {
+      target: {
+        classList: {
+          contains: jest.fn().mockReturnValue(true)
+        },
+        getAttribute: jest.fn(),
+      }
+    };
+    await sortByData(evt);
+    expect(evt.target.getAttribute).toHaveBeenCalled();
+    expect(support.lsGet).toHaveBeenCalled();
+    expect(getData).toHaveBeenCalled();
+    expect(row).toHaveBeenCalled();
+  });
+  it('should be called with valid arguments', async () => {
+    const evt = {
+      target: {
+        classList: {
+          contains: jest.fn().mockReturnValue(false)
+        },
+        getAttribute: jest.fn(),
+      }
+    };
+    await sortByData(evt);
+    expect(evt.target.getAttribute).not.toHaveBeenCalled();
+    expect(support.lsGet).not.toHaveBeenCalled();
+    expect(getData).not.toHaveBeenCalled();
+    expect(row).not.toHaveBeenCalled();
+  });
+});
 
 

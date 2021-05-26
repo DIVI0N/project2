@@ -1,27 +1,24 @@
-import { support } from '../..';
 import { changeData } from './changeData';
 import { closeModal, hidePass } from './settingHelpers';
 
 export default function setting() {
-  const { qs } = support;
-  const modal = qs('#myModal');
-  const btn = qs('#myBtn');
-  const span = qs('.close');
-  const cancel = qs('#cancel');
+  const modal = document.querySelector('#myModal');
+  const btn = document.querySelector('#myBtn');
+  const span = document.querySelector('.close');
+  const cancel = document.querySelector('#cancel');
 
-  const loginInput = qs('#changeLoginIpt');
-  const passwordInput = qs('#changePasswordIpt');
-  const passwordRepeat = qs('#changeRepeatIpt');
-  const change = qs('#change');
+  const loginInput = document.querySelector('#changeLoginIpt');
+  const passwordInput = document.querySelector('#changePasswordIpt');
+  const passwordRepeat = document.querySelector('#changeRepeatIpt');
+  const change = document.querySelector('#change');
 
   hidePass(passwordInput, passwordRepeat);
 
   closeModal(btn, modal, 'block');
   closeModal(span, modal);
   closeModal(cancel, modal);
-  // changeData();
   window.onclick = function (event) {
-    if (event.target == modal) {
+    if (event.target === modal) {
       modal.style.display = 'none';
     }
   };

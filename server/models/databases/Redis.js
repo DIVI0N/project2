@@ -66,7 +66,7 @@ class Redis {
     let id = new Date().getTime();
     await this.client.hmset(
       id,
-      [ 'id_user',
+      ['id_user',
         userID,
         'firstName',
         firstName,

@@ -5,11 +5,13 @@ const validation = {
     check('login', 'Некорректный login')
       .trim()
       .isLength({ min: 4, max: 20 })
-      .isAlphanumeric(),
+      .isAlphanumeric()
+      .notEmpty(),
     check('password', 'Некорректный пароль')
       .trim()
       .isLength({ min: 8, max: 14 })
       .isAscii()
+      .notEmpty()
   ]
 };
 const settingValidation = (req, res, next) => {
