@@ -112,8 +112,12 @@ class Redis {
   };
 
   delete = async (req, res) => {
+    if (req.query.id === 'all') {
+      return this.clearAll(req, res);
+    }
     await this.client.del(req.query.id, (err, reply) => {
       if (err) {
+        console.log(err);
         return this.#setResponse(res, 403, message.abstractErr);
       }
       return this.#setResponse(res, 200, message.successDel);
@@ -122,8 +126,9 @@ class Redis {
 
   clearAll = async (req, res) => {
     // const userID = req.user.userId;
-    await this.client.del(req.query.id, (err, reply) => {
+    await this.client.flushdb((err, reply) => {
       if (err) {
+        console.log('clear', err);
         return this.#setResponse(res, 403, message.abstractErr);
       }
       return this.#setResponse(res, 200, message.successDel);
