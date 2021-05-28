@@ -15,6 +15,7 @@ import { authLang, personLang } from './helpers/language';
 import tableEvent from './person/table/tableEvent';
 import liveSearch from './person/liveSearch';
 import { localization, setLang } from './person/localization';
+import exit from './person/exit';
 
 export {
   message, getFetch, support, validationReg, PersonHelper, row, url,
@@ -24,5 +25,5 @@ export {
 export {
   setting, theme, changeTheme, login, registration, sendPerson,
   getPerson, changeDb, tableEvent,
-  liveSearch, localization, setLang
+  liveSearch, localization, setLang, exit
 };
