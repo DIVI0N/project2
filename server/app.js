@@ -18,7 +18,7 @@ app.use('/api/auth', auth);
 app.use('/api/database', database);
 
 const models = [Mongo, PostgreSql,
-  // Redis,
-  new Cassandra()
+  Redis,
+  // new Cassandra()
 ];
 support.dbConnected(app, PORT, models);

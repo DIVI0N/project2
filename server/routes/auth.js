@@ -6,6 +6,7 @@ const auth = Router();
 auth.post(
   '/login',
   validation.auth,
+  support.authToken,
   async (req, res) => {
     const user = new User(UserSchema);
     user.login(req, res);
@@ -14,6 +15,7 @@ auth.post(
 
 auth.post(
   '/registration',
+  support.authToken,
   validation.auth,
   async (req, res) => {
     const user = new User(UserSchema);

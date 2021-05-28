@@ -23,7 +23,6 @@ class Redis {
     const userID = req.user.userId;
     let data = [];
     await this.client.keys('*', (err, id) => {
-      let multi = this.client.multi();
       let keys = Object.keys(id);
       let i = 0;
       if (keys.length == 0) {
@@ -36,24 +35,24 @@ class Redis {
             console.log(err);
           } else {
             let tempData = {
-              id_user: userID,
+              id_user: object.id_user,
               id: id[len],
               firstName: object.firstName,
               lastName: object.lastName,
               age: object.age,
-              city: object.age,
+              city: object.city,
               phone: object.phone,
               email: object.email,
               company: object.company,
             };
             data.push(tempData);
           }
+          const newData = data.filter(el => el.id_user === userID);
           if (req.query.sort || req.query.sort !== 'id') {
             data.sort((a, b) => a[req.query.sort] > b[req.query.sort] ? 1 : -1);
           }
           if (i == keys.length) {
-            this.#setResponse(res, 200, data);
-            console.log(data);
+            this.#setResponse(res, 200, newData);
           }
         });
       });
@@ -64,7 +63,7 @@ class Redis {
     const userID = req.user.userId;
     const { firstName, lastName, age, city, phone, email, company } = req.body;
     let id = new Date().getTime();
-    await this.client.hmset(
+    this.client.hmset(
       id,
       ['id_user',
         userID,
@@ -94,7 +93,6 @@ class Redis {
 
   update = async (req, res) => {
     const newField = req.body;
-    const userID = req.user.userId;
     const key = Object.keys(newField)[0];
     await this.client.hset(
       req.query.id,
@@ -102,7 +100,7 @@ class Redis {
         `${key}`,
         `${newField[key]}`,
       ],
-      (err, reply) => {
+      (err) => {
         if (err) {
           this.#setResponse(res, 403, message.abstractErr);
         }
@@ -115,9 +113,8 @@ class Redis {
     if (req.query.id === 'all') {
       return this.clearAll(req, res);
     }
-    await this.client.del(req.query.id, (err, reply) => {
+    await this.client.del(req.query.id, (err) => {
       if (err) {
-        console.log(err);
         return this.#setResponse(res, 403, message.abstractErr);
       }
       return this.#setResponse(res, 200, message.successDel);
@@ -125,9 +122,8 @@ class Redis {
   };
 
   clearAll = async (req, res) => {
-    await this.client.flushdb((err, reply) => {
+    await this.client.flushdb((err) => {
       if (err) {
-        console.log('clear', err);
         return this.#setResponse(res, 403, message.abstractErr);
       }
       return this.#setResponse(res, 200, message.successDel);

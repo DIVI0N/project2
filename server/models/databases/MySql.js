@@ -1,12 +1,10 @@
 const mysql = require('mysql');
 const { message } = require('../../support');
-const { alex } = require('../connect/mySql');
+const { dima } = require('../connect/mySql');
 class MySql {
     constructor() {
-        this.config = alex;
-        this.client = mysql.createConnection(this.config);
+        this.client = mysql.createConnection(dima);
     }
-
     connect = () => {
         this.client.connect();
     }
