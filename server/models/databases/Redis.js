@@ -45,7 +45,7 @@ class Redis {
             console.log(err);
           } else {
             let tempData = {
-              id_user: userID,
+              id_user: object.id_user,
               id: id[len],
               firstName: object.firstName,
               lastName: object.lastName,
@@ -58,6 +58,7 @@ class Redis {
             data.push(tempData);
           }
           const newData = data.filter(el => el.id_user === userID);
+          console.log(newData);
           if (req.query.sort || req.query.sort !== 'id') {
             data.sort((a, b) => a[req.query.sort] > b[req.query.sort] ? 1 : -1);
           }
