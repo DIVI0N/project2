@@ -1,5 +1,4 @@
 export const row = (data) => {
-  console.log(data);
   const table = document.querySelector('.table-content');
   let tableRow = '';
   if (!data) data = [];
