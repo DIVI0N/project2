@@ -1,7 +1,7 @@
 import {
   changeDb, getPerson, localization, login,
   registration, sendPerson, setLang, setting, theme, changeTheme,
-  authLang, personLang, tableEvent, liveSearch
+  authLang, personLang, tableEvent, liveSearch, exit
 } from './modules';
 import './styles/index.scss';
 
@@ -32,5 +32,6 @@ window.addEventListener('DOMContentLoaded', () => {
     tableEvent();
     liveSearch('#findName', 'firstName');
     liveSearch('#findLname', 'lastName');
+    exit();
   }
 });
