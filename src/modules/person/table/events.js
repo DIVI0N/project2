@@ -14,17 +14,19 @@ export const deleteRow = (e) => {
 export const changeRowData = (e) => {
   if (e.target.classList.contains('table__row-item')) {
     e.target.setAttribute('contenteditable', 'true');
+    e.target.classList.add('edit-mode');
   }
 };
 
 export const blurRow = (e) => {
   if (e.target.classList.contains('table-body')) {
     e.target.setAttribute('contenteditable', 'false');
+    e.target.classList.remove('edit-mode');
     const query = e.target.parentElement.getAttribute('data-id');
     const blurUrl = `${url.database}/${lsGet('db')}?id=${query}`;
     const dataName = e.target.getAttribute('data-name');
     const body = {
-      [dataName]: e.target.textContent
+      [dataName]: e.target.textContent,
     };
     getFetch(blurUrl, body, 'PUT');
   }

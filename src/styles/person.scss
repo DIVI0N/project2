@@ -268,7 +268,7 @@
     &-item {
       position: relative;
       margin: 0;
-      padding: 0 5px;
+      padding: 5px;
       height: 43px;
       text-align: center;
       line-height: 2;
@@ -278,7 +278,6 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       text-align: center;
-      padding-top: 4px;
       &::before {
         content: "";
         top: -10px;
@@ -356,7 +355,7 @@
     content: '⯆';
     width: 130px;
     height: 40px;
-    padding: 2px 0 0 5px;
+    padding: 0 0 0 5px;
   }
 }
 
@@ -374,4 +373,8 @@
 #phoneSpn,
 #companySpn {
   margin-left: 20px;
+}
+
+.edit-mode {
+  background-color: #f8f8f8;
 }
