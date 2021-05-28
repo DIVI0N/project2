@@ -4,7 +4,6 @@ export default function sendPerson() {
   const { qs, lsGet } = support;
   const lang = lsGet('lang');
   const createPersonBlock = qs('#createPerson');
-  const dbSelect = lsGet('db') || 'mysql';
   const { wordValidation, changeCreateIpt } = new PersonHelper();
 
   const body = {
@@ -24,6 +23,7 @@ export default function sendPerson() {
   });
   createPersonBlock.addEventListener('click', async (e) => {
     if (e.target.getAttribute('id') === 'create') {
+      const dbSelect = lsGet('db') || 'mysql';
       for (const key in body) {
         const opt = {
           validStr: validationReg[key],

@@ -17,6 +17,15 @@ class Redis {
       }
       console.log('Redis connected');
     });
+    // this.client.hmset('persons', {
+    //   firstName: 'Jhon',
+    //   lastName: 'Doe',
+    //   age: 45,
+    //   city: 'Amala',
+    //   phone: '+3999999999',
+    //   email: 'ddd@gmail.com',
+    //   company: 'ZZZ',
+    // });
   };
 
   getRequest = async (req, res) => {
@@ -41,18 +50,19 @@ class Redis {
               firstName: object.firstName,
               lastName: object.lastName,
               age: object.age,
-              city: object.age,
+              city: object.city,
               phone: object.phone,
               email: object.email,
               company: object.company,
             };
             data.push(tempData);
           }
+          const newData = data.filter(el => el.id_user === userID);
           if (req.query.sort || req.query.sort !== 'id') {
             data.sort((a, b) => a[req.query.sort] > b[req.query.sort] ? 1 : -1);
           }
           if (i == keys.length) {
-            this.#setResponse(res, 200, data);
+            this.#setResponse(res, 200, newData);
             console.log(data);
           }
         });
@@ -64,7 +74,8 @@ class Redis {
     const userID = req.user.userId;
     const { firstName, lastName, age, city, phone, email, company } = req.body;
     let id = new Date().getTime();
-    await this.client.hmset(
+    console.log('dsf', this.client);
+    this.client.hmset(
       id,
       ['id_user',
         userID,
