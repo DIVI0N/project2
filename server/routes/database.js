@@ -6,15 +6,12 @@ const {
 
 const database = Router();
 
-const { support, settingFields } = require('../support');
-const { authToken } = support;
-
-database.use('/mysql', authToken, settingFields, mysql);
-database.use('/postgresql', authToken, settingFields, postgresql);
-database.use('/sqlite', authToken, settingFields, sqlite);
-database.use('/mongodb', authToken, settingFields, mongo);
-database.use('/redis', authToken, settingFields, redis);
-database.use('/cassandra', authToken, settingFields, cassandra);
-database.use('/graphdb', authToken, settingFields, graphDb);
+database.use('/mysql', mysql);
+database.use('/postgresql', postgresql);
+database.use('/sqlite', sqlite);
+database.use('/mongodb', mongo);
+database.use('/redis', redis);
+database.use('/cassandra', cassandra);
+database.use('/graphdb', graphDb);
 
 module.exports = database;
