@@ -125,7 +125,6 @@ class Redis {
   };
 
   clearAll = async (req, res) => {
-    // const userID = req.user.userId;
     await this.client.flushdb((err, reply) => {
       if (err) {
         console.log('clear', err);
