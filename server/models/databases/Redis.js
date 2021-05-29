@@ -17,6 +17,7 @@ class Redis {
       }
       console.log('Redis connected');
     });
+
   };
 
   getRequest = async (req, res) => {
