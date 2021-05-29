@@ -6,6 +6,7 @@ export default function tableEvent() {
   table.addEventListener('click', (e) => {
     deleteRow(e);
     sortByData(e);
+
   });
 
   table.addEventListener('dblclick', (e) => {

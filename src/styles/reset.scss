@@ -6,7 +6,7 @@
   padding: 0;
 }
 
-html{
+html {
   --bg-default: #e5e5e5;
   --color-text: #484b54;
   --bg: #f8f8f8;
@@ -14,7 +14,7 @@ html{
   --color-text: #484b54;
 }
 
-html[data-theme='dark'] {
+html[data-theme="dark"] {
   --bg-default: rgba(0, 0, 0, 0.85);
   --color-text: #fff;
   --bg: #484b54;
@@ -41,7 +41,7 @@ body {
 }
 
 .body--dark {
-    background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 a {

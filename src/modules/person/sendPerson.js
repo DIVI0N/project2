@@ -1,4 +1,14 @@
-import { message, support, validationReg, getFetch, PersonHelper, getPerson, getData, url } from '..';
+import {
+  message,
+  support,
+  validationReg,
+  getFetch,
+  PersonHelper,
+  getPerson,
+  getData,
+  url,
+} from '..';
+import { closeModal } from './setting/settingHelpers';
 
 export default function sendPerson() {
   const { qs, lsGet } = support;
@@ -14,7 +24,7 @@ export default function sendPerson() {
     city: '',
     phone: '',
     email: '',
-    company: ''
+    company: '',
   };
 
   createPersonBlock.addEventListener('input', (e) => {
@@ -42,12 +52,28 @@ export default function sendPerson() {
         document.getElementById(key).value = '';
         body[key] = '';
       }
-    }
-    else if (e.target.getAttribute('id') === 'clearAll') {
-      confirm('Are you sure you want to clear all?');
-      const db = lsGet('db');
-      await getData(`${url.database}/${db}?id=all`, 'DELETE');
-      getPerson();
+    } else if (e.target.getAttribute('id') === 'clearAll') {
+      const modal = document.getElementById('modalClear');
+      modal.style.display = 'block';
+      const span = document.getElementById('exit-btn');
+      const btn = document.getElementById('clearAll');
+      const cancel = document.getElementById('exit');
+      const clear = document.getElementById('clear');
+      closeModal(btn, modal, 'block');
+      closeModal(span, modal);
+      closeModal(cancel, modal);
+      window.onclick = function (event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      };
+
+      clear.onclick = function (event) {
+        const db = lsGet('db');
+        getData(`${url.database}/${db}?id=all`, 'DELETE');
+        getPerson();
+        modal.style.display = 'none';
+      };
     }
   });
 }

@@ -17,6 +17,7 @@ class Redis {
       }
       console.log('Redis connected');
     });
+
   };
 
   getRequest = async (req, res) => {
@@ -41,7 +42,7 @@ class Redis {
               firstName: object.firstName,
               lastName: object.lastName,
               age: object.age,
-              city: object.age,
+              city: object.city,
               phone: object.phone,
               email: object.email,
               company: object.company,
