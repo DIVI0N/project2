@@ -2,13 +2,12 @@ const { message } = require('../../../support');
 const SQLite3 = require('sqlite3').verbose();
 
 class Sqlite {
-  constructor(sqlQueries) {
+  constructor() {
     this.sqliteDB = new SQLite3.Database('./models/databases/Sqlite/project.db',
       (err) => {
         if (err) console.log(err);
         console.log('SQLite3 Connection Extablished');
       });
-    this.sqlQueries = sqlQueries;
   }
 
   getPersons = (req, res) => {
@@ -23,7 +22,6 @@ class Sqlite {
         this.#setResponse(res, 200, result);
       });
     } catch (err) {
-      console.log('SQLite!!!!!!!!!!!!!!!!!!!!!!', err);
       this.#setResponse(res, 403, message.abstractErr);
     }
   }

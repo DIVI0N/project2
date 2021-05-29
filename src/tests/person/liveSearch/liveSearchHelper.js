@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" id="person-page">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-  <title>Daydream</title>
-</head>
-
-<body>
+export const
+  dom = `
   <section class="two">
     <div class="container">
       <nav class="two__navigation">
@@ -36,13 +25,14 @@
           <div class="modal-content">
             <div class="modal-header">
               <span class="close">&times;</span>
-              <h2 class="model-header-title" id="settingTitle">Settings</h2>
+              <h2 class="model-header-title" id="settingTitle">SETTINGS</h2>
             </div>
             <div class="modal-body">
               <div class="validation-block">
                 <label class="modal-body-text" id="changeLogin">Change Login</label>
                 <input type="text" class="modal-body-text-input" placeholder="Enter new login" id="changeLoginIpt">
               </div>
+
               <div class="validation-block">
                 <label class="modal-body-text" id="changePassword">Change Password</label>
                 <input type="password" class="modal-body-text-input" placeholder="Enter new password"
@@ -58,11 +48,13 @@
                 <div class="error"></div>
               </div>
             </div>
+
             <div class="modal-footer">
               <button class="modal-footer-btn create-btn" id="change">Change</button>
               <button class="modal-footer-btn clear-btn" id="cancel">Cancel</button>
             </div>
           </div>
+
         </div>
       </nav>
       <div class="two__line"></div>
@@ -120,25 +112,24 @@
                       id="companySpn">Company
                       name</span></div>
                 </div>
-                <div class="table table-content"></div>
+                <div class="table table-content">
+                  <div class="table__row  data-id="123">
+                    <div contenteditable="false" data-name="firstName" class="table__row-item table-body col-md" title="Alex">Alex</div>
+                    <div contenteditable="false" data-name="lastName" class="table__row-item table-body col-md" title="Malik">Malik</div>
+                    <div contenteditable="false" data-name="age" class="table__row-item table-body col-sm" title="26">26</div>
+                    <div contenteditable="false" data-name="city" class="table__row-item table-body col-md" title="Kharkiv">Kharkiv</div>
+                    <div contenteditable="false" data-name="phone" class="table__row-item table-body col-lg" title="+123123123123">+123123123123</div>
+                    <div contenteditable="false" data-name="email" class="table__row-item table-body col-lg" title="$post@example.com">$post@example.com</div>
+                    <div class="table__row-delete" id="deleteRow" data-id="123">&times;</div>
+                    <div contenteditable="false" data-name="company" class="table__row-item table-body col-lg" title="New Company">New Company</div>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <div id="modalClear" class="modal modal--clear">
-    <div class="modal-content modal-content--clear">
-      <span class="close" id="exit-btn">&times;</span>
-      <h2 class="modal-content__title--clear" id="settingTitles">Are you sure?</h2>
-    <div class="modal-footer">
-      <button class="modal-footer-btn create-btn" id="clear">Clear all</button>
-      <button class="modal-footer-btn clear-btn" id="exit">Cancel</button>
-    </div>
-    </div>
-  </div>
-</body>
-
-</html>
+`;

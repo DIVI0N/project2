@@ -1,16 +1,9 @@
 const pg = require('pg');
 const { message } = require('../../support');
+const { dima } = require('../connect/postgres');
 class PostgreSql {
   constructor() {
-    this.config = {
-      host: 'localhost',
-      user: 'postgres',
-      password: 'FaJ_761FA',
-      database: 'postgresql_persons',
-      port: 5432,
-      ssl: false,
-    };
-    this.client = new pg.Client(this.config);
+    this.client = new pg.Client(dima);
   }
 
   connect = () => {
@@ -34,6 +27,7 @@ class PostgreSql {
       }
       this.#setResponse(res, 200, result.rows);
     } catch (err) {
+      console.log(err);
       this.#setResponse(res, 403, message.abstractErr);
     }
   }

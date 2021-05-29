@@ -9,6 +9,7 @@ const standartTest = (func) => {
     expect(typeof func).toBe('function');
   });
 };
+import { support } from '../../../modules/helpers/support';
 jest.mock('../../../modules/helpers/support', () => ({
   support: {
     lsGet: jest.fn().mockImplementation(() => 'ru')
@@ -24,6 +25,9 @@ describe('setLang ', () => {
   it('should be invalid translate', () => {
     setLang(modalTXT, modalIPT);
     expect(document.body.innerHTML).not.toBe(modalDOMen);
+  });
+  it('should be invalid translate', () => {
+    support.lsGet = jest.fn().mockReturnValue(undefined);
   });
 });
 

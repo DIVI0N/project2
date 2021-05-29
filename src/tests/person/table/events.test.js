@@ -67,7 +67,8 @@ describe('changeRowData', () => {
           contains: (attribute) => {
             if (attribute === 'table__row-item') return true;
             return false;
-          }
+          },
+          add: jest.fn()
         },
         setAttribute: jest.fn()
       }
@@ -101,7 +102,8 @@ describe('blurRow', () => {
           contains: (attribute) => {
             if (attribute === 'table-body') return true;
             return false;
-          }
+          },
+          remove: jest.fn()
         },
         getAttribute: jest.fn(),
         setAttribute: jest.fn(),
@@ -163,7 +165,7 @@ describe('sortByData', () => {
     const evt = {
       target: {
         classList: {
-          contains: jest.fn().mockReturnValue(false)
+          contains: jest.fn().mockReturnValue(false),
         },
         getAttribute: jest.fn(),
       }

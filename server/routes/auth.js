@@ -14,6 +14,7 @@ auth.post(
 
 auth.post(
   '/registration',
+  support.authToken,
   validation.auth,
   async (req, res) => {
     const user = new User(UserSchema);

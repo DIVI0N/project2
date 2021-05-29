@@ -1,8 +1,8 @@
 import { getPerson, support } from '..';
 
 export default function changeDb() {
-  const { lsSet, lsGet, qs } = support;
-  const dbSelect = qs('#dbSelect');
+  const { lsSet, lsGet } = support;
+  const dbSelect = document.querySelector('#dbSelect');
 
   dbSelect.value = lsGet('db');
   if (!lsGet('db')) {

@@ -12,3 +12,4 @@ export default async function getPerson() {
   const persons = await getPersons.json();
   row(persons.message);
 }
+
