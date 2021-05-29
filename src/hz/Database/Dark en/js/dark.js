@@ -1,37 +1,22 @@
-var modal = document.getElementById('myModal');
+var modal = document.getElementById("myModal");
 
+var btn = document.getElementById("myBtn");
 
-var btn = document.getElementById('myBtn');
+var span = document.getElementsByClassName("close")[0];
 
-
-var span = document.getElementsByClassName('close')[0];
-
-
-btn.onclick = function() {
-    modal.style.display = 'block';
+btn.onclick = function () {
+  modal.style.display = "block";
 };
 
-
-span.onclick = function() {
-    modal.style.display = 'none';
+span.onclick = function () {
+  modal.style.display = "none";
 };
 
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = 'none';
-    }
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 };
-
-
-
-
-
-
-
-
-
-
 
 // (function () {
 //     if (typeof window.CustomEvent === "function") return false;
@@ -106,7 +91,6 @@ window.onclick = function(event) {
 
 //     _elemModal = _createModal(options || {});
 
-
 //     _elemModal.addEventListener('click', _handlerCloseModal);
 //     _eventShowModal = new CustomEvent('show.modal', { detail: _elemModal });
 //     _eventHideModal = new CustomEvent('hide.modal', { detail: _elemModal });
@@ -137,8 +121,3 @@ window.onclick = function(event) {
 //       modal.show();
 //     });
 //   })();
-
-
-
-
-
