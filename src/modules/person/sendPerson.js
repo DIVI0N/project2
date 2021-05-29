@@ -36,8 +36,8 @@ export default function sendPerson() {
           return;
         }
       }
-      getFetch(`/database/${dbSelect}`, body, 'POST');
-      getPerson();
+      await getFetch(`/database/${dbSelect}`, body, 'POST');
+      await getPerson();
       for (const key in body) {
         document.getElementById(key).value = '';
         body[key] = '';

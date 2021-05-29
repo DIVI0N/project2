@@ -1,6 +1,6 @@
 const User = require('./User/User');
 const UserSchema = require('./User/UserSchema');
-const { Cassandra, Mongo, MySql, PostgreSql, PersonSchema, Redis, Sqlite } = require('./databases');
+const { Cassandra, Mongo, MySql, PostgreSql, PersonSchema, Redis, Sqlite, NEO4J } = require('./databases');
 
 module.exports = {
   User,
@@ -10,5 +10,6 @@ module.exports = {
   Mongo,
   MySql,
   PostgreSql,
-  Redis
+  Redis,
+  NEO4J
 };

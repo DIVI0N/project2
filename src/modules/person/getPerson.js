@@ -10,6 +10,7 @@ export default async function getPerson() {
     location.replace(`${url.client}/index.html`);
   }
   const persons = await getPersons.json();
+
   row(persons.message);
 }
 

@@ -68,6 +68,7 @@ class Mongo {
       this.#setResponse(res, 200, message.success);
     }
     catch (e) {
+      console.log(e);
       this.#setResponse(res, 403, { msg: message.abstractErr });
     }
   }

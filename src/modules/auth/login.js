@@ -2,11 +2,11 @@ import { getFetch, message, support, url } from '..';
 import AuthHelper from '../helpers/authHelper';
 
 export default async function login() {
-  const { qs, lsGet } = support,
-    login = qs('.input-login'),
-    pass = qs('.input-password'),
-    loginBtn = qs('#login'),
-    lang = lsGet(lang) || 'en';
+  const { lsGet, lsSet } = support,
+    login = document.querySelector('.input-login'),
+    pass = document.querySelector('.input-password'),
+    loginBtn = document.querySelector('#login'),
+    lang = lsGet('lang') || 'en';
 
   const { togglePassword, showErr } = new AuthHelper();
 
@@ -27,7 +27,7 @@ export default async function login() {
     try {
       const getToken = await getFetch('/auth/login', body, 'POST');
       const token = await getToken.json();
-      localStorage.setItem('token', token.token);
+      lsSet('token', token.token);
       token.token ? location.replace(`${url.client}/person.html`) : showErr(token.message);
     }
     catch (e) {

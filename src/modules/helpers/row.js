@@ -1,7 +1,9 @@
 export const row = (data) => {
   const table = document.querySelector('.table-content');
   let tableRow = '';
+  console.log(data);
   if (!data) data = [];
+
   data.forEach(el => {
     tableRow +=
       `

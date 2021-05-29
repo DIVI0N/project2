@@ -3,11 +3,11 @@ import AuthHelper from '../helpers/authHelper';
 
 export default function registration() {
   const
-    { qs, lsGet } = support,
-    loginInput = qs('.input-login'),
-    passwordInput = qs('.input-password'),
-    passwordRepeat = qs('.input-repeat'),
-    regBtn = qs('#registration'),
+    { lsGet } = support,
+    loginInput = document.querySelector('.input-login'),
+    passwordInput = document.querySelector('.input-password'),
+    passwordRepeat = document.querySelector('.input-repeat'),
+    regBtn = document.querySelector('#registration'),
     lang = lsGet('lang') || 'en';
 
   const { showErr, togglePassword } = new AuthHelper();

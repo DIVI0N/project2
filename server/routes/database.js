@@ -1,7 +1,7 @@
 const Router = require('express');
 const {
-  postgresql, graphDb, sqlite,
-  mongo, redis, cassandra, mysql,
+  postgresql, sqlite,
+  mongo, redis, cassandra, mysql, neo4j
 } = require('./database/');
 
 const database = Router();
@@ -12,6 +12,5 @@ database.use('/sqlite', sqlite);
 database.use('/mongodb', mongo);
 database.use('/redis', redis);
 database.use('/cassandra', cassandra);
-database.use('/graphdb', graphDb);
-
+database.use('/neo', neo4j);
 module.exports = database;

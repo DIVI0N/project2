@@ -14,7 +14,7 @@ jest.mock('../../modules', () => ({
   support: {
     lsGet: jest.fn().mockReturnValue('mongodb'),
   },
-  getData: jest.fn().mockImplementation((sel = 'Auth') => ({
+  getData: jest.fn().mockImplementation(() => ({
     statusText: 'Auth',
     json: jest.fn().mockReturnValue({
       message: ''

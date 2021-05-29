@@ -1,6 +1,7 @@
 const Cassandra = require('./Cassandra');
 const { Mongo, PersonSchema } = require('./Mongo');
 const MySql = require('./MySql');
+const NEO4J = require('./Neo4j');
 const PostgreSql = require('./PostgreSql');
 const Redis = require('./Redis');
 const Sqlite = require('./Sqlite/Sqlite');
@@ -14,7 +15,8 @@ module.exports = {
   PostgreSql,
   Redis,
   PersonSchema,
-  Cassandra
+  Cassandra,
+  NEO4J
 };
 
 
