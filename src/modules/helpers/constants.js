@@ -13,6 +13,14 @@ export const
       en: 'Password doesn`t match',
       ru: 'Не совпадает пароль'
     },
+    changedData: {
+      en: 'Data have been changed',
+      ru: 'Данные изменены'
+    },
+    repeatUser: {
+      en: 'This login is already taken',
+      ru: 'Этот логин уже занят'
+    },
     firstName: {
       en: 'Name must be 1-30 letters long',
       ru: 'Имя должно состоять из 1-30 букв'

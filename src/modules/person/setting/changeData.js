@@ -27,7 +27,13 @@ export const changeData = async (login, password, repeatPass) => {
     password
   };
   try {
-    await getFetch(url.auth.setting, body, 'POST');
+    const response = await getFetch(url.auth.setting, body, 'POST');
+    if (response.ok) {
+      showErr(message.changedData[lang], true);
+    }
+    else if (!response.ok) {
+      showErr(message.repeatUser[lang]);
+    }
   }
   catch (e) {
     throw new Error('Connection falled');

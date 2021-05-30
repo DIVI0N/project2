@@ -9,11 +9,15 @@ class AuthHelper {
       });
     });
   }
-  showErr = (msg) => {
+  showErr = (msg, isSuccess) => {
     const errorMsg = document.querySelector('.error');
     errorMsg.textContent = msg;
+    isSuccess ? errorMsg.classList.add('green') : false;
     errorMsg.classList.add('error-visible');
-    setTimeout(() => errorMsg.classList.remove('error-visible'), 4000);
+    setTimeout(() => {
+      errorMsg.classList.remove('error-visible');
+      isSuccess ? errorMsg.classList.remove('green') : false;
+    }, 4000);
   }
 }
 

@@ -170,6 +170,7 @@
   margin-top: 10px;
   display: flex;
   justify-content: center;
+  min-height: 80px;
 }
 
 .error {
@@ -201,4 +202,8 @@
     visibility: visible !important;
     transition: 0.55s opacity, 0.55s visibility;
   }
+}
+
+.green{
+  color: green !important;
 }
