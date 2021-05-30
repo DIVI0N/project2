@@ -1,5 +1,5 @@
 import changeTheme from '../../modules/person/theme';
-import { support } from '../../modules';
+import { support } from '../../modules/helpers/support';
 
 const standartTest = (func) => {
   it('should be defined ', () => {
@@ -10,7 +10,7 @@ const standartTest = (func) => {
   });
 };
 
-jest.mock('../../modules', () => ({
+jest.mock('../../modules/helpers/support', () => ({
   support: {
     lsSet: jest.fn(),
     lsGet: jest.fn().mockImplementation(() => 'light'),
@@ -166,13 +166,8 @@ describe('change theme ', () => {
     let theme = lsGet('data-theme');
     document.documentElement.setAttribute('data-theme', theme);
   });
-  // it('should change theme with ru language', () => {
-  //   let lang = support.lsGet('lang');
-  //   const select = document.getElementById('theme');
-  //   expect(lang === 'ru').toBe('<select class="two__navigation-theme--lang-ru">');
-  // });
-  it('should be invalid theme', () => {
-    support.lsGet = jest.fn().mockReturnValue(undefined);
+  it('should be light theme', () => {
+    support.lsGet = jest.fn().mockReturnValue('light');
   });
 });
 
@@ -182,29 +177,11 @@ describe('theme', () => {
   <option id="themeLight" value="light">Light</option>
   <option id="themeDark" value="dark">Dark</option>
     </select>`;
-  it('should return theme dark', () => {
-    document.body.innerHTML = dom;
-    const { lsGet, lsSet, qs } = support;
-    const select = dom;
-    console.log(select);
-    lsSet = 'light';
-    select.value = lsGet('data-theme');
-    changeTheme();
-    const evt = new Event('change');
-    select.dispatchEvent(evt);
-    expect(!lsGet('data-theme')).toBe(lsSet('data-theme', select.value));
-    expect(support.lsSet).toHaveBeenCalled();
-    expect(support.lsGet).toHaveBeenCalled();
-    expect(changeTheme).toHaveBeenCalled();
-  });
-  it('should be change event', () => {
-    document.body.innerHTML = dom;
-    const select = document.querySelector('#theme');
-    support.lsGet = jest.fn().mockReturnValue('');
-    changeTheme();
-    expect(select.value).toBe('');
-  });
+    it('should be light theme', () => {
+      support.lsGet = jest.fn().mockReturnValue('light');
+    });
 });
+
 
 
 
