@@ -1,14 +1,9 @@
 import { support } from '..';
 
-export const personPage = document.getElementById('person-page');
-export const authPage = document.getElementById('auth-page');
-
 export const changeTheme = () => {
   const { lsGet } = support;
   let theme = lsGet('data-theme');
   document.documentElement.setAttribute('data-theme', theme);
-
-  let lang = support.lsGet('lang');
 };
 
 export default function theme() {
