@@ -10,11 +10,11 @@ neo4j.get('/', authToken, (req, res, next) => {
   person.getPersons(req, res);
 });
 
-neo4j.post('/', authToken, (req, res, next) => {
+neo4j.post('/', authToken, settingFields, (req, res, next) => {
   person.postPerson(req, res);
 });
 
-neo4j.put('/', authToken, (req, res, next) => {
+neo4j.put('/', authToken, settingFields, (req, res, next) => {
   person.updatePerson(req, res);
 });
 
