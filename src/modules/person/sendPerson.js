@@ -57,8 +57,8 @@ export default function sendPerson() {
       modal.style.display = 'block';
       const span = document.getElementById('exit-btn');
       const btn = document.getElementById('clearAll');
-      const cancel = document.getElementById('exit');
-      const clear = document.getElementById('clear');
+      const cancel = document.getElementById('exitBtn');
+      const clear = document.getElementById('clearAllBtn');
       closeModal(btn, modal, 'block');
       closeModal(span, modal);
       closeModal(cancel, modal);
