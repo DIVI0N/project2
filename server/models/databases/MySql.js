@@ -86,4 +86,4 @@ class MySql {
     }
 }
 
-// module.exports = new MySql();
+module.exports = new MySql();
