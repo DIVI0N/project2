@@ -7,7 +7,7 @@ neo4jConf = {
 };
 class NEO4J {
   constructor() {
-    this.driver = neo4j.driver('bolt://localhost:11005', neo4j.auth.basic('neo4j', 'neo4j'));
+    this.driver = neo4j.driver('bolt://localhost:7687', neo4j.auth.basic('neo4j', 'neo4j'));
   }
   getPersons = (req, res) => {
     const session = this.driver.session();
