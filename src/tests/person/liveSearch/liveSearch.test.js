@@ -20,8 +20,8 @@ describe('liveSearch', () => {
     console.log(JSON.stringify(findElems[0]));
     // console.log(findElems);
     // console.log(searchEl);
-    searchEl.value = 'Al';
-    const evt = new Event('input');
-    searchEl.dispatchEvent(evt);
+    // searchEl.value = 'Al';
+    // const evt = new Event('input');
+    // searchEl.dispatchEvent(evt);
   });
 });

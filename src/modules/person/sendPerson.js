@@ -11,9 +11,9 @@ import {
 import { closeModal } from './setting/settingHelpers';
 
 export default function sendPerson() {
-  const { qs, lsGet } = support;
+  const { lsGet } = support;
   const lang = lsGet('lang');
-  const createPersonBlock = qs('#createPerson');
+  const createPersonBlock = document.querySelector('#createPerson');
   const { wordValidation, changeCreateIpt } = new PersonHelper();
 
   const body = {
