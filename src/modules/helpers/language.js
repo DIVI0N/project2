@@ -157,7 +157,7 @@ export const personLang = () => ({
   },
   modalTxt: {
     settingTitle: {
-      en: 'SETTING',
+      en: 'SETTINGS',
       ru: 'Настройки'
     },
     changeLogin: {
@@ -194,6 +194,19 @@ export const personLang = () => ({
       en: 'Repeat password',
       ru: 'Повторите пароль'
     },
-  }
-
+  },
+  modalClearTxt: {
+    modaltitles: {
+      en: 'Are you sure ?',
+      ru: 'Вы уверены ?'
+    },
+    clearAllBtn: {
+      en: 'Clear all',
+      ru: 'Очистить все'
+    },
+    exitBtn: {
+      en: 'Cancel',
+      ru: 'Отменить'
+    },
+  },
 });
