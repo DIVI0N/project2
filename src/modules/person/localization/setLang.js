@@ -11,7 +11,6 @@ export const setLang = (txt, ipt) => {
   for (const key in ipt) {
     document.getElementById(key).setAttribute('placeholder', ipt[key][lang]);
   }
-
   const select = document.getElementById('theme');
   lang === 'ru'
     ? select.classList.add('two__navigation-theme--lang-ru')
