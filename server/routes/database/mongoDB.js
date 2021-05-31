@@ -1,4 +1,5 @@
 const { Router } = require('express');
+<<<<<<< HEAD
 const mongo = Router();
 const { Mongo } = require('../../models');
 const { support, settingFields } = require('../../support');
@@ -24,3 +25,24 @@ mongo.delete('/', authToken, (req, res) => {
 });
 
 module.exports = mongo;
+=======
+const mongo = Router()
+
+mongo.get('/', (req, res, next) => {
+
+});
+
+mongo.post('/', (req, res, next) => {
+
+});
+
+mongo.put('/', (req, res, next) => {
+
+});
+
+mongo.delete('/', (req, res, next) => {
+
+});
+
+module.exports = mongo
+>>>>>>> 6e0ced22beb5f68dc22d0da7b5090bb3cddfdae9

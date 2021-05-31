@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const mongoose = require('mongoose');
 const { Schema, model } = require('mongoose');
 const { message } = require('../../support');
@@ -108,3 +109,10 @@ class Mongo {
 };
 
 module.exports = { Mongo, PersonSchema };
+=======
+class Mongo {
+
+};
+
+module.exports = Mongo;
+>>>>>>> 6e0ced22beb5f68dc22d0da7b5090bb3cddfdae9

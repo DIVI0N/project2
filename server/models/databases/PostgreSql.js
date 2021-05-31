@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const pg = require('pg');
 const { message } = require('../../support');
 const { dima } = require('../connect/postgres');
@@ -94,3 +95,10 @@ class PostgreSql {
 }
 
 module.exports = new PostgreSql();
+=======
+class PostgreSql {
+
+};
+
+module.exports = PostgreSql;
+>>>>>>> 6e0ced22beb5f68dc22d0da7b5090bb3cddfdae9

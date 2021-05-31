@@ -1,4 +1,5 @@
 const { Router } = require('express');
+<<<<<<< HEAD
 const postgresql = Router();
 const { PostgreSql } = require('../../models');
 
@@ -23,3 +24,24 @@ postgresql.delete('/', authToken, settingFields, (req, res) => {
 
 module.exports = postgresql;
 
+=======
+const postgresql = Router()
+
+postgresql.get('/', (req, res, next) => {
+
+});
+
+postgresql.post('/', (req, res, next) => {
+
+});
+
+postgresql.put('/', (req, res, next) => {
+
+});
+
+postgresql.delete('/', (req, res, next) => {
+
+});
+
+module.exports = postgresql
+>>>>>>> 6e0ced22beb5f68dc22d0da7b5090bb3cddfdae9

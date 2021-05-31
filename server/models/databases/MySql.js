@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const mysql = require('mysql');
 const { message } = require('../../support');
 const { dima, alex } = require('../connect/mySql');
@@ -87,3 +88,10 @@ class MySql {
 }
 
 module.exports = new MySql();
+=======
+class MySql {
+
+};
+
+module.exports = MySql;
+>>>>>>> 6e0ced22beb5f68dc22d0da7b5090bb3cddfdae9

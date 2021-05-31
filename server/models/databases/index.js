@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const Cassandra = require('./Cassandra');
 const { Mongo, PersonSchema } = require('./Mongo');
 const MySql = require('./MySql');
@@ -20,3 +21,20 @@ module.exports = {
 };
 
 
+=======
+const Cassandra = require("./Cassandra");
+const GraphDb = require("./GraphDb");
+const H2 = require("./H2");
+const Mongo = require("./Mongo");
+const MySql = require("./MySql");
+const PostgreSql = require("./PostgreSql");
+
+module.exports = {
+  Cassandra,
+  GraphDb,
+  H2,
+  Mongo,
+  MySql,
+  PostgreSql
+}
+>>>>>>> 6e0ced22beb5f68dc22d0da7b5090bb3cddfdae9

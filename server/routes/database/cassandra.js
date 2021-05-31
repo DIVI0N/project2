@@ -1,4 +1,5 @@
 const { Router } = require('express');
+<<<<<<< HEAD
 const { Cassandra } = require('../../models/databases');
 const cassandra = Router();
 const { support, settingFields } = require('../../support');
@@ -23,3 +24,24 @@ cassandra.delete('/', authToken, (req, res) => {
 });
 
 module.exports = cassandra;
+=======
+const cassandra = Router()
+
+cassandra.get('/', (req, res, next) => {
+
+});
+
+cassandra.post('/', (req, res, next) => {
+
+});
+
+cassandra.put('/', (req, res, next) => {
+
+});
+
+cassandra.delete('/', (req, res, next) => {
+
+});
+
+module.exports = cassandra
+>>>>>>> 6e0ced22beb5f68dc22d0da7b5090bb3cddfdae9

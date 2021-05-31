@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const cassandra = require('cassandra-driver');
 const { message } = require('../../support');
 
@@ -93,5 +94,10 @@ class Cassandra {
     });
   }
 }
+=======
+class Cassandra {
+
+};
+>>>>>>> 6e0ced22beb5f68dc22d0da7b5090bb3cddfdae9
 
 module.exports = Cassandra;
