@@ -7,24 +7,47 @@ const standartTest = (func) => {
   });
 };
 import 'regenerator-runtime';
-import { message, url } from '../../../modules';
-import { getFetch } from '../../../modules/helpers/getFetch';
+import { getFetch, message, url } from '../../../modules';
 import AuthHelper from '../../../modules/helpers/authHelper';
 import { changeData } from '../../../modules/person/setting/changeData';
 
-jest.mock('../../../modules/helpers/getFetch', () => ({
-  getFetch: jest.fn().mockImplementation((url, body, method) => {
-    return new Promise((res, rej) => {
-      if (body.login === 'Alex') res();
-      else rej();
-    });
-  })
+jest.mock('../../../modules', () => ({
+  getFetch: jest.fn().mockResolvedValue({
+    ok: true
+  }),
+  message: {
+    invalidLogin: {
+      en: '',
+      ru: ''
+    },
+    invalidPass: {
+      en: '',
+      ru: ''
+    },
+    invalidRepeatPass: {
+      en: '',
+      ru: ''
+    },
+    changedData: {
+      en: '',
+      ru: ''
+    },
+    repeatUser: {
+      en: '',
+      ru: ''
+    },
+  },
+  url: {
+    auth: {
+      setting: ''
+    }
+  }
 }));
 jest.mock('../../../modules/helpers/authHelper', () => (jest.fn().mockReturnValue({
   showErr: jest.fn()
 })));
 
-describe('closeModal', () => {
+describe('changeData', () => {
   let login = 'Alex';
   let password = 'admin123';
   let repeatPass = 'admin123';
@@ -38,13 +61,6 @@ describe('closeModal', () => {
     password = 'admin123';
     repeatPass = 'admin123';
     localStorage.removeItem('lang');
-  });
-  it('should be valid data', async () => {
-    await changeData(login, password, repeatPass);
-    const body = {
-      login, password
-    };
-    expect(getFetch).toHaveBeenCalledWith(url.auth.setting, body, 'POST');
   });
   it('should be invalid login', async () => {
     login = '@e1123';
@@ -68,5 +84,22 @@ describe('closeModal', () => {
     const lang = localStorage.getItem('lang');
     changeData();
     expect(showErr).toHaveBeenCalledWith(message.invalidLogin[lang]);
+  });
+  it('should be valid data and ok', async () => {
+    const lang = localStorage.getItem('lang');
+    // console.log(await getFetch());
+    await changeData(login, password, repeatPass);
+    expect(getFetch).toHaveBeenCalled();
+    expect(showErr).toHaveBeenCalledWith(message.changedData[lang], true);
+  });
+  it('should be valid data and !ok', async () => {
+    getFetch.mockResolvedValue({
+      ok: false
+    });
+    const lang = localStorage.getItem('lang');
+    // console.log(await getFetch());
+    await changeData(login, password, repeatPass);
+    expect(getFetch).toHaveBeenCalled();
+    expect(showErr).toHaveBeenCalledWith(message.repeatUser[lang]);
   });
 });

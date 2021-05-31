@@ -36,6 +36,7 @@ export const changeData = async (login, password, repeatPass) => {
     }
   }
   catch (e) {
+    console.log(e);
     throw new Error('Connection falled');
   }
 };

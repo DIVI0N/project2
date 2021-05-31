@@ -20,7 +20,9 @@ jest.mock('../../../modules', () => ({
     }),
     lsSet: jest.fn(),
   },
-  personLang: jest.fn().mockImplementation(() => ({})),
+  personLang: jest.fn().mockImplementation(() => ({
+
+  })),
   setLang: jest.fn()
 }));
 
@@ -37,7 +39,7 @@ describe('setLang ', () => {
     expect(support.lsGet).toHaveBeenCalledTimes(2);
     expect(support.lsSet).toHaveBeenCalled();
     expect(personLang).toHaveBeenCalled();
-    expect(setLang).toHaveBeenCalledTimes(2);
+    expect(setLang).toHaveBeenCalledTimes(3);
 
   });
 

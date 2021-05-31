@@ -7,8 +7,8 @@ import {
   getPerson,
   getData,
   url,
-} from '..';
-import { closeModal } from './setting/settingHelpers';
+} from '../..';
+import { closeModal } from '../setting/settingHelpers';
 
 export default function sendPerson() {
   const { lsGet } = support;
@@ -52,7 +52,8 @@ export default function sendPerson() {
         document.getElementById(key).value = '';
         body[key] = '';
       }
-    } else if (e.target.getAttribute('id') === 'clearAll') {
+    }
+    else if (e.target.getAttribute('id') === 'clearAll') {
       const modal = document.getElementById('modalClear');
       modal.style.display = 'block';
       const span = document.getElementById('exit-btn');

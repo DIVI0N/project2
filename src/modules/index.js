@@ -1,6 +1,6 @@
 import login from './auth/login';
 import registration from './auth/registration';
-import sendPerson from './person/sendPerson';
+import sendPerson from './person/sendPerson/sendPerson';
 import setting from './person/setting/setting';
 import theme, { changeTheme } from './person/theme';
 import { message, validationReg } from './helpers/constants';
